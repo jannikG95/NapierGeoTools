@@ -1,4 +1,7 @@
 package edu.napier.geo.common;
+
+import java.util.List;
+
 /*
  * A basic class to represent a journey that links two locations
  * 
@@ -21,6 +24,9 @@ public class Journey {
 	// An optional description of the journey
 	protected String source=null; 
 	//An optional source of the journey data 
+	
+	protected List<Location> waypoints;
+	// holds the waypoints after routing
 	
 	/*
 	* Constructor
@@ -73,6 +79,15 @@ public class Journey {
 	public Location getPointB() {
 		return locationB;
 	}
+	
+	public List<Location> getWaypoints() {
+		return waypoints;
+	}
+
+	public void setWaypoints(List<Location> waypoints) {
+		this.waypoints = waypoints;
+	}
+
 	
 	/*
 	 * ToString
