@@ -3,7 +3,6 @@ package edu.napier.geo.easykml.facade;
 import java.awt.Color;
 import java.util.ArrayList;
 
-
 import edu.napier.geo.common.Location;
 import edu.napier.geo.easykml.KML_Object.Playlist;
 import edu.napier.geo.easykml.KML_Object.abstractView.Camera;
@@ -70,12 +69,12 @@ public class TestClass {
 
 		// create placemark
 		Camera cameraPM = new Camera();
-		cameraPM.setCoordinates(new Location(170.157, -43.671, 9700.0));
+		cameraPM.setCoordinates(new Location(-43.671, 170.157, 9700.0));
 		cameraPM.setHeading(-6.333);
 		cameraPM.setTilt(33.5);
 		cameraPM.setRoll(0);
 		Placemark pm = new Placemark("Test", "test123",
-				new Point(new Location(-122.0822035425683, 37.42228990140251, 0.0)));
+				new Point(new Location(37.42228990140251, -122.0822035425683, 0.0)));
 		pm.setStyleURL("TestStyle");
 		pm.setAbstractView(cameraPM);
 		pm.setId("alsfsasfa");
@@ -84,9 +83,9 @@ public class TestClass {
 
 		// create path
 		ArrayList<Location> coordinates = new ArrayList<>();
-		coordinates.add(new Location(-122.0822035425683, 37.42228990140251, 0.0));
-		coordinates.add(new Location(-125.0822035425683, 37.42228990140251, 0.0));
-		coordinates.add(new Location(-126.0822035425683, 50.42228990140251, 0.0));
+		coordinates.add(new Location(37.42228990140251, -122.0822035425683, 0.0));
+		coordinates.add(new Location(37.42228990140251, -125.0822035425683, 0.0));
+		coordinates.add(new Location(50.42228990140251, -126.0822035425683, 0.0));
 
 		LineString lineString = new LineString(coordinates);
 
@@ -97,18 +96,18 @@ public class TestClass {
 
 		// create Polygone
 		ArrayList<Location> outerBoundary = new ArrayList<>();
-		outerBoundary.add(new Location(-122.366278, 37.818844, 30.0));
-		outerBoundary.add(new Location(-122.365248, 37.819267, 30.0));
-		outerBoundary.add(new Location(-122.365640, 37.819861, 30.0));
-		outerBoundary.add(new Location(-122.366669, 37.819429, 30.0));
-		outerBoundary.add(new Location(-122.366278, 37.818844, 30.0));
+		outerBoundary.add(new Location(37.818844, -122.366278, 30.0));
+		outerBoundary.add(new Location(37.819267, -122.365248, 30.0));
+		outerBoundary.add(new Location(37.819861, -122.365640, 30.0));
+		outerBoundary.add(new Location(37.819429, -122.366669, 30.0));
+		outerBoundary.add(new Location(37.818844, -122.366278, 30.0));
 
 		ArrayList<Location> innerBoundary = new ArrayList<>();
-		innerBoundary.add(new Location(-122.366212, 37.818977, 30.0));
-		innerBoundary.add(new Location(-122.365424, 37.819294, 30.0));
-		innerBoundary.add(new Location(-122.365704, 37.819731, 30.0));
-		innerBoundary.add(new Location(-122.366488, 37.819402, 30.0));
-		innerBoundary.add(new Location(-122.366212, 37.818977, 30.0));
+		innerBoundary.add(new Location(37.818977, -122.366212, 30.0));
+		innerBoundary.add(new Location(37.819294, -122.365424, 30.0));
+		innerBoundary.add(new Location(37.819731, -122.365704, 30.0));
+		innerBoundary.add(new Location(37.819402, -122.366488, 30.0));
+		innerBoundary.add(new Location(37.818977, -122.366212, 30.0));
 
 		Polygon polygon = new Polygon();
 		polygon.setOuterBoundry(new LinearRing(outerBoundary));
@@ -124,7 +123,7 @@ public class TestClass {
 		// create Tour
 
 		Placemark placemark2 = new Placemark("New Placemark", "blabla",
-				new Point(new Location(170.1426332867125, -43.61725568991338, 0.0)));
+				new Point(new Location(-43.61725568991338, 170.1426332867125, 0.0)));
 		placemark2.setId("pin2");
 		placemark2.setStyleURL("TestStyle");
 		simpleKML.createPlacemark(placemark2);
@@ -142,7 +141,7 @@ public class TestClass {
 		FlyTo flyTo1 = new FlyTo();
 		flyTo1.setDuration(5);
 		Camera camera1 = new Camera();
-		camera1.setCoordinates(new Location(170.157, -43.671, 9700.0));
+		camera1.setCoordinates(new Location(-43.671, 170.157, 9700.0));
 		camera1.setHeading(-6);
 		camera1.setTilt(33);
 		flyTo1.setAbstractView(camera1);
@@ -153,7 +152,7 @@ public class TestClass {
 		FlyTo flyTo2 = new FlyTo();
 		flyTo2.setDuration(6);
 		Camera camera2 = new Camera();
-		camera2.setCoordinates(new Location(174.063, -39.663, 18275.0));
+		camera2.setCoordinates(new Location(-39.663, 174.063, 18275.0));
 		camera2.setHeading(-5);
 		camera2.setTilt(65);
 		camera2.setAltitudeMode(AltitudeModes.ABSOLUT);
@@ -163,7 +162,7 @@ public class TestClass {
 		flyTo3.setDuration(3);
 		flyTo3.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 		LookAt lookAt1 = new LookAt();
-		lookAt1.setCoordinates(new Location(174.007, -39.279, 0.0));
+		lookAt1.setCoordinates(new Location(-39.279, 174.007, 0.0));
 		lookAt1.setHeading(112.817);
 		lookAt1.setTilt(68.065);
 		lookAt1.setRange(6811.884);
@@ -177,7 +176,7 @@ public class TestClass {
 		flyTo4.setDuration(3);
 		flyTo4.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 		LookAt lookAt2 = new LookAt();
-		lookAt2.setCoordinates(new Location(174.064, -39.321, 0.0));
+		lookAt2.setCoordinates(new Location(-39.321, 174.064, 0.0));
 		lookAt2.setHeading(-48.463);
 		lookAt2.setTilt(67.946);
 		lookAt2.setRange(4202.579);
@@ -200,7 +199,7 @@ public class TestClass {
 		FlyTo flyTo5 = new FlyTo();
 		flyTo5.setDuration(4.1);
 		Camera cam = new Camera();
-		cam.setCoordinates(new Location(170.157, -43.671, 9700.0));
+		cam.setCoordinates(new Location(-43.671, 170.157, 9700.0));
 		cam.setHeading(-6.333);
 		cam.setTilt(33.5);
 		cam.setRoll(0);

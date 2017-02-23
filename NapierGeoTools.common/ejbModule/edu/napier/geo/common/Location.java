@@ -24,16 +24,28 @@ public class Location {
 	 * Thorw an illegal argument exception, if we try to setup a location
 	 * that is not legal within the lat/lon system
 	 */
-	public Location(double aLon, double aLat, double alt) throws IllegalArgumentException{
+	public Location(double lat, double lon, double alt) throws IllegalArgumentException{
 		//Validate
-		if ((aLat < -90)||(aLat > 90))
+		if ((lat < -90)||(lat > 90))
 			throw new IllegalArgumentException();
 		
-		if ((aLon < -180)||(aLon > 180))
+		if ((lon < -180)||(lon > 180))
 			throw new IllegalArgumentException();
-		lat = aLat;
-		lon = aLon;
+		this.lat = lat;
+		this.lon = lon;
 		this.alt = alt;
+	}
+	
+	public Location(double lat, double lon) throws IllegalArgumentException{
+		//Validate
+		if ((lat < -90)||(lat > 90))
+			throw new IllegalArgumentException();
+		
+		if ((lon < -180)||(lon > 180))
+			throw new IllegalArgumentException();
+		this.lat = lat;
+		this.lon = lon;
+		this.alt = 0;
 	}
 	
 	public Location() {
