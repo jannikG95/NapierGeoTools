@@ -10,7 +10,6 @@ import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.KML_Object.feature.Placemark;
 import edu.napier.geo.easykml.KML_Object.feature.Tour;
 import edu.napier.geo.easykml.KML_Object.stylesector.Style;
-import edu.napier.geo.easykml.facade.TestClass;
 import edu.napier.geo.easykml.helperClasses.LinkedOutput;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 

@@ -1,849 +1,299 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="HelperClasses.StringBuilder" project="DissertationProject" 
-    file="/DissertationProject/src/HelperClasses/StringBuilder.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="282" x="839" y="37"/>    
+  <class id="1" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.LinearRing" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/LinearRing.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="120" y="515"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="HelperClasses.LinkedOutput" project="DissertationProject" 
-    file="/DissertationProject/src/HelperClasses/LinkedOutput.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="197" x="1537" y="37"/>    
+  <class id="2" language="java" name="edu.napier.geo.easykml.KML_Object.feature.Placemark" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/feature/Placemark.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="492" y="240"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="Update.Change" project="DissertationProject" 
-    file="/DissertationProject/src/Update/Change.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="237" x="2472" y="2504"/>    
+  <class id="3" language="java" name="edu.napier.geo.easykml.KML_Object.timePrimitive.TimePrimitive" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/timePrimitive/TimePrimitive.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1055" y="331"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="KML_Object.stylesector.Style" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/stylesector/Style.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="237" x="1918" y="909"/>    
+  <class id="4" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.LineString" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/LineString.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="361" y="406"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="KML_Object.subStyle.colorStyle.IconStyle" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/subStyle/colorStyle/IconStyle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="237" x="2472" y="1354"/>    
+  <class id="5" language="java" name="edu.napier.geo.easykml.KML_Object.feature.Tour" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/feature/Tour.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1503" y="205"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="6" language="java" name="HelperClasses.TreeNodeIter.ProcessStages" project="DissertationProject" 
-    file="/DissertationProject/src/HelperClasses/TreeNodeIter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="213" x="2023" y="338"/>    
+  <class id="6" language="java" name="edu.napier.geo.easykml.KML_Object.KML_object" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/KML_object.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="143" y="39"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </enumeration>  
-  <class id="7" language="java" name="KML_Object.gx_TourPrimitive.TourControl" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/gx_TourPrimitive/TourControl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="237" x="2174" y="1884"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="HelperClasses.AltitudeModes" project="DissertationProject" 
-    file="/DissertationProject/src/HelperClasses/AltitudeModes.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="196" x="1161" y="37"/>    
+  <class id="7" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.Point" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/Point.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="115" y="406"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="KML_Object.subStyle.ListStyle" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/subStyle/ListStyle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="100" x="1397" y="37"/>    
+  <class id="8" language="java" name="edu.napier.geo.easykml.KML_Object.abstractView.AbstractView" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/abstractView/AbstractView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1054" y="238"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="KML_Object.timePrimitive.TimeStamp" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/timePrimitive/TimeStamp.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="237" x="412" y="2203"/>    
+  <class id="9" language="java" name="edu.napier.geo.easykml.KML_Object.stylesector.Style" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/stylesector/Style.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="798" y="238"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="KML_Object.feature.Feature" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/feature/Feature.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="531" width="237" x="1538" y="338"/>    
+  <class id="10" language="java" name="edu.napier.geo.easykml.KML_Object.feature.Feature" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/feature/Feature.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="347" y="157"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="KML_Object.geometry.LinearRing" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/geometry/LinearRing.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="245" x="391" y="909"/>    
+  <class id="11" language="java" name="edu.napier.geo.easykml.KML_Object.Playlist" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/Playlist.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1490" y="334"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="HelperClasses.TreeNode" project="DissertationProject" 
-    file="/DissertationProject/src/HelperClasses/TreeNode.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="242" x="2276" y="338"/>    
+  <class id="12" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.Polygon" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/Polygon.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="628" y="406"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="FileManagement.KMLFileCreator" project="DissertationProject" 
-    file="/DissertationProject/src/FileManagement/KMLFileCreator.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="163" x="420" y="37"/>    
+  <class id="13" language="java" name="edu.napier.geo.easykml.KML_Object.gx_TourPrimitive.TourPrimitive" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/gx_TourPrimitive/TourPrimitive.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1287" y="89"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="KML_Object.timePrimitive.TimePrimitive" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/timePrimitive/TimePrimitive.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="237" x="691" y="2504"/>    
+  <class id="14" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.KML_Geometry" 
+    project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/KML_Geometry.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="147" y="242"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="facade.KML_Facade" project="DissertationProject" 
-    file="/DissertationProject/src/facade/KML_Facade.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="186" x="41" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="KML_Object.gx_TourPrimitive.SoundCue" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/gx_TourPrimitive/SoundCue.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="237" x="1620" y="1884"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="Update.Update" project="DissertationProject" 
-    file="/DissertationProject/src/Update/Update.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="237" x="2536" y="2203"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="19" language="java" name="KML_Object.subStyle.colorStyle.LabelStyle" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/subStyle/colorStyle/LabelStyle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="237" x="2749" y="1354"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="20" language="java" name="KML_Object.Playlist" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/Playlist.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="237" x="1620" y="1354"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="21" language="java" name="KML_Object.geometry.Point" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/geometry/Point.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="237" x="982" y="909"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="22" language="java" name="KML_Object.subStyle.colorStyle.LineStyle" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/subStyle/colorStyle/LineStyle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="369" width="237" x="1918" y="1354"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="23" language="java" name="KML_Object.KML_object" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/KML_object.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="237" x="1774" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="24" language="java" name="FileManagement.KMLFileWriter" project="DissertationProject" 
-    file="/DissertationProject/src/FileManagement/KMLFileWriter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="289" x="41" y="338"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="25" language="java" name="KML_Object.abstractView.Camera" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/abstractView/Camera.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="237" x="1125" y="2504"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="26" language="java" name="KML_Object.feature.Tour" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/feature/Tour.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="237" x="1578" y="909"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="27" language="java" name="SharedClasses.Coordinates" project="DissertationProject" 
-    file="/DissertationProject/src/SharedClasses/Coordinates.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="197" x="989" y="2895"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="28" language="java" name="KML_Object.geometry.LineString" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/geometry/LineString.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="405" width="245" x="697" y="909"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="29" language="java" name="KML_Object.gx_TourPrimitive.AnimatedUpdate" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/gx_TourPrimitive/AnimatedUpdate.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="237" x="2728" y="1884"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="30" language="java" name="KML_Object.timePrimitive.TimeSpan" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/timePrimitive/TimeSpan.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="237" x="731" y="2203"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="31" language="java" name="KML_Object.feature.Placemark" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/feature/Placemark.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="237" x="1259" y="909"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="32" language="java" name="KML_Object.abstractView.AbstractView" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/abstractView/AbstractView.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="237" x="1538" y="2203"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="33" language="java" name="KML_Object.abstractView.LookAt" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/abstractView/LookAt.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="237" x="1402" y="2504"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="34" language="java" name="Update.Delete" project="DissertationProject" 
-    file="/DissertationProject/src/Update/Delete.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="237" x="2195" y="2504"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="35" language="java" name="facade.TestClass" project="DissertationProject" 
-    file="/DissertationProject/src/facade/TestClass.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="113" x="267" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="36" language="java" name="KML_Object.gx_TourPrimitive.Wait" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/gx_TourPrimitive/Wait.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="237" x="1897" y="1884"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="37" language="java" name="KML_Object.subStyle.colorStyle.PolyStyle" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/subStyle/colorStyle/PolyStyle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="237" x="2195" y="1354"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="38" language="java" name="HelperClasses.TreeNodeIter" project="DissertationProject" 
-    file="/DissertationProject/src/HelperClasses/TreeNodeIter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="240" x="2149" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="39" language="java" name="KML_Object.gx_TourPrimitive.FlyTo" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/gx_TourPrimitive/FlyTo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="237" x="2451" y="1884"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="40" language="java" name="KML_Object.subStyle.colorStyle.ColorStyle" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/subStyle/colorStyle/ColorStyle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="333" width="237" x="2195" y="909"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="41" language="java" name="KML_Object.gx_TourPrimitive.TourPrimitive" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/gx_TourPrimitive/TourPrimitive.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="132" x="1897" y="1763"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="42" language="java" name="KML_Object.geometry.Polygon" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/geometry/Polygon.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="333" width="242" x="657" y="338"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="43" language="java" name="Update.Create" project="DissertationProject" 
-    file="/DissertationProject/src/Update/Create.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="237" x="2749" y="2504"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <interface id="44" language="java" name="KML_Object.geometry.KML_Geometry" project="DissertationProject" 
-    file="/DissertationProject/src/KML_Object/geometry/KML_Geometry.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="237" x="824" y="1354"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="45" language="java" name="FileManagement.KMLFileSaver" project="DissertationProject" 
-    file="/DissertationProject/src/FileManagement/KMLFileSaver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="176" x="623" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <association id="46">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="47" name="treeNode"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+  <generalization id="15">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="16">    
+    <bendpoint x="1172" y="130"/>    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="18">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="19" name="style"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="21">    
+    <bendpoint x="2" y="515"/>    
+    <bendpoint x="2" y="384"/>    
+    <bendpoint x="2" y="306"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="23">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="24" name="playlist"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="26">    
+    <bendpoint x="1047" y="130"/>    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="27">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="28" name="actionList"/>      
+      <multiplicity id="29" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="49">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="40"/>  
+  <generalization id="30">    
+    <bendpoint x="1559" y="223"/>    
+    <bendpoint x="1559" y="130"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <association id="50">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="51" name="doNext"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
+  <association id="31">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="32" name="geometryObject"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="53">    
-    <end type="SOURCE" refId="32" navigable="false">      
-      <attribute id="54" name="timePrimitive"/>      
-      <multiplicity id="55" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="56">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="57" name="polyStyle"/>      
-      <multiplicity id="58" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="37" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="59">    
-    <end type="SOURCE" refId="33" navigable="false">      
-      <attribute id="60" name="coordinates"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="62">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="63" name="abstractView"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="65">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <generalization id="66">    
-    <bendpoint x="1245" y="338"/>    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="67">    
-    <end type="SOURCE" refId="30" navigable="false">      
-      <attribute id="68" name="endStamp"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
-    <bendpoint x="793" y="1354"/>    
-    <bendpoint x="861" y="1763"/>    
-    <bendpoint x="929" y="1884"/>    
-    <bendpoint x="998" y="2203"/>    
-    <bendpoint x="998" y="2504"/>    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="71" name="coordinates"/>      
-      <multiplicity id="72" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="73">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <association id="74">    
-    <end type="SOURCE" refId="42" navigable="false">      
-      <attribute id="75" name="outerBoundry"/>      
-      <multiplicity id="76" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="77">    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <generalization id="78">    
-    <bendpoint x="626" y="338"/>    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <realization id="79">    
-    <bendpoint x="666" y="909"/>    
-    <end type="SOURCE" refId="42"/>    
-    <end type="TARGET" refId="44"/>  
-  </realization>  
-  <generalization id="80">    
-    <bendpoint x="679" y="2203"/>    
-    <bendpoint x="520" y="1884"/>    
-    <bendpoint x="360" y="1763"/>    
-    <bendpoint x="360" y="1354"/>    
-    <bendpoint x="360" y="909"/>    
-    <bendpoint x="360" y="338"/>    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <generalization id="81">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <generalization id="82">    
-    <end type="SOURCE" refId="25"/>    
-    <end type="TARGET" refId="32"/>  
-  </generalization>  
-  <association id="83">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="84" name="change"/>      
-      <multiplicity id="85" minimum="0" maximum="1"/>    
+  <association id="34">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="35" name="timePrimitive"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="86">    
-    <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="87" name="geometryObject"/>      
-      <multiplicity id="88" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="44" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="89">    
-    <end type="SOURCE" refId="42" navigable="false">      
-      <attribute id="90" name="innerBoundryList"/>      
-      <multiplicity id="91" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="92">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="93" name="delete"/>      
-      <multiplicity id="94" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="34" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="95">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="44"/>  
-  </realization>  
-  <realization id="96">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="44"/>  
-  </realization>  
-  <generalization id="97">    
-    <end type="SOURCE" refId="39"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <association id="98">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="99" name="labelStyle"/>      
-      <multiplicity id="100" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="101">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="44"/>  
-  </realization>  
-  <association id="102">    
-    <bendpoint x="1547" y="909"/>    
-    <bendpoint x="1547" y="1354"/>    
-    <bendpoint x="1547" y="1763"/>    
-    <bendpoint x="1547" y="1884"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="103" name="abstractView"/>      
-      <multiplicity id="104" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="32" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="105">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="40"/>  
-  </generalization>  
-  <association id="106">    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="107" name="update"/>      
-      <multiplicity id="108" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="109">    
-    <bendpoint x="1589" y="1884"/>    
-    <bendpoint x="1589" y="1763"/>    
-    <bendpoint x="1589" y="1354"/>    
-    <bendpoint x="1845" y="909"/>    
-    <bendpoint x="1845" y="338"/>    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <generalization id="110">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="111">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="112" name="style"/>      
-      <multiplicity id="113" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="114">    
-    <end type="SOURCE" refId="37"/>    
-    <end type="TARGET" refId="40"/>  
-  </generalization>  
-  <association id="115">    
-    <end type="SOURCE" refId="30" navigable="false">      
-      <attribute id="116" name="beginStamp"/>      
-      <multiplicity id="117" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="118">    
-    <bendpoint x="1387" y="338"/>    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <generalization id="119">    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <association id="120">    
+  <association id="37">    
+    <bendpoint x="1005" y="223"/>    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="121" name="timeStamp"/>      
-      <multiplicity id="122" minimum="0" maximum="1"/>    
+      <attribute id="38" name="timePrimitive"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="123">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="124" name="actionList"/>      
-      <multiplicity id="125" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="41" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="126">    
-    <end type="SOURCE" refId="33"/>    
-    <end type="TARGET" refId="32"/>  
-  </generalization>  
-  <association id="127">    
-    <bendpoint x="1526" y="909"/>    
-    <bendpoint x="1298" y="1354"/>    
-    <bendpoint x="1070" y="1763"/>    
-    <bendpoint x="885" y="1884"/>    
-    <bendpoint x="700" y="2203"/>    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="128" name="timePrimitive"/>      
-      <multiplicity id="129" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="130">    
-    <end type="SOURCE" refId="31"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="131">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <association id="132">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="133" name="children"/>      
-      <multiplicity id="134" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="135">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="136" name="fileWriter"/>      
-      <multiplicity id="137" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="138">    
-    <bendpoint x="381" y="1354"/>    
-    <bendpoint x="381" y="1763"/>    
-    <bendpoint x="381" y="1884"/>    
-    <bendpoint x="381" y="2203"/>    
-    <bendpoint x="381" y="2504"/>    
+  <association id="40">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="139" name="coordinates"/>      
-      <multiplicity id="140" minimum="0" maximum="2147483647"/>    
+      <attribute id="41" name="outerBoundry"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="141">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="142" name="parent"/>      
-      <multiplicity id="143" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="144">    
-    <end type="SOURCE" refId="38" navigable="false">      
-      <attribute id="145" name="next"/>      
-      <multiplicity id="146" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="147">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="148" name="iconStyle"/>      
-      <multiplicity id="149" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="150">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="151" name="coordinates"/>      
-      <multiplicity id="152" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="153">    
-    <bendpoint x="1887" y="1354"/>    
-    <bendpoint x="1887" y="909"/>    
-    <bendpoint x="1887" y="338"/>    
-    <end type="SOURCE" refId="41"/>    
-    <end type="TARGET" refId="23"/>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="10"/>  
   </generalization>  
-  <nesting id="154">    
-    <end type="SOURCE" refId="38"/>    
+  <generalization id="44">    
+    <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="6"/>  
-  </nesting>  
-  <association id="155">    
-    <bendpoint x="1091" y="1354"/>    
-    <bendpoint x="1091" y="1763"/>    
-    <bendpoint x="1091" y="1884"/>    
-    <bendpoint x="1091" y="2203"/>    
-    <bendpoint x="1091" y="2504"/>    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="156" name="coordinates"/>      
-      <multiplicity id="157" minimum="0" maximum="1"/>    
+  </generalization>  
+  <generalization id="45">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="47">    
+    <bendpoint x="1026" y="223"/>    
+    <bendpoint x="1026" y="130"/>    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="48">    
+    <bendpoint x="628" y="515"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="49" name="innerBoundryList"/>      
+      <multiplicity id="50" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="158">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="40"/>  
-  </generalization>  
-  <generalization id="159">    
-    <bendpoint x="1908" y="338"/>    
+  <generalization id="51">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="23"/>  
+    <end type="TARGET" refId="14"/>  
   </generalization>  
-  <generalization id="160">    
-    <bendpoint x="1992" y="338"/>    
-    <end type="SOURCE" refId="40"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <generalization id="161">    
-    <end type="SOURCE" refId="29"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <association id="162">    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="163" name="playlist"/>      
-      <multiplicity id="164" minimum="0" maximum="1"/>    
+  <association id="52">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="53" name="abstractView"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="165">    
-    <bendpoint x="1866" y="909"/>    
-    <bendpoint x="1866" y="338"/>    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="166">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="167" name="lineStyle"/>      
-      <multiplicity id="168" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="169">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="41"/>  
-  </generalization>  
-  <association id="170">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="171" name="elementsIndex"/>      
-      <multiplicity id="172" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="173">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="174" name="create"/>      
-      <multiplicity id="175" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="43" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
-    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
-    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+    <attributes public="false" package="false" protected="false" private="false" static="true"/>    
+    <operations public="false" package="false" protected="false" private="false" static="true"/>  
   </classifier-display>  
   <association-display labels="true" multiplicity="true"/>
 </class-diagram>

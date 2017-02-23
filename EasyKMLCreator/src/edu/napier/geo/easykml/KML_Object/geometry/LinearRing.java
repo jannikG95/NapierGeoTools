@@ -8,7 +8,7 @@ import edu.napier.geo.easykml.helperClasses.LinkedOutput;
 import edu.napier.geo.easykml.helperClasses.StringBuilder;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
-public class LinearRing extends KML_object implements KML_Geometry {
+public class LinearRing extends KML_Geometry  {
 
 	private Double gxAltitudeOffset;
 	private boolean extruded;
