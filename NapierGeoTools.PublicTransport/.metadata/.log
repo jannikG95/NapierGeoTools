@@ -1,0 +1,543 @@
+!SESSION 2017-02-13 20:39:28.720 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-02-13 20:39:58.653
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Admin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2017-02-13 20:40:03.700
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: Connect to dev.eclipse.org:443 [dev.eclipse.org/198.41.30.200] failed: Read timed out. ; version: 2.0.3.v20161205-0933
+!STACK 0
+org.apache.http.conn.ConnectTimeoutException: Connect to dev.eclipse.org:443 [dev.eclipse.org/198.41.30.200] failed: Read timed out
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:134)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:206)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.request(IO.java:206)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:68)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:124)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at sun.security.ssl.InputRecord.readFully(Unknown Source)
+	at sun.security.ssl.InputRecord.read(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:290)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:259)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
+	... 16 more
+
+!ENTRY org.eclipse.core.jobs 2 2 2017-02-13 20:40:10.261
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.buildship.core.util.gradle.PublishedGradleVersionsWrapper$LoadVersionsJob
+!SESSION 2017-02-13 20:40:27.357 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-02-13 20:40:38.903
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Admin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2017-02-13 20:40:42.774
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: Connect to dev.eclipse.org:443 [dev.eclipse.org/198.41.30.200] failed: Read timed out. ; version: 2.0.3.v20161205-0933
+!STACK 0
+org.apache.http.conn.ConnectTimeoutException: Connect to dev.eclipse.org:443 [dev.eclipse.org/198.41.30.200] failed: Read timed out
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:134)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:206)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.request(IO.java:206)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:68)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:124)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at sun.security.ssl.InputRecord.readFully(Unknown Source)
+	at sun.security.ssl.InputRecord.read(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:290)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:259)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
+	... 16 more
+
+!ENTRY org.eclipse.ui.ide 4 4 2017-02-13 20:42:14.263
+!MESSAGE F:\HonoursProject\PublicTransportAPI - test\PublicTransportAPI\.metadata\.plugins\org.eclipse.jdt.core\1841280308.index.tmp (Das System kann die angegebene Datei nicht finden)
+
+!ENTRY org.eclipse.ui.ide 4 4 2017-02-13 20:42:14.328
+!MESSAGE F:\HonoursProject\PublicTransportAPI - test\PublicTransportAPI\.metadata\.plugins\org.eclipse.jdt.core\1841280308.index.tmp (Das System kann die angegebene Datei nicht finden)
+!STACK 0
+java.io.FileNotFoundException: F:\HonoursProject\PublicTransportAPI - test\PublicTransportAPI\.metadata\.plugins\org.eclipse.jdt.core\1841280308.index.tmp (Das System kann die angegebene Datei nicht finden)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.ui.internal.ide.filesystem.FileSystemStructureProvider.getContents(FileSystemStructureProvider.java:76)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.importFile(ImportOperation.java:527)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.importRecursivelyFrom(ImportOperation.java:751)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.importFileSystemObjects(ImportOperation.java:646)
+	at org.eclipse.ui.wizards.datatransfer.ImportOperation.execute(ImportOperation.java:388)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.lambda$0(WorkspaceModifyOperation.java:107)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:128)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+!SESSION 2017-02-23 15:05:37.374 -----------------------------------------------
+eclipse.buildId=4.6.2.M20161124-1400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data F:\HonoursProject\exportAs\PublicTransportAPIbyJNK -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.equinox.ds 1 0 2017-02-23 15:06:38.418
+!MESSAGE Could not bind a reference of component org.eclipse.ecf.mgmt.rsa.discovery.ui.discovery. The reference is: Reference[name = RemoteServiceAdmin, interface = org.osgi.service.remoteserviceadmin.RemoteServiceAdmin, policy = dynamic, cardinality = 0..1, target = null, bind = bindRemoteServiceAdmin, unbind = unbindRemoteServiceAdmin]
+
+!ENTRY org.eclipse.equinox.ds 1 0 2017-02-23 15:06:38.418
+!MESSAGE Could not bind a reference of component org.eclipse.ecf.mgmt.rsa.discovery.ui.discovery. The reference is: Reference[name = IEndpointDescriptionLocator, interface = org.eclipse.ecf.osgi.services.remoteserviceadmin.IEndpointDescriptionLocator, policy = dynamic, cardinality = 0..1, target = null, bind = bindEndpointDescriptionLocator, unbind = unbindEndpointDescriptionLocator]
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-02-23 15:07:06.693
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-23 15:07:07.326
+!MESSAGE Both 'org.eclipse.bpmn2' and 'org.eclipse.papyrus.infra.core.sashwindows.di' register an extension parser for 'di'
+
+!ENTRY org.eclipse.emf.ecore 2 0 2017-02-23 15:07:07.326
+!MESSAGE Both 'org.eclipse.fx.ide.css.ui' and 'org.eclipse.papyrus.infra.gmfdiag.css3.xtext.ui' register an extension parser for 'css'
+
+!ENTRY org.eclipse.equinox.ds 1 0 2017-02-23 15:07:08.938
+!MESSAGE Could not bind a reference of component org.eclipse.fx.core.internal.JUtilLoggerFactory. The reference is: Reference[name = registerHandler, interface = java.util.logging.Handler, policy = dynamic, policy-option = greedy, cardinality = 0..n, target = null, bind = registerHandler, unbind = unregisterHandler, updated = null]
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-02-23 15:07:09.542
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.arduino.core.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-02-23 15:07:09.573
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-02-23 15:07:09.573
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.osgi 4 0 2017-02-23 15:07:13.514
+!MESSAGE Application error
+!STACK 1
+org.eclipse.swt.SWTError: No more handles
+	at org.eclipse.swt.SWT.error(SWT.java:4559)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:482)
+	at org.eclipse.swt.widgets.Control.createHandle(Control.java:718)
+	at org.eclipse.swt.widgets.Composite.createHandle(Composite.java:315)
+	at org.eclipse.swt.widgets.Control.createWidget(Control.java:758)
+	at org.eclipse.swt.widgets.Scrollable.createWidget(Scrollable.java:151)
+	at org.eclipse.swt.widgets.Control.<init>(Control.java:112)
+	at org.eclipse.swt.widgets.Scrollable.<init>(Scrollable.java:82)
+	at org.eclipse.swt.widgets.Composite.<init>(Composite.java:96)
+	at org.eclipse.ui.splash.BasicSplashHandler.getBundleProgressMonitor(BasicSplashHandler.java:155)
+	at org.eclipse.ui.splash.BasicSplashHandler.getContent(BasicSplashHandler.java:257)
+	at org.eclipse.ui.internal.splash.EclipseSplashHandler.init(EclipseSplashHandler.java:107)
+	at org.eclipse.ui.internal.Workbench$6.run(Workbench.java:879)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.createSplashWrapper(Workbench.java:894)
+	at org.eclipse.ui.internal.Workbench.access$6(Workbench.java:816)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:662)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:610)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+
+!ENTRY org.apache.log4j 2 0 2017-02-23 15:07:13.530
+!MESSAGE org.eclipse.xtext.internal.ExtensionResourceServiceProviderRegistryReader  - Both 'org.eclipse.fx.ide.css.ui' and 'org.eclipse.papyrus.infra.gmfdiag.css3.xtext.ui' register a content parser for 'css'
+
+
+!ENTRY org.apache.log4j 4 0 2017-02-23 15:07:15.932
+!MESSAGE org.eclipse.papyrus.infra.gmfdiag.css3.ui.CSSExecutableExtensionFactory  - 
+
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.papyrus.infra.gmfdiag.css3.ui.CSSExecutableExtensionFactory.getBundle(CSSExecutableExtensionFactory.java:21)
+	at org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory.create(AbstractGuiceAwareExecutableExtensionFactory.java:50)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:262)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.xtext.internal.ResourceServiceProviderDescriptor.getExtension(ResourceServiceProviderDescriptor.java:46)
+	at org.eclipse.xtext.internal.AbstractResourceServiceProviderDescriptor.get(AbstractResourceServiceProviderDescriptor.java:20)
+	at org.eclipse.xtext.resource.impl.ResourceServiceProviderRegistryImpl$InternalData.getServiceProvider(ResourceServiceProviderRegistryImpl.java:46)
+	at org.eclipse.xtext.resource.impl.ResourceServiceProviderRegistryImpl.getResourceServiceProvider(ResourceServiceProviderRegistryImpl.java:109)
+	at org.eclipse.xtext.resource.impl.ResourceServiceProviderRegistryImpl.getResourceServiceProvider(ResourceServiceProviderRegistryImpl.java:129)
+	at org.eclipse.xtext.ui.resource.UriValidator.isValid(UriValidator.java:27)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl$1.getURI(Storage2UriMapperJavaImpl.java:320)
+	at org.eclipse.xtext.ui.resource.SourceAttachmentPackageFragmentRootWalker.handle(SourceAttachmentPackageFragmentRootWalker.java:279)
+	at org.eclipse.xtext.ui.resource.PackageFragmentRootWalker.traverse(PackageFragmentRootWalker.java:107)
+	at org.eclipse.xtext.ui.resource.PackageFragmentRootWalker.traverse(PackageFragmentRootWalker.java:95)
+	at org.eclipse.xtext.ui.resource.PackageFragmentRootWalker.traverse(PackageFragmentRootWalker.java:65)
+	at org.eclipse.xtext.ui.resource.SourceAttachmentPackageFragmentRootWalker.traverse(SourceAttachmentPackageFragmentRootWalker.java:168)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.initializeData(Storage2UriMapperJavaImpl.java:333)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.getCachedData(Storage2UriMapperJavaImpl.java:253)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.updateCache(Storage2UriMapperJavaImpl.java:468)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.access$6(Storage2UriMapperJavaImpl.java:461)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl$4.run(Storage2UriMapperJavaImpl.java:657)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.doInitializeCache(Storage2UriMapperJavaImpl.java:669)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.access$2(Storage2UriMapperJavaImpl.java:648)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl$3.run(Storage2UriMapperJavaImpl.java:637)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.apache.log4j 4 0 2017-02-23 15:07:15.948
+!MESSAGE org.eclipse.xtext.resource.impl.ResourceServiceProviderRegistryImpl  - Errorneous resource service provider registered for 'archive:file:/C:/Program%20Files/Java/jre1.8.0_121/lib/resources.jar!/javax/swing/text/html/default.css'. Removing it from the registry.
+
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.papyrus.infra.gmfdiag.css3.ui.CSSExecutableExtensionFactory.getBundle(CSSExecutableExtensionFactory.java:21)
+	at org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory.create(AbstractGuiceAwareExecutableExtensionFactory.java:59)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:262)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.xtext.internal.ResourceServiceProviderDescriptor.getExtension(ResourceServiceProviderDescriptor.java:46)
+	at org.eclipse.xtext.internal.AbstractResourceServiceProviderDescriptor.get(AbstractResourceServiceProviderDescriptor.java:20)
+	at org.eclipse.xtext.resource.impl.ResourceServiceProviderRegistryImpl$InternalData.getServiceProvider(ResourceServiceProviderRegistryImpl.java:46)
+	at org.eclipse.xtext.resource.impl.ResourceServiceProviderRegistryImpl.getResourceServiceProvider(ResourceServiceProviderRegistryImpl.java:109)
+	at org.eclipse.xtext.resource.impl.ResourceServiceProviderRegistryImpl.getResourceServiceProvider(ResourceServiceProviderRegistryImpl.java:129)
+	at org.eclipse.xtext.ui.resource.UriValidator.isValid(UriValidator.java:27)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl$1.getURI(Storage2UriMapperJavaImpl.java:320)
+	at org.eclipse.xtext.ui.resource.SourceAttachmentPackageFragmentRootWalker.handle(SourceAttachmentPackageFragmentRootWalker.java:279)
+	at org.eclipse.xtext.ui.resource.PackageFragmentRootWalker.traverse(PackageFragmentRootWalker.java:107)
+	at org.eclipse.xtext.ui.resource.PackageFragmentRootWalker.traverse(PackageFragmentRootWalker.java:95)
+	at org.eclipse.xtext.ui.resource.PackageFragmentRootWalker.traverse(PackageFragmentRootWalker.java:65)
+	at org.eclipse.xtext.ui.resource.SourceAttachmentPackageFragmentRootWalker.traverse(SourceAttachmentPackageFragmentRootWalker.java:168)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.initializeData(Storage2UriMapperJavaImpl.java:333)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.getCachedData(Storage2UriMapperJavaImpl.java:253)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.updateCache(Storage2UriMapperJavaImpl.java:468)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.access$6(Storage2UriMapperJavaImpl.java:461)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl$4.run(Storage2UriMapperJavaImpl.java:657)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2267)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.doInitializeCache(Storage2UriMapperJavaImpl.java:669)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl.access$2(Storage2UriMapperJavaImpl.java:648)
+	at org.eclipse.xtext.ui.resource.Storage2UriMapperJavaImpl$3.run(Storage2UriMapperJavaImpl.java:637)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.riena.core 4 0 2017-02-23 15:07:17.613
+!MESSAGE Failure injecting extension point ExtensionPointId [normalizedIds=[org.eclipse.ui.services], rawId=org.eclipse.ui.services] into bean class org.eclipse.riena.internal.ui.swt.facades.WorkbenchFacadeImpl using method public static void org.eclipse.riena.internal.ui.swt.facades.WorkbenchFacadeImpl.updateServiceProviders(org.eclipse.riena.internal.ui.swt.facades.ISourceProviderExtension[]).
+
+!ENTRY org.eclipse.riena.core 4 0 2017-02-23 15:07:17.629
+!MESSAGE exception handler class org.eclipse.riena.example.client.exceptionhandler.ExceptionMessageBox#handleException() throws an exception
+!STACK 0
+java.lang.RuntimeException: Could not load org.eclipse.riena.internal.ui.swt.facades.WorkbenchFacadeImpl
+	at org.eclipse.riena.ui.swt.facades.FacadeFactory.instantiateClass(FacadeFactory.java:73)
+	at org.eclipse.riena.ui.swt.facades.FacadeFactory.newImpl(FacadeFactory.java:61)
+	at org.eclipse.riena.internal.ui.swt.facades.WorkbenchFacade.getInstance(WorkbenchFacade.java:42)
+	at org.eclipse.riena.internal.ui.swt.utils.RcpUtilities.hasDisplay(RcpUtilities.java:72)
+	at org.eclipse.riena.ui.swt.uiprocess.SwtUISynchronizer.hasDisplay(SwtUISynchronizer.java:214)
+	at org.eclipse.riena.ui.swt.uiprocess.SwtUISynchronizer.execute(SwtUISynchronizer.java:73)
+	at org.eclipse.riena.ui.swt.uiprocess.SwtUISynchronizer.syncExec(SwtUISynchronizer.java:55)
+	at org.eclipse.riena.example.client.exceptionhandler.ExceptionMessageBox.handleException(ExceptionMessageBox.java:36)
+	at org.eclipse.riena.internal.core.exceptionmanager.SimpleExceptionHandlerManager.handleException(SimpleExceptionHandlerManager.java:105)
+	at org.eclipse.riena.internal.core.exceptionmanager.SimpleExceptionHandlerManager.handleException(SimpleExceptionHandlerManager.java:99)
+	at org.eclipse.riena.internal.core.exceptionmanager.SimpleExceptionHandlerManager$JobChangeListener.done(SimpleExceptionHandlerManager.java:124)
+	at org.eclipse.core.internal.jobs.JobListeners$3.notify(JobListeners.java:42)
+	at org.eclipse.core.internal.jobs.JobListeners.doNotify(JobListeners.java:99)
+	at org.eclipse.core.internal.jobs.JobListeners.done(JobListeners.java:144)
+	at org.eclipse.core.internal.jobs.JobManager.endJob(JobManager.java:694)
+	at org.eclipse.core.internal.jobs.WorkerPool.endJob(WorkerPool.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:72)
+Caused by: org.eclipse.riena.core.injector.InjectionFailure: Calling 'bind' method public static void org.eclipse.riena.internal.ui.swt.facades.WorkbenchFacadeImpl.updateServiceProviders(org.eclipse.riena.internal.ui.swt.facades.ISourceProviderExtension[]) failed.
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:357)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.populateInterfaceBeans(ExtensionInjector.java:329)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.andStart(ExtensionInjector.java:114)
+	at org.eclipse.riena.core.wire.WirePuller.injectExtensionInto(WirePuller.java:208)
+	at org.eclipse.riena.core.wire.WirePuller.injectIntoAnnotatedMethods(WirePuller.java:163)
+	at org.eclipse.riena.core.wire.WirePuller.wire(WirePuller.java:151)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:111)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:93)
+	at org.eclipse.riena.internal.ui.swt.facades.WorkbenchFacadeImpl.<init>(WorkbenchFacadeImpl.java:50)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.riena.ui.swt.facades.FacadeFactory.instantiateClass(FacadeFactory.java:67)
+	... 16 more
+Caused by: java.lang.reflect.UndeclaredThrowableException
+	at com.sun.proxy.$Proxy53.getSourceProvider(Unknown Source)
+	at org.eclipse.riena.internal.ui.swt.facades.WorkbenchFacadeImpl.updateServiceProviders(WorkbenchFacadeImpl.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:350)
+	... 30 more
+Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.tm.terminal.view.ui" was unable to instantiate class "org.eclipse.tm.terminal.view.ui.internal.ExternalExecutablesState".
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:186)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:183)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:78)
+	... 37 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.tm.terminal.view.ui.local.showin.ExternalExecutablesManager.load(ExternalExecutablesManager.java:52)
+	at org.eclipse.tm.terminal.view.ui.internal.ExternalExecutablesState.<init>(ExternalExecutablesState.java:28)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:184)
+	... 42 more
+
+!ENTRY org.eclipse.riena.core 4 0 2017-02-23 15:07:17.644
+!MESSAGE An internal error occurred during: "Initiating resource change handling..".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:Participant must not be null
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:85)
+	at org.eclipse.core.internal.resources.Workspace.addSaveParticipant(Workspace.java:338)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.startSaveParticipant(CProjectDescriptionManager.java:370)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.access$3(CProjectDescriptionManager.java:367)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager$3.run(CProjectDescriptionManager.java:347)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.jobs 4 2 2017-02-23 15:07:18.639
+!MESSAGE An internal error occurred during: "Initiating resource change handling..".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:Participant must not be null
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:85)
+	at org.eclipse.core.internal.resources.Workspace.addSaveParticipant(Workspace.java:338)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.startSaveParticipant(CProjectDescriptionManager.java:370)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.access$3(CProjectDescriptionManager.java:367)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager$3.run(CProjectDescriptionManager.java:347)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.riena.core 4 0 2017-02-23 15:07:18.702
+!MESSAGE Failure injecting extension point ExtensionPointId [normalizedIds=[org.eclipse.riena.ui.swt.lnfRenderers], rawId=null] into bean class org.eclipse.riena.demo.client.lnf.WebLnf using method public void org.eclipse.riena.ui.swt.lnf.rienadefault.RienaDefaultLnf.update(org.eclipse.riena.ui.swt.lnf.ILnfRendererExtension[]).
+
+!ENTRY org.eclipse.riena.core 4 0 2017-02-23 15:07:18.717
+!MESSAGE Failure injecting extension point ExtensionPointId [normalizedIds=[org.eclipse.riena.ui.swt.defaultLnf], rawId=null] into bean class org.eclipse.riena.internal.ui.swt.lnf.LnfManagerInternal using method public void org.eclipse.riena.internal.ui.swt.lnf.LnfManagerInternal.update(org.eclipse.riena.ui.swt.lnf.IDefaultLnfExtension[]).
+
+!ENTRY org.eclipse.riena.ui.swt 4 0 2017-02-23 15:07:18.827
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.eclipse.riena.internal.ui.swt.Activator.stop() of bundle org.eclipse.riena.ui.swt.
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:850)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:946)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:314)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1580)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:270)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:147)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:202)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:165)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.riena.core.singleton.SingletonFailure: Could not instantiate RCP controlled singleton.
+	at org.eclipse.riena.internal.core.singleton.RCPSingletonProvider.getInstance(RCPSingletonProvider.java:70)
+	at org.eclipse.riena.core.singleton.SingletonProvider.getInstance(SingletonProvider.java:75)
+	at org.eclipse.riena.core.singleton.SessionSingletonProvider.getInstance(SessionSingletonProvider.java:68)
+	at org.eclipse.riena.ui.swt.lnf.LnfManager.dispose(LnfManager.java:112)
+	at org.eclipse.riena.internal.ui.swt.Activator.stop(Activator.java:58)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:823)
+	... 13 more
+Caused by: org.eclipse.riena.core.injector.InjectionFailure: Calling 'bind' method public void org.eclipse.riena.internal.ui.swt.lnf.LnfManagerInternal.update(org.eclipse.riena.ui.swt.lnf.IDefaultLnfExtension[]) failed.
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:357)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.populateInterfaceBeans(ExtensionInjector.java:329)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.andStart(ExtensionInjector.java:114)
+	at org.eclipse.riena.core.wire.WirePuller.injectExtensionInto(WirePuller.java:208)
+	at org.eclipse.riena.core.wire.WirePuller.injectIntoAnnotatedMethods(WirePuller.java:163)
+	at org.eclipse.riena.core.wire.WirePuller.wire(WirePuller.java:151)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:111)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:93)
+	at org.eclipse.riena.internal.core.singleton.RCPSingletonProvider.getInstance(RCPSingletonProvider.java:67)
+	... 21 more
+Caused by: org.eclipse.riena.core.injector.InjectionFailure: Calling 'bind' method public void org.eclipse.riena.ui.swt.lnf.rienadefault.RienaDefaultLnf.update(org.eclipse.riena.ui.swt.lnf.ILnfRendererExtension[]) failed.
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:357)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.populateInterfaceBeans(ExtensionInjector.java:329)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.andStart(ExtensionInjector.java:114)
+	at org.eclipse.riena.core.wire.WirePuller.injectExtensionInto(WirePuller.java:208)
+	at org.eclipse.riena.core.wire.WirePuller.injectIntoAnnotatedMethods(WirePuller.java:163)
+	at org.eclipse.riena.core.wire.WirePuller.wire(WirePuller.java:151)
+	at org.eclipse.riena.core.wire.WirePuller.wire(WirePuller.java:146)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:111)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:194)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:78)
+	at com.sun.proxy.$Proxy54.createDefaultLnf(Unknown Source)
+	at org.eclipse.riena.internal.ui.swt.lnf.LnfManagerInternal.update(LnfManagerInternal.java:119)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:350)
+	... 29 more
+Caused by: java.lang.reflect.UndeclaredThrowableException
+	at com.sun.proxy.$Proxy56.createRenderer(Unknown Source)
+	at org.eclipse.riena.ui.swt.lnf.rienadefault.RienaDefaultLnf.update(RienaDefaultLnf.java:163)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:350)
+	... 45 more
+Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.riena.demo.client" was unable to instantiate class "org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer".
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:186)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:183)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:78)
+	... 52 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer.getTemplate(WebThemeHeaderRenderer.java:176)
+	at org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer.loadTemplate(WebThemeHeaderRenderer.java:200)
+	at org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer.<init>(WebThemeHeaderRenderer.java:56)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:184)
+	... 57 more
+Root exception:
+org.eclipse.riena.core.singleton.SingletonFailure: Could not instantiate RCP controlled singleton.
+	at org.eclipse.riena.internal.core.singleton.RCPSingletonProvider.getInstance(RCPSingletonProvider.java:70)
+	at org.eclipse.riena.core.singleton.SingletonProvider.getInstance(SingletonProvider.java:75)
+	at org.eclipse.riena.core.singleton.SessionSingletonProvider.getInstance(SessionSingletonProvider.java:68)
+	at org.eclipse.riena.ui.swt.lnf.LnfManager.dispose(LnfManager.java:112)
+	at org.eclipse.riena.internal.ui.swt.Activator.stop(Activator.java:58)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:830)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:823)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:946)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:314)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1580)
+	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:270)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:147)
+	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
+	at org.eclipse.osgi.container.Module.stop(Module.java:498)
+	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:202)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:165)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.riena.core.injector.InjectionFailure: Calling 'bind' method public void org.eclipse.riena.internal.ui.swt.lnf.LnfManagerInternal.update(org.eclipse.riena.ui.swt.lnf.IDefaultLnfExtension[]) failed.
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:357)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.populateInterfaceBeans(ExtensionInjector.java:329)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.andStart(ExtensionInjector.java:114)
+	at org.eclipse.riena.core.wire.WirePuller.injectExtensionInto(WirePuller.java:208)
+	at org.eclipse.riena.core.wire.WirePuller.injectIntoAnnotatedMethods(WirePuller.java:163)
+	at org.eclipse.riena.core.wire.WirePuller.wire(WirePuller.java:151)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:111)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:93)
+	at org.eclipse.riena.internal.core.singleton.RCPSingletonProvider.getInstance(RCPSingletonProvider.java:67)
+	... 21 more
+Caused by: org.eclipse.riena.core.injector.InjectionFailure: Calling 'bind' method public void org.eclipse.riena.ui.swt.lnf.rienadefault.RienaDefaultLnf.update(org.eclipse.riena.ui.swt.lnf.ILnfRendererExtension[]) failed.
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:357)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.populateInterfaceBeans(ExtensionInjector.java:329)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.andStart(ExtensionInjector.java:114)
+	at org.eclipse.riena.core.wire.WirePuller.injectExtensionInto(WirePuller.java:208)
+	at org.eclipse.riena.core.wire.WirePuller.injectIntoAnnotatedMethods(WirePuller.java:163)
+	at org.eclipse.riena.core.wire.WirePuller.wire(WirePuller.java:151)
+	at org.eclipse.riena.core.wire.WirePuller.wire(WirePuller.java:146)
+	at org.eclipse.riena.core.wire.WirePuller.andStart(WirePuller.java:111)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:194)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:78)
+	at com.sun.proxy.$Proxy54.createDefaultLnf(Unknown Source)
+	at org.eclipse.riena.internal.ui.swt.lnf.LnfManagerInternal.update(LnfManagerInternal.java:119)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:350)
+	... 29 more
+Caused by: java.lang.reflect.UndeclaredThrowableException
+	at com.sun.proxy.$Proxy56.createRenderer(Unknown Source)
+	at org.eclipse.riena.ui.swt.lnf.rienadefault.RienaDefaultLnf.update(RienaDefaultLnf.java:163)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.riena.core.injector.extension.ExtensionInjector.update(ExtensionInjector.java:350)
+	... 45 more
+Caused by: org.eclipse.core.runtime.CoreException: Plug-in "org.eclipse.riena.demo.client" was unable to instantiate class "org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer".
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:186)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:183)
+	at org.eclipse.riena.internal.core.injector.extension.InterfaceBeanHandler.invoke(InterfaceBeanHandler.java:78)
+	... 52 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer.getTemplate(WebThemeHeaderRenderer.java:176)
+	at org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer.loadTemplate(WebThemeHeaderRenderer.java:200)
+	at org.eclipse.riena.demo.client.lnf.WebThemeHeaderRenderer.<init>(WebThemeHeaderRenderer.java:56)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:184)
+	... 57 more
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-02-23 15:07:19.947
+!MESSAGE The workspace will exit with unsaved changes in this session.
