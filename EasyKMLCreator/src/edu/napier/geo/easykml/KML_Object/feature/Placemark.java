@@ -1,7 +1,7 @@
 package edu.napier.geo.easykml.KML_Object.feature;
 
 import edu.napier.geo.easykml.KML_Object.geometry.KML_Geometry;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Placemark extends Feature {
@@ -23,9 +23,9 @@ public class Placemark extends Feature {
 	}
 	
 
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		root.addTreeNode(geometryObject.getLinkedOutput());
 

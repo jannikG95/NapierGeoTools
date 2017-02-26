@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.subStyle.colorStyle;
 
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class LabelStyle extends ColorStyle {
@@ -22,11 +22,11 @@ public class LabelStyle extends ColorStyle {
 		this.scale = scale;
 	}
 
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 	
-		root.addChild(new LinkedOutput("scale", Float.toString(this.getScale()), false));
+		root.addChild(new KML_element("scale", Float.toString(this.getScale()), false));
 		
 		return root; 
 	}

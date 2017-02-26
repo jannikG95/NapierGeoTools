@@ -3,7 +3,7 @@ package edu.napier.geo.easykml.KML_Object.geometry;
 
 import edu.napier.geo.common.Location;
 import edu.napier.geo.easykml.KML_Object.KML_object;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Point extends KML_Geometry{
@@ -40,13 +40,13 @@ public class Point extends KML_Geometry{
 		return location.getLon() + "," + location.getLat() + "," + location.getAlt() + " ";
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addChild(new LinkedOutput("extrude", this.isExtruded(), false));
-		root.addChild(new LinkedOutput("altitudeMode", this.getAltitudeMode(), false));
-		root.addChild(new LinkedOutput("coordinates", this.toString(), false));
+		root.addChild(new KML_element("extrude", this.isExtruded(), false));
+		root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		root.addChild(new KML_element("coordinates", this.toString(), false));
 
 		return root; 
 	}

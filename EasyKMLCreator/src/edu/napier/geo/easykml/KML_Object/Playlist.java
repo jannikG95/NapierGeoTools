@@ -3,7 +3,7 @@ package edu.napier.geo.easykml.KML_Object;
 import java.util.ArrayList;
 
 import edu.napier.geo.easykml.KML_Object.gx_TourPrimitive.TourPrimitive;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Playlist extends KML_object {
@@ -18,9 +18,9 @@ public class Playlist extends KML_object {
 		actionList.add(primitiveAction);
 	}
 
-	public TreeNode<LinkedOutput> getLinkedOutput() {
+	public TreeNode<KML_element> getLinkedOutput() {
 
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		root.data.setName("gx:Playlist");
 		

@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.subStyle.colorStyle;
 
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class IconStyle extends ColorStyle {
@@ -49,13 +49,13 @@ public class IconStyle extends ColorStyle {
 		this.iconHttpAddress = iconHttpAddress;
 	}
 
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 	
-		root.addChild(new LinkedOutput("scale", Float.toString(this.getScale()), false));
-		root.addChild(new LinkedOutput("heading", Float.toString(this.getHeading()), false));
-		root.addChild(new LinkedOutput("Icon", null, false)).addChild(new LinkedOutput("href", this.getIconHttpAddress(), false));
+		root.addChild(new KML_element("scale", Float.toString(this.getScale()), false));
+		root.addChild(new KML_element("heading", Float.toString(this.getHeading()), false));
+		root.addChild(new KML_element("Icon", null, false)).addChild(new KML_element("href", this.getIconHttpAddress(), false));
 
 		return root; 
 	}

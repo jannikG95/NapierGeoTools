@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.gx_TourPrimitive;
 
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class TourControl extends TourPrimitive{
@@ -11,13 +11,13 @@ public class TourControl extends TourPrimitive{
 		return PLAYMODE;
 	}
 
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		root.data.setName("gx:TourControl");
 	
-		root.addChild(new LinkedOutput("gx:playMode", this.getPLAYMODE(), true));
+		root.addChild(new KML_element("gx:playMode", this.getPLAYMODE(), true));
 	
 		return root; 
 	}

@@ -1,13 +1,13 @@
 package edu.napier.geo.easykml.helperClasses;
 
 
-public class LinkedOutput {
+public class KML_element {
 
 	private String name;
 	private String text;
 	private boolean gExtenstion;
 
-	public LinkedOutput(String name, String text, boolean gExtension) {
+	public KML_element(String name, String text, boolean gExtension) {
 		this.name = name;
 		this.text = text;
 		this.gExtenstion = gExtension;

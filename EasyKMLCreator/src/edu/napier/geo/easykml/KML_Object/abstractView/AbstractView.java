@@ -2,7 +2,7 @@ package edu.napier.geo.easykml.KML_Object.abstractView;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.TimePrimitive;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public abstract class AbstractView extends KML_object{
@@ -28,12 +28,12 @@ public abstract class AbstractView extends KML_object{
 		this.viewerOption = viewerOption;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		if(getTimePrimitive() != null)root.addTreeNode(getTimePrimitive().getLinkedOutput());
-		root.addChild(new LinkedOutput("gx:ViewerOptions", this.viewerOption, true));
+		root.addChild(new KML_element("gx:ViewerOptions", this.viewerOption, true));
 
 		return root; 
 	}

@@ -10,7 +10,7 @@ import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.KML_Object.feature.Placemark;
 import edu.napier.geo.easykml.KML_Object.feature.Tour;
 import edu.napier.geo.easykml.KML_Object.stylesector.Style;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class KMLFileWriter {
@@ -24,6 +24,16 @@ public class KMLFileWriter {
 		defineBasicDocumentStructure();
 	}
 
+	public void appendObject(KML_object kml_object) {
+		processLinkedOutputTree(kml_object);
+	}
+
+
+	// --------------------------------------------------------------------------------------------------------------
+	// private method section
+	// --------------------------------------------------------------------------------------------------------------
+	
+	
 	private void defineBasicDocumentStructure() {
 		KMLNamespaceDefinition = this.document.createElementNS("http://www.opengis.net/kml/2.2", "kml");
 		document.appendChild(KMLNamespaceDefinition);
@@ -37,32 +47,15 @@ public class KMLFileWriter {
 			KMLNamespaceDefinition.setAttribute("xmlns:gx", "http://www.google.com/kml/ext/2.2");
 	}
 
-	public void appendPlacemark(Placemark newPlacemark) {
-		processLinkedOutputTree(newPlacemark);
-	}
-
-	public void appendSytle(Style newStyle) {
-		processLinkedOutputTree(newStyle);
-	}
-	
-	public void appendTour(Tour newTour){
-		processLinkedOutputTree(newTour);
-	}
-
-
-	// --------------------------------------------------------------------------------------------------------------
-	// private method section
-	// --------------------------------------------------------------------------------------------------------------
-	
 	private void processLinkedOutputTree(KML_object kml_object) {
-		TreeNode<LinkedOutput> treeRoot = kml_object.getLinkedOutput();
+		TreeNode<KML_element> treeRoot = kml_object.getLinkedOutput();
 
 		System.out.println(treeRoot.data.getName());
 
 		Element kml_object_RootElement = null;
 		ArrayList<Element> ParentElementofLevel = new ArrayList<>();
 
-		for (TreeNode<LinkedOutput> node : treeRoot) {
+		for (TreeNode<KML_element> node : treeRoot) {
 			if (node.isRoot()) {
 				kml_object_RootElement = creatDomElement(treeRoot.data.getName(), null, rootElement,
 						treeRoot.data.isgExtenstion());
@@ -106,8 +99,6 @@ public class KMLFileWriter {
 			parentElement.appendChild(innerElement);
 		} else {
 			String textInNode = textNode.getWholeText();
-			if (textInNode == "")
-				System.err.println("ass");
 			if (!textInNode.equals("") && !textInNode.equals("0.0") && !textInNode.equals("0")) {
 				innerElement = document.createElement(elementName);
 				innerElement.appendChild(textNode);

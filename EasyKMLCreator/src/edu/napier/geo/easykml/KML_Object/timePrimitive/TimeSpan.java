@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.timePrimitive;
 
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class TimeSpan extends TimePrimitive{
@@ -22,12 +22,12 @@ public class TimeSpan extends TimePrimitive{
 		this.endStamp = endStamp;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addChild(new LinkedOutput("begin", this.getBeginStamp().getFormattedString(), false));
-		root.addChild(new LinkedOutput("end", this.getEndStamp().getFormattedString(), false));
+		root.addChild(new KML_element("begin", this.getBeginStamp().getFormattedString(), false));
+		root.addChild(new KML_element("end", this.getEndStamp().getFormattedString(), false));
 
 		return root; 
 	}

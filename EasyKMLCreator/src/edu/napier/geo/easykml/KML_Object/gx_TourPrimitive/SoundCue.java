@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.gx_TourPrimitive;
 
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class SoundCue extends TourPrimitive{
@@ -22,14 +22,14 @@ public class SoundCue extends TourPrimitive{
 		this.delayedStart = delayedStart;
 	}	
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		root.data.setName("gx:SoundCue");
 		
-		root.addChild(new LinkedOutput("href", this.getSoundAddress(), false));
-		root.addChild(new LinkedOutput("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
+		root.addChild(new KML_element("href", this.getSoundAddress(), false));
+		root.addChild(new KML_element("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
 
 		return root; 
 	}

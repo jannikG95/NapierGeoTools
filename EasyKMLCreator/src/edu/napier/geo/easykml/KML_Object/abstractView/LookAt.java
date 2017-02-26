@@ -1,7 +1,7 @@
 package edu.napier.geo.easykml.KML_Object.abstractView;
 
 import edu.napier.geo.common.Location;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class LookAt extends AbstractView {
@@ -93,18 +93,18 @@ public class LookAt extends AbstractView {
 		this.altitudeMode = altitudeMode;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = new TreeNode<LinkedOutput>(new LinkedOutput(this.getClass().getSimpleName(), "", false));
-		root.addChild(new LinkedOutput("id", this.getId(), false));
+		TreeNode<KML_element> root = new TreeNode<KML_element>(new KML_element(this.getClass().getSimpleName(), "", false));
+		root.addChild(new KML_element("id", this.getId(), false));
 
-		root.addChild(new LinkedOutput("longitude", Double.toString(this.getCoordinates().getLon()), false));
-		root.addChild(new LinkedOutput("latitude", Double.toString(this.getCoordinates().getLat()), false));
-		root.addChild(new LinkedOutput("altitude", Double.toString(this.getCoordinates().getAlt()), false));
-		root.addChild(new LinkedOutput("heading", Double.toString(this.getHeading()), false));
-		root.addChild(new LinkedOutput("tilt", Double.toString(this.getTilt()), false));
-		root.addChild(new LinkedOutput("range", Double.toString(this.getRange()), false));
-		root.addChild(new LinkedOutput("altitudeMode", this.getAltitudeMode(), false));
+		root.addChild(new KML_element("longitude", Double.toString(this.getCoordinates().getLon()), false));
+		root.addChild(new KML_element("latitude", Double.toString(this.getCoordinates().getLat()), false));
+		root.addChild(new KML_element("altitude", Double.toString(this.getCoordinates().getAlt()), false));
+		root.addChild(new KML_element("heading", Double.toString(this.getHeading()), false));
+		root.addChild(new KML_element("tilt", Double.toString(this.getTilt()), false));
+		root.addChild(new KML_element("range", Double.toString(this.getRange()), false));
+		root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
 
 
 		return root; 

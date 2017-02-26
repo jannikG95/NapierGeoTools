@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import edu.napier.geo.common.Location;
 import edu.napier.geo.easykml.KML_Object.KML_object;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.StringBuilder;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
@@ -60,15 +60,15 @@ public class LinearRing extends KML_Geometry  {
 		this.locations = locations;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		if(gxAltitudeOffset != null) root.addChild(new LinkedOutput("gx:altitudeOffse", Double.toString(this.getGxAltitudeOffset()), true));
-		root.addChild(new LinkedOutput("extrude", this.isExtruded(), false));
-		root.addChild(new LinkedOutput("tessellate", this.isTessellated(), false));
-		root.addChild(new LinkedOutput("altitudeMode", this.getAltitudeMode(), false));
-		root.addChild(new LinkedOutput("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
+		if(gxAltitudeOffset != null) root.addChild(new KML_element("gx:altitudeOffse", Double.toString(this.getGxAltitudeOffset()), true));
+		root.addChild(new KML_element("extrude", this.isExtruded(), false));
+		root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+		root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		root.addChild(new KML_element("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
 
 		return root; 
 	}

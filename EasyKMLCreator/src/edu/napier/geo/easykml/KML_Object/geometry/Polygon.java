@@ -3,7 +3,7 @@ package edu.napier.geo.easykml.KML_Object.geometry;
 import java.util.ArrayList;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Polygon extends KML_Geometry{
@@ -75,17 +75,17 @@ public class Polygon extends KML_Geometry{
 		this.innerBoundryList.add(innerBoundry);
 	}
 
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addChild(new LinkedOutput("extrude", this.isExtruded(), false));
-		root.addChild(new LinkedOutput("tessellate", this.isTessellated(), false));
-		root.addChild(new LinkedOutput("altitudeMode", this.getAltitudeMode(), false));
-		TreeNode<LinkedOutput> rootOuter =  root.addChild(new LinkedOutput("outerBoundaryIs", null, false));
+		root.addChild(new KML_element("extrude", this.isExtruded(), false));
+		root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+		root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		TreeNode<KML_element> rootOuter =  root.addChild(new KML_element("outerBoundaryIs", null, false));
 		rootOuter.addTreeNode(outerBoundry.getLinkedOutput());
 		for (LinearRing linearRing : innerBoundryList) {
-			TreeNode<LinkedOutput> rootInner = root.addChild(new LinkedOutput("innerBoundaryIs", null, false));
+			TreeNode<KML_element> rootInner = root.addChild(new KML_element("innerBoundaryIs", null, false));
 			rootInner.addTreeNode(linearRing.getLinkedOutput());
 		}
 		

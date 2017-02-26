@@ -1,7 +1,7 @@
 package edu.napier.geo.easykml.KML_Object.feature;
 
 import edu.napier.geo.easykml.KML_Object.Playlist;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Tour extends Feature {
@@ -15,9 +15,9 @@ public class Tour extends Feature {
 		this.playlist = playlist;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		root.data.setName("gx:Tour");
 		

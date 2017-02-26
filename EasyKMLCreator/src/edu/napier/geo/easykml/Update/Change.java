@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.Update;
 
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Change {
@@ -36,14 +36,14 @@ public class Change {
 		this.newText = newText;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = new TreeNode<LinkedOutput>(new LinkedOutput("Update", "", false));
+		TreeNode<KML_element> root = new TreeNode<KML_element>(new KML_element("Update", "", false));
 
 		root.data.setName("Change");
 	
-		root.addChild(new LinkedOutput(kmlObjectName, "", false)).addChild(new LinkedOutput(tag, newText, false));
-		root.addChild(new LinkedOutput("targetID", this.getTargetID(), false));
+		root.addChild(new KML_element(kmlObjectName, "", false)).addChild(new KML_element(tag, newText, false));
+		root.addChild(new KML_element("targetID", this.getTargetID(), false));
 
 		
 

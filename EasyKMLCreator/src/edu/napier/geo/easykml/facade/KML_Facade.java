@@ -40,19 +40,19 @@ public class KML_Facade {
 
 	public void createPlacemark(Placemark newPlacemark) {
 		if (documentInitialized()) {
-			fileWriter.appendPlacemark(newPlacemark);
+			fileWriter.appendObject(newPlacemark);
 		}
 	}
 
 	public void createStyle(Style newStyle) {
 		if (documentInitialized()) {
-			fileWriter.appendSytle(newStyle);
+			fileWriter.appendObject(newStyle);
 		}
 	}
 
 	public void createTour(Tour newTour) {
 		if (documentInitialized()) {
-			fileWriter.appendTour(newTour);
+			fileWriter.appendObject(newTour);
 		}
 	}
 

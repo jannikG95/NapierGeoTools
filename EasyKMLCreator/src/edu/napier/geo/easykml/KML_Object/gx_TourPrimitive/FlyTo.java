@@ -1,7 +1,7 @@
 package edu.napier.geo.easykml.KML_Object.gx_TourPrimitive;
 
 import edu.napier.geo.easykml.KML_Object.abstractView.AbstractView;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class FlyTo extends TourPrimitive{
@@ -35,15 +35,15 @@ public class FlyTo extends TourPrimitive{
 		this.abstractView = abstractView;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		root.data.setName("gx:FlyTo");
 		
 		
-		root.addChild(new LinkedOutput("gx:duration", Double.toString(this.getDuration()), true));
-		root.addChild(new LinkedOutput("gx:flyToMode", this.getFlyToMode(), true));
+		root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
+		root.addChild(new KML_element("gx:flyToMode", this.getFlyToMode(), true));
 		if(abstractView != null)root.addTreeNode(abstractView.getLinkedOutput());
 
 		return root; 

@@ -26,7 +26,7 @@ import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.PolyStyle;
 import edu.napier.geo.easykml.Update.Change;
 import edu.napier.geo.easykml.Update.Update;
 import edu.napier.geo.easykml.helperClasses.AltitudeModes;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class TestClass {

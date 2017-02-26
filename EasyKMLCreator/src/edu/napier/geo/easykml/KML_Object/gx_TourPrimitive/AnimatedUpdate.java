@@ -1,7 +1,7 @@
 package edu.napier.geo.easykml.KML_Object.gx_TourPrimitive;
 
 import edu.napier.geo.easykml.Update.Update;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class AnimatedUpdate extends TourPrimitive{
@@ -30,17 +30,17 @@ public class AnimatedUpdate extends TourPrimitive{
 	}
 	
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		root.data.setName("gx:AnimatedUpdate");
 		
 		
-		root.addChild(new LinkedOutput("gx:duration", Double.toString(this.getDuration()), true));
+		root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
 		if(update != null)root.addTreeNode(update.getLinkedOutput());
 
-		root.addChild(new LinkedOutput("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
+		root.addChild(new KML_element("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
 
 
 		return root; 

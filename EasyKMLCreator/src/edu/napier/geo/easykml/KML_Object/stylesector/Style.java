@@ -5,7 +5,7 @@ import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.IconStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LabelStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LineStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.PolyStyle;
-import edu.napier.geo.easykml.helperClasses.LinkedOutput;
+import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Style extends KML_object{
@@ -41,9 +41,9 @@ public class Style extends KML_object{
 		this.polyStyle = polyStyle;
 	}
 	
-	public TreeNode<LinkedOutput> getLinkedOutput (){
+	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<LinkedOutput> root = super.getLinkedOutput();
+		TreeNode<KML_element> root = super.getLinkedOutput();
 			
 		if(iconStyle != null)root.addTreeNode(iconStyle.getLinkedOutput());
 		if(labelStyle != null)root.addTreeNode(labelStyle.getLinkedOutput());
