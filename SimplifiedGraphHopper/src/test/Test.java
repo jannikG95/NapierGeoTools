@@ -22,7 +22,7 @@ public class Test {
 		HashMap<String, Object> optionsMap = facade.getOptionsMap();
 		optionsMap.put("pathToOSM", osmFile);
 		optionsMap.put("pathToFolder", folderPath );
-		optionsMap.put("profilesForGraph", vehicles);
+		optionsMap.put("profilesForGraph", facade.getEncoder("car"));
 		optionsMap.put("enableCH", false);
 		optionsMap.put("maxVisitedNodes", 100);
 		optionsMap.put("includeElevation", true);

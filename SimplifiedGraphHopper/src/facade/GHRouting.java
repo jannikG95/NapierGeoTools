@@ -9,6 +9,7 @@ import com.graphhopper.GraphHopper;
 import com.graphhopper.PathWrapper;
 import com.graphhopper.reader.osm.GraphHopperOSM;
 import com.graphhopper.routing.util.EncodingManager;
+import com.graphhopper.routing.util.FlagEncoder;
 import com.graphhopper.util.PointList;
 import com.graphhopper.util.shapes.GHPoint3D;
 
@@ -62,11 +63,12 @@ public class GHRouting {
 	 * Most important graphhopper options. Must be defined before generating the graph. 
 	 */
 	private void setGHOptions() {
-		String[] profiles = (String[]) journey.getOptions().get("profilesForGraph");
-		String em = "";
-		for (int i = 0; i < profiles.length; i++)
-			em += profiles[i] + ",";
-		hopper.setEncodingManager(new EncodingManager(em));
+//		String[] profiles = (String[]) journey.getOptions().get("profilesForGraph");
+//		String em = "";
+//		for (int i = 0; i < profiles.length; i++)
+//			em += profiles[i] + ",";
+		FlagEncoder fe = (FlagEncoder) journey.getOptions().get("profilesForGraph");
+		hopper.setEncodingManager(new EncodingManager(fe));
 		
 		boolean enableCH = (boolean) journey.getOptions().get("enableCH");
 		hopper.getCHFactoryDecorator().setEnabled(enableCH);
