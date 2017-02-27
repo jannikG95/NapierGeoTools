@@ -19,8 +19,8 @@ public class KMLFileWriter {
 	private Element KMLNamespaceDefinition;
 	private Element rootElement;
 
-	public KMLFileWriter() {
-		this.document = KMLFileCreator.getKMLDoument();
+	public KMLFileWriter(Document document) {
+		this.document = document;
 		defineBasicDocumentStructure();
 	}
 

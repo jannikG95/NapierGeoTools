@@ -5,12 +5,13 @@ import org.w3c.dom.Document;
 
 public class KMLFileCreator {
 
-	private static Document document;
+	private Document document;
 	
-	private KMLFileCreator() {
+	public KMLFileCreator() {
+		initializeDocument();
 	}
 	
-	private static void initializeDocument(){
+	private void initializeDocument(){
         DocumentBuilderFactory dbFactory =
         DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
@@ -23,7 +24,7 @@ public class KMLFileCreator {
 		}
 	}
 	
-	public static Document getKMLDoument(){
+	public Document getKMLDoument(){
 		if(document != null){
 			return document;
 		}

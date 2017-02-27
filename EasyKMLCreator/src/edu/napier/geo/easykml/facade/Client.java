@@ -31,12 +31,9 @@ import edu.napier.geo.easykml.Update.Update;
 import edu.napier.geo.easykml.helperClasses.AltitudeModes;
 
 
-public class TestClass {
+public class Client {
 
-	double a;
-	Integer b;
-	String c;
-	Boolean d;
+
 	public static void main(String[] args) {
 		KML_Facade simpleKML = new KML_Facade();
 
@@ -240,15 +237,6 @@ public class TestClass {
 		simpleKML.saveKMLDocument(
 				"C:\\Users\\Jannik\\Google Drive\\Uni\\2. `Trimester\\Hon Project\\EasyKMLCreator.kml");
 		
-//		
-//		TestClass t = new TestClass();
-//		
-//		t.b = 2;
-//		System.out.println("\n" + t.a);
-//		System.out.println(t.b);
-//		System.out.println(t.c);
-//		System.out.println(t.d);
-
 
 	}
 

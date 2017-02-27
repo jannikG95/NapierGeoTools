@@ -20,26 +20,8 @@ public class KML_Facade {
 	// Call KMLFileCreator class to create a KML document.
 	// Precondition for everything!
 	public void createKMLDocument() {
-		KML_Document = KMLFileCreator.getKMLDoument();
-		fileWriter = new KMLFileWriter();
-
-	}
-
-	// check if the KML document was initialized
-	private boolean documentInitialized() {
-		if (KML_Document != null)
-			return true;
-		else
-			return false;
-	}
-
-	// Invoke the saving of the document and finally produce a readable KML File
-	public void saveKMLDocument(String destination) {
-		new KMLFileSaver().saveFile(KML_Document, destination);
-	}
-	
-	public void saveKMLDocument() {
-		new KMLFileSaver().saveFile(KML_Document, "");
+		KML_Document = new KMLFileCreator().getKMLDoument();
+		fileWriter = new KMLFileWriter(KML_Document);
 	}
 
 	public void createPlacemark(Placemark newPlacemark) {
@@ -59,5 +41,25 @@ public class KML_Facade {
 			fileWriter.appendObject(newTour);
 		}
 	}
+
+	// Invoke the saving of the document and finally produce a readable KML File
+	public void saveKMLDocument(String destination) {
+		new KMLFileSaver().saveFile(KML_Document, destination);
+	}
+	
+	public void saveKMLDocument() {
+		new KMLFileSaver().saveFile(KML_Document, "");
+	}
+	
+	
+	// check if the KML document was initialized
+	private boolean documentInitialized() {
+		if (KML_Document != null)
+			return true;
+		else
+			return false;
+	}
+
+
 
 }

@@ -1,293 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.LinearRing" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/LinearRing.java" binary="false" 
+  <class id="1" language="java" name="edu.napier.geo.easykml.facade.Client" project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/facade/Client.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="120" y="515"/>    
+    <position height="-1" width="-1" x="140" y="75"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="edu.napier.geo.easykml.KML_Object.feature.Placemark" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/feature/Placemark.java" binary="false" 
+  <class id="2" language="java" name="edu.napier.geo.easykml.facade.KML_Facade" project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/facade/KML_Facade.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="492" y="240"/>    
+    <position height="-1" width="-1" x="148" y="294"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="edu.napier.geo.easykml.KML_Object.timePrimitive.TimePrimitive" 
+  <class id="3" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileCreator" 
     project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/timePrimitive/TimePrimitive.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1055" y="331"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.LineString" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/LineString.java" binary="false" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/filemanagement/KMLFileCreator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="361" y="406"/>    
+    <position height="-1" width="-1" x="410" y="69"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="edu.napier.geo.easykml.KML_Object.feature.Tour" 
+  <class id="4" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileSaver" 
     project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/feature/Tour.java" binary="false" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/filemanagement/KMLFileSaver.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1503" y="205"/>    
+    <position height="-1" width="-1" x="255" y="483"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="edu.napier.geo.easykml.KML_Object.KML_object" 
+  <class id="5" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileWriter" 
     project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/KML_object.java" binary="false" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/filemanagement/KMLFileWriter.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="143" y="39"/>    
+    <position height="-1" width="-1" x="654" y="276"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.Point" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/Point.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="115" y="406"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="edu.napier.geo.easykml.KML_Object.abstractView.AbstractView" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/abstractView/AbstractView.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1054" y="238"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="edu.napier.geo.easykml.KML_Object.stylesector.Style" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/stylesector/Style.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="798" y="238"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="edu.napier.geo.easykml.KML_Object.feature.Feature" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/feature/Feature.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="347" y="157"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="edu.napier.geo.easykml.KML_Object.Playlist" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/Playlist.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1490" y="334"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="12" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.Polygon" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/Polygon.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="628" y="406"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="13" language="java" name="edu.napier.geo.easykml.KML_Object.gx_TourPrimitive.TourPrimitive" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/gx_TourPrimitive/TourPrimitive.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1287" y="89"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="edu.napier.geo.easykml.KML_Object.geometry.KML_Geometry" 
-    project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/KML_Object/geometry/KML_Geometry.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="147" y="242"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <generalization id="15">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="16">    
-    <bendpoint x="1172" y="130"/>    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <association id="18">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="19" name="style"/>      
-      <multiplicity id="20" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="21">    
-    <bendpoint x="2" y="515"/>    
-    <bendpoint x="2" y="384"/>    
-    <bendpoint x="2" y="306"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <generalization id="22">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <association id="23">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="24" name="playlist"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="26">    
-    <bendpoint x="1047" y="130"/>    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="27">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="28" name="actionList"/>      
-      <multiplicity id="29" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="30">    
-    <bendpoint x="1559" y="223"/>    
-    <bendpoint x="1559" y="130"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="31">    
+  <association id="6">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="32" name="geometryObject"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+      <attribute id="7" name="fileWriter"/>      
+      <multiplicity id="8" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="35" name="timePrimitive"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <bendpoint x="1005" y="223"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="38" name="timePrimitive"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="41" name="outerBoundry"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="44">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="47">    
-    <bendpoint x="1026" y="223"/>    
-    <bendpoint x="1026" y="130"/>    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="48">    
-    <bendpoint x="628" y="515"/>    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="49" name="innerBoundryList"/>      
-      <multiplicity id="50" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="51">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <association id="52">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="53" name="abstractView"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
