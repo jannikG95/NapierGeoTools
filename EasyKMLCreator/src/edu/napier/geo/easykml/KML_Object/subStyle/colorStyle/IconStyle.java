@@ -20,24 +20,24 @@ public class IconStyle extends ColorStyle {
 	 * 		load an icon.
 	 */
 
-	private float scale;
-	private float heading; // Value range from 0 to 360
+	private Float scale;
+	private Float heading; // Value range from 0 to 360
 	private String iconHttpAddress;
 
-	public float getScale() {
+	public Float getScale() {
 		return scale;
 	}
 
-	public void setScale(float scale) {
+	public void setScale(Float scale) {
 		this.scale = scale;
 	}
 
-	public float getHeading() {
+	public Float getHeading() {
 		return heading;
 	}
 
-	public void setHeading(float heading) {
-		if (this.heading > 360 || this.heading < 0) this.heading = 0;
+	public void setHeading(Float heading) {
+		if (this.heading > 360 || this.heading < 0) this.heading = 0.0f;
 		else this.heading = heading;
 	}
 
@@ -53,9 +53,9 @@ public class IconStyle extends ColorStyle {
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 	
-		root.addChild(new KML_element("scale", Float.toString(this.getScale()), false));
-		root.addChild(new KML_element("heading", Float.toString(this.getHeading()), false));
-		root.addChild(new KML_element("Icon", null, false)).addChild(new KML_element("href", this.getIconHttpAddress(), false));
+		if(this.getScale() != null)root.addChild(new KML_element("scale", Float.toString(this.getScale()), false));
+		if(this.getHeading() != null)root.addChild(new KML_element("heading", Float.toString(this.getHeading()), false));
+		if(this.getIconHttpAddress() != null)root.addChild(new KML_element("Icon", null, false)).addChild(new KML_element("href", this.getIconHttpAddress(), false));
 
 		return root; 
 	}

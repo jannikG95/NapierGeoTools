@@ -38,16 +38,16 @@ public class LineStyle extends ColorStyle {
 	 * 
 	 */
 
-	private float width;
+	private Float width;
 	private Color gxOuterColor;
-	private float gxOuterWidth;
-	private float gxPhysicalWidth;
-	private boolean gxLabelVisibility;
+	private Float gxOuterWidth;
+	private Float gxPhysicalWidth;
+	private Boolean gxLabelVisibility;
 	
-	public float getWidth() {
+	public Float getWidth() {
 		return width;
 	}
-	public void setWidth(float width) {
+	public void setWidth(Float width) {
 		this.width = width;
 	}
 	public String getGxOuterColor() {
@@ -61,23 +61,23 @@ public class LineStyle extends ColorStyle {
 	public void setGxOuterColor(Color gxOuterColor) {
 		this.gxOuterColor = gxOuterColor;
 	}
-	public float getGxOuterWidth() {
+	public Float getGxOuterWidth() {
 		return gxOuterWidth;
 	}
-	public void setGxOuterWidth(float gxOuterWidth) {
+	public void setGxOuterWidth(Float gxOuterWidth) {
 		this.gxOuterWidth = gxOuterWidth;
 	}
-	public float getGxPhysicalWidth() {
+	public Float getGxPhysicalWidth() {
 		return gxPhysicalWidth;
 	}
-	public void setGxPhysicalWidth(float gxPhysicalWidth) {
+	public void setGxPhysicalWidth(Float gxPhysicalWidth) {
 		this.gxPhysicalWidth = gxPhysicalWidth;
 	}
 	public String isGxLabelVisibility() {
 		
 		return (gxLabelVisibility) ? "1" : "0";
 	}
-	public void setGxLabelVisibility(boolean gxLabelVisibility) {
+	public void setGxLabelVisibility(Boolean gxLabelVisibility) {
 		this.gxLabelVisibility = gxLabelVisibility;
 	}
 	
@@ -85,12 +85,12 @@ public class LineStyle extends ColorStyle {
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 	
-		root.addChild(new KML_element("width", Float.toString(this.getWidth()), false));
-		root.addChild(new KML_element("gx:outerColor", getGxOuterColor(), true));
-		root.addChild(new KML_element("gx:outerWidth", Float.toString(this.getGxOuterWidth()), true));
-		root.addChild(new KML_element("gx:physicalWidth", Float.toString(this.getGxPhysicalWidth()), true));
+		if(this.getWidth() != null)root.addChild(new KML_element("width", Float.toString(this.getWidth()), false));
+		if(this.getGxOuterColor() != null)root.addChild(new KML_element("gx:outerColor", getGxOuterColor(), true));
+		if(this.getGxOuterWidth() != null)root.addChild(new KML_element("gx:outerWidth", Float.toString(this.getGxOuterWidth()), true));
+		if(this.getGxPhysicalWidth() != null)root.addChild(new KML_element("gx:physicalWidth", Float.toString(this.getGxPhysicalWidth()), true));
 
-		root.addChild(new KML_element("gx:labelVisibility", this.isGxLabelVisibility(), true));
+		if(this.gxLabelVisibility != null)root.addChild(new KML_element("gx:labelVisibility", this.isGxLabelVisibility(), true));
 
 		return root; 
 	}

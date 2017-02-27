@@ -99,11 +99,11 @@ public class KMLFileWriter {
 			parentElement.appendChild(innerElement);
 		} else {
 			String textInNode = textNode.getWholeText();
-			if (!textInNode.equals("") && !textInNode.equals("0.0") && !textInNode.equals("0")) {
+			//if (!textInNode.equals("") && !textInNode.equals("0.0") && !textInNode.equals("0")) {
 				innerElement = document.createElement(elementName);
 				innerElement.appendChild(textNode);
 				parentElement.appendChild(innerElement);
-			}
+			//}
 		}
 
 		return innerElement;

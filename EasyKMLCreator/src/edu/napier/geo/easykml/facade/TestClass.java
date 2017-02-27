@@ -23,14 +23,20 @@ import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.IconStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LabelStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LineStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.PolyStyle;
+import edu.napier.geo.easykml.KML_Object.timePrimitive.Time;
+import edu.napier.geo.easykml.KML_Object.timePrimitive.TimePrimitive;
+import edu.napier.geo.easykml.KML_Object.timePrimitive.TimeStamp;
 import edu.napier.geo.easykml.Update.Change;
 import edu.napier.geo.easykml.Update.Update;
 import edu.napier.geo.easykml.helperClasses.AltitudeModes;
-import edu.napier.geo.easykml.helperClasses.KML_element;
-import edu.napier.geo.easykml.helperClasses.TreeNode;
+
 
 public class TestClass {
 
+	double a;
+	Integer b;
+	String c;
+	Boolean d;
 	public static void main(String[] args) {
 		KML_Facade simpleKML = new KML_Facade();
 
@@ -42,13 +48,13 @@ public class TestClass {
 		style.setId("TestStyle");
 		IconStyle iconStyle = new IconStyle();
 		iconStyle.setId("istyle");
-		iconStyle.setScale(1);
+		iconStyle.setScale(1.0f);
 		iconStyle.setIconHttpAddress("http://maps.google.com/mapfiles/kml/pal3/icon21.png");
 		style.setIconStyle(iconStyle);
 
 		LineStyle lineStyle = new LineStyle();
 		lineStyle.setColor(Color.RED);
-		lineStyle.setWidth(5);
+		lineStyle.setWidth(5.0f);
 		lineStyle.setTransparency(50);
 		style.setLineStyle(lineStyle);
 
@@ -56,11 +62,11 @@ public class TestClass {
 		polyStyle.setId("Pol");
 		polyStyle.setColor(Color.GREEN);
 		polyStyle.setTransparency(80);
-		polyStyle.setFillPolygon(false);
+		polyStyle.setFillPolygon(true);
 		style.setPolyStyle(polyStyle);
 
 		LabelStyle labelStyle = new LabelStyle();
-		labelStyle.setScale(10);
+		labelStyle.setScale(10.0f);
 		labelStyle.setTransparency(50);
 		labelStyle.setColor(Color.BLUE);
 		style.setLabelStyle(labelStyle);
@@ -72,7 +78,7 @@ public class TestClass {
 		cameraPM.setCoordinates(new Location(-43.671, 170.157, 9700.0));
 		cameraPM.setHeading(-6.333);
 		cameraPM.setTilt(33.5);
-		cameraPM.setRoll(0);
+		cameraPM.setRoll(0.0);
 		Placemark pm = new Placemark("Test", "test123",
 				new Point(new Location(37.42228990140251, -122.0822035425683, 0.0)));
 		pm.setStyleURL("TestStyle");
@@ -135,33 +141,40 @@ public class TestClass {
 		Playlist playlist = new Playlist();
 
 		SoundCue soundCue = new SoundCue();
-		soundCue.setDelayedStart(2);
+		soundCue.setDelayedStart(2.0);
 		soundCue.setSoundAddress("C:\\Users\\Jannik\\Google Drive\\Uni\\2. `Trimester\\Hon Project\\Sound.mp3");
 
 		FlyTo flyTo1 = new FlyTo();
-		flyTo1.setDuration(5);
+		flyTo1.setId("FirstFly");
+		flyTo1.setDuration(5.0);
 		Camera camera1 = new Camera();
 		camera1.setCoordinates(new Location(-43.671, 170.157, 9700.0));
-		camera1.setHeading(-6);
-		camera1.setTilt(33);
+		camera1.setHeading(-6.0);
+		camera1.setTilt(33.0);
 		flyTo1.setAbstractView(camera1);
 
 		Wait wait1 = new Wait();
-		wait1.setDuration(5);
+		wait1.setId("WaitIDTest");
+		wait1.setDuration(5.0);
 
 		FlyTo flyTo2 = new FlyTo();
-		flyTo2.setDuration(6);
+		flyTo2.setDuration(6.0);
 		Camera camera2 = new Camera();
+		TimeStamp t = new TimeStamp();
+		t.setTimeStamp(new Time());
+		camera2.setTimePrimitive(t);
+		camera2.setId("CAM_ID");
 		camera2.setCoordinates(new Location(-39.663, 174.063, 18275.0));
-		camera2.setHeading(-5);
-		camera2.setTilt(65);
+		camera2.setHeading(-5.0);
+		camera2.setTilt(65.0);
 		camera2.setAltitudeMode(AltitudeModes.ABSOLUT);
 		flyTo2.setAbstractView(camera2);
 
 		FlyTo flyTo3 = new FlyTo();
-		flyTo3.setDuration(3);
+		flyTo3.setDuration(3.0);
 		flyTo3.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 		LookAt lookAt1 = new LookAt();
+		lookAt1.setId("Lookatidtest");
 		lookAt1.setCoordinates(new Location(-39.279, 174.007, 0.0));
 		lookAt1.setHeading(112.817);
 		lookAt1.setTilt(68.065);
@@ -173,7 +186,7 @@ public class TestClass {
 		tourControl.setId("hallo");
 
 		FlyTo flyTo4 = new FlyTo();
-		flyTo4.setDuration(3);
+		flyTo4.setDuration(3.0);
 		flyTo4.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 		LookAt lookAt2 = new LookAt();
 		lookAt2.setCoordinates(new Location(-39.321, 174.064, 0.0));
@@ -202,11 +215,11 @@ public class TestClass {
 		cam.setCoordinates(new Location(-43.671, 170.157, 9700.0));
 		cam.setHeading(-6.333);
 		cam.setTilt(33.5);
-		cam.setRoll(0);
+		cam.setRoll(0.0);
 		flyTo5.setAbstractView(cam);
 
 		Wait wait2 = new Wait();
-		wait2.setDuration(8);
+		wait2.setDuration(8.0);
 
 		playlist.addPrimitiveAction(soundCue);
 		playlist.addPrimitiveAction(flyTo1);
@@ -226,6 +239,16 @@ public class TestClass {
 		// save Document
 		simpleKML.saveKMLDocument(
 				"C:\\Users\\Jannik\\Google Drive\\Uni\\2. `Trimester\\Hon Project\\EasyKMLCreator.kml");
+		
+//		
+//		TestClass t = new TestClass();
+//		
+//		t.b = 2;
+//		System.out.println("\n" + t.a);
+//		System.out.println(t.b);
+//		System.out.println(t.c);
+//		System.out.println(t.d);
+
 
 	}
 

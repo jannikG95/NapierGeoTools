@@ -48,7 +48,7 @@ public class Update {
 
 		root.data.setName("Update");
 	
-		root.addChild(new KML_element("targetHref", this.getTargetHref(), false));
+		if(this.getTargetHref() != null) root.addChild(new KML_element("targetHref", this.getTargetHref(), false));
 
 		
 		if(change != null)root.addTreeNode(change.getLinkedOutput());

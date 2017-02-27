@@ -9,15 +9,15 @@ import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public abstract class Feature extends KML_object {
 	
-	private String name = "";
-	private boolean visibility = true;
-	private boolean open = false; 
-	private String author = "" ; 
-	private String description = ""; 
-	private AbstractView abstractView = null;
-	private TimePrimitive timePrimitive = null;
-	private String styleURL = "";
-	private Style style = null;
+	private String name;
+	private Boolean visibility;
+	private Boolean open; 
+	private String author; 
+	private String description; 
+	private AbstractView abstractView;
+	private TimePrimitive timePrimitive;
+	private String styleURL;
+	private Style style;
 
 	
 	public String getName() {
@@ -81,15 +81,15 @@ public abstract class Feature extends KML_object {
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addChild(new KML_element("name", this.getName(), false));
-		root.addChild(new KML_element("visibility", this.isVisibility(), false));
-		root.addChild(new KML_element("open", this.isOpen(), false));
-		root.addChild(new KML_element("atom:author", this.getAuthor(), false));
-		root.addChild(new KML_element("description", this.getDescription(), false));
+		if(this.getName() != null)root.addChild(new KML_element("name", this.getName(), false));
+		if(this.visibility != null)root.addChild(new KML_element("visibility", this.isVisibility(), false));
+		if(this.open != null)root.addChild(new KML_element("open", this.isOpen(), false));
+		if(this.getAuthor() != null)root.addChild(new KML_element("atom:author", this.getAuthor(), false));
+		if(this.getDescription() != null)root.addChild(new KML_element("description", this.getDescription(), false));
 		if(getAbstractView() != null)root.addTreeNode(getAbstractView().getLinkedOutput()) ;
 		if(getTimePrimitive() != null)root.addTreeNode(getTimePrimitive().getLinkedOutput());
 		if(getStyle() != null)root.addTreeNode(getStyle().getLinkedOutput());
-		root.addChild(new KML_element("styleUrl", this.getStyleURL(), false));
+		if(this.getStyleURL() != null)root.addChild(new KML_element("styleUrl", this.getStyleURL(), false));
 
 
 		return root; 

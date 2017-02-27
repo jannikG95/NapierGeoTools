@@ -42,8 +42,8 @@ public class Change {
 
 		root.data.setName("Change");
 	
-		root.addChild(new KML_element(kmlObjectName, "", false)).addChild(new KML_element(tag, newText, false));
-		root.addChild(new KML_element("targetID", this.getTargetID(), false));
+		if(this.getNewText()!=null)root.addChild(new KML_element(kmlObjectName, "", false)).addChild(new KML_element(tag, newText, false));
+		if(this.getTargetID()!=null)root.addChild(new KML_element("targetID", this.getTargetID(), false));
 
 		
 

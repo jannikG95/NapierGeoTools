@@ -33,7 +33,7 @@ public abstract class AbstractView extends KML_object{
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		if(getTimePrimitive() != null)root.addTreeNode(getTimePrimitive().getLinkedOutput());
-		root.addChild(new KML_element("gx:ViewerOptions", this.viewerOption, true));
+		if(this.getViewerOption() != null)root.addChild(new KML_element("gx:ViewerOptions", this.getViewerOption(), true));
 
 		return root; 
 	}

@@ -5,14 +5,14 @@ import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class TimeStamp extends TimePrimitive{
 
-	private TimePrimitive timeStamp;
+	private Time timeStamp;
 
 	
-	public TimePrimitive getTimeStamp() {
+	public Time getTimeStamp() {
 		return timeStamp;
 	}
 
-	public void setTimeStamp(TimePrimitive timeStamp) {
+	public void setTimeStamp(Time timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 	
@@ -20,7 +20,7 @@ public class TimeStamp extends TimePrimitive{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addChild(new KML_element("when", this.getTimeStamp().getFormattedString(), false));
+		if(this.getTimeStamp() != null)root.addChild(new KML_element("when", this.getTimeStamp().getFormattedString(), false));
 
 		return root; 
 	}

@@ -5,20 +5,20 @@ import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class TimeSpan extends TimePrimitive{
 
-	private TimePrimitive beginStamp;
-	private TimePrimitive endStamp;
+	private Time beginStamp;
+	private Time endStamp;
 	
 	
-	public TimePrimitive getBeginStamp() {
+	public Time getBeginStamp() {
 		return beginStamp;
 	}
-	public void setBeginStamp(TimePrimitive beginStamp) {
+	public void setBeginStamp(Time beginStamp) {
 		this.beginStamp = beginStamp;
 	}
-	public TimePrimitive getEndStamp() {
+	public Time getEndStamp() {
 		return endStamp;
 	}
-	public void setEndStamp(TimePrimitive endStamp) {
+	public void setEndStamp(Time endStamp) {
 		this.endStamp = endStamp;
 	}
 	
@@ -26,8 +26,10 @@ public class TimeSpan extends TimePrimitive{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addChild(new KML_element("begin", this.getBeginStamp().getFormattedString(), false));
-		root.addChild(new KML_element("end", this.getEndStamp().getFormattedString(), false));
+		if (this.getBeginStamp() != null && this.getEndStamp() != null){
+			root.addChild(new KML_element("begin", this.getBeginStamp().getFormattedString(), false));
+			root.addChild(new KML_element("end", this.getEndStamp().getFormattedString(), false));
+		}
 
 		return root; 
 	}

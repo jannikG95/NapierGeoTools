@@ -9,7 +9,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 
 public class KMLFileSaver {
-	
+
 	public void saveFile(Document document, String destination){
         TransformerFactory transformerFactory =
         TransformerFactory.newInstance();
@@ -17,7 +17,14 @@ public class KMLFileSaver {
 		try {
 			transformer = transformerFactory.newTransformer();
 	        DOMSource source = new DOMSource(document);
-	        StreamResult result = new StreamResult(new File(destination));
+	        
+	        StreamResult result;
+	        if(destination != ""){
+	        	result = new StreamResult(new File(destination));
+	        }else {
+	        	result = new StreamResult(new File("./EasyKMLCreator.kml"));
+	        }
+
 	        transformer.transform(source, result);
 	         // Output to console for testing
 	         StreamResult consoleResult =

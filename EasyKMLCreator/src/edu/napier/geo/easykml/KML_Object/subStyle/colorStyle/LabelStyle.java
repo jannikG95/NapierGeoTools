@@ -12,13 +12,13 @@ public class LabelStyle extends ColorStyle {
 	 * Resizes the label.
 	 */
 	
-	private float scale;
+	private Float scale;
 
-	public float getScale() {
+	public Float getScale() {
 		return scale;
 	}
 
-	public void setScale(float scale) {
+	public void setScale(Float scale) {
 		this.scale = scale;
 	}
 
@@ -26,7 +26,7 @@ public class LabelStyle extends ColorStyle {
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 	
-		root.addChild(new KML_element("scale", Float.toString(this.getScale()), false));
+		if(this.getScale() != null)root.addChild(new KML_element("scale", Float.toString(this.getScale()), false));
 		
 		return root; 
 	}

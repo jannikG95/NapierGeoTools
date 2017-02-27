@@ -37,6 +37,10 @@ public class KML_Facade {
 	public void saveKMLDocument(String destination) {
 		new KMLFileSaver().saveFile(KML_Document, destination);
 	}
+	
+	public void saveKMLDocument() {
+		new KMLFileSaver().saveFile(KML_Document, "");
+	}
 
 	public void createPlacemark(Placemark newPlacemark) {
 		if (documentInitialized()) {

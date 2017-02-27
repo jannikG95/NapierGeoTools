@@ -5,7 +5,7 @@ public class KML_element {
 
 	private String name;
 	private String text;
-	private boolean gExtenstion;
+	private Boolean gExtenstion;
 
 	public KML_element(String name, String text, boolean gExtension) {
 		this.name = name;

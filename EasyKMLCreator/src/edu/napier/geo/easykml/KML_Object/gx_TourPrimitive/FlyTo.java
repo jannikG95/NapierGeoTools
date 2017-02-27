@@ -10,16 +10,16 @@ public class FlyTo extends TourPrimitive{
 	public final static String FLYTOMODE_BOUNCE = "bounce"; 
 
 
-	private double duration;
+	private Double duration;
 	private String flyToMode;
-	private AbstractView abstractView = null;
+	private AbstractView abstractView;
 	
 	
 
-	public double getDuration() {
+	public Double getDuration() {
 		return duration;
 	}
-	public void setDuration(double duration) {
+	public void setDuration(Double duration) {
 		this.duration = duration;
 	}
 	public String getFlyToMode() {
@@ -42,8 +42,8 @@ public class FlyTo extends TourPrimitive{
 		root.data.setName("gx:FlyTo");
 		
 		
-		root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
-		root.addChild(new KML_element("gx:flyToMode", this.getFlyToMode(), true));
+		if(this.getDuration() != null)root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
+		if(this.getFlyToMode() != null)root.addChild(new KML_element("gx:flyToMode", this.getFlyToMode(), true));
 		if(abstractView != null)root.addTreeNode(abstractView.getLinkedOutput());
 
 		return root; 

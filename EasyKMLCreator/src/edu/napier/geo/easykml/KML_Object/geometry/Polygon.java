@@ -29,17 +29,17 @@ public class Polygon extends KML_Geometry{
 	 * 
 	 */
 
-	private boolean extruded;
-	private boolean tessellated;
+	private Boolean extruded;
+	private Boolean tessellated;
 	private String altitudeMode;
-	private LinearRing outerBoundry = null;
-	private ArrayList<LinearRing> innerBoundryList = new ArrayList<>();
+	private LinearRing outerBoundry;
+	private ArrayList<LinearRing> innerBoundryList;
 	
 	public String isExtruded() {
 		return (extruded) ? "1" : "0";
 	}
 
-	public void setExtruded(boolean extruded) {
+	public void setExtruded(Boolean extruded) {
 		this.extruded = extruded;
 	}
 
@@ -47,7 +47,7 @@ public class Polygon extends KML_Geometry{
 		return (tessellated) ? "1" : "0";
 	}
 
-	public void setTessellated(boolean tessellated) {
+	public void setTessellated(Boolean tessellated) {
 		this.tessellated = tessellated;
 	}
 
@@ -72,18 +72,24 @@ public class Polygon extends KML_Geometry{
 	}
 
 	public void addInnerBoundry(LinearRing innerBoundry) {
+		if(this.innerBoundryList == null) {
+			this.innerBoundryList = new ArrayList<>();
+		}
 		this.innerBoundryList.add(innerBoundry);
+	}
+	
+	public void setInnerBoundryList(ArrayList<LinearRing> innerBoundryList) {
+		this.innerBoundryList = innerBoundryList;
 	}
 
 	public TreeNode<KML_element> getLinkedOutput (){
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addChild(new KML_element("extrude", this.isExtruded(), false));
-		root.addChild(new KML_element("tessellate", this.isTessellated(), false));
-		root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
-		TreeNode<KML_element> rootOuter =  root.addChild(new KML_element("outerBoundaryIs", null, false));
-		rootOuter.addTreeNode(outerBoundry.getLinkedOutput());
+		if (this.extruded != null)root.addChild(new KML_element("extrude", this.isExtruded(), false));
+		if (this.tessellated != null)root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+		if (this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		if (this.getOuterBoundry() != null)root.addChild(new KML_element("outerBoundaryIs", null, false)).addTreeNode(outerBoundry.getLinkedOutput());
 		for (LinearRing linearRing : innerBoundryList) {
 			TreeNode<KML_element> rootInner = root.addChild(new KML_element("innerBoundaryIs", null, false));
 			rootInner.addTreeNode(linearRing.getLinkedOutput());

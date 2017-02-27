@@ -11,10 +11,10 @@ import edu.napier.geo.easykml.helperClasses.TreeNode;
 public class LineString extends KML_Geometry {
 
 	private Double gxAltitudeOffset;
-	private boolean extruded;
-	private boolean tessellated;
+	private Boolean extruded;
+	private Boolean tessellated;
 	private String altitudeMode;
-	private int gxDrawOrder;
+	private Integer gxDrawOrder;
 	private ArrayList<Location> locations;
 
 	/*
@@ -49,11 +49,11 @@ public class LineString extends KML_Geometry {
 		this.gxAltitudeOffset = gxAltitudeOffset;
 	}
 
-	public int getGxDrawOrder() {
+	public Integer getGxDrawOrder() {
 		return gxDrawOrder;
 	}
 
-	public void setGxDrawOrder(int gxDrawOrder) {
+	public void setGxDrawOrder(Integer gxDrawOrder) {
 		this.gxDrawOrder = gxDrawOrder;
 	}
 
@@ -61,7 +61,7 @@ public class LineString extends KML_Geometry {
 		return (extruded) ? "1" : "0";
 	}
 
-	public void setExtruded(boolean extruded) {
+	public void setExtruded(Boolean extruded) {
 		this.extruded = extruded;
 	}
 
@@ -69,7 +69,7 @@ public class LineString extends KML_Geometry {
 		return (tessellated) ? "1" : "0";
 	}
 
-	public void setTessellated(boolean tessellated) {
+	public void setTessellated(Boolean tessellated) {
 		this.tessellated = tessellated;
 	}
 
@@ -94,11 +94,11 @@ public class LineString extends KML_Geometry {
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
 		if(gxAltitudeOffset != null)root.addChild(new KML_element("gx:altitudeOffse", Double.toString(this.getGxAltitudeOffset()), true));
-		root.addChild(new KML_element("extrude", this.isExtruded(), false));
-		root.addChild(new KML_element("tessellate", this.isTessellated(), false));
-		root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
-		root.addChild(new KML_element("gx:drawOrder", Integer.toString(this.getGxDrawOrder()), true));
-		root.addChild(new KML_element("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
+		if(this.extruded != null)root.addChild(new KML_element("extrude", this.isExtruded(), false));
+		if(this.tessellated != null)root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+		if(this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		if(this.getGxDrawOrder() != null)root.addChild(new KML_element("gx:drawOrder", Integer.toString(this.getGxDrawOrder()), true));
+		if(this.getCoordinates() != null)root.addChild(new KML_element("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
 
 		return root; 
 	}

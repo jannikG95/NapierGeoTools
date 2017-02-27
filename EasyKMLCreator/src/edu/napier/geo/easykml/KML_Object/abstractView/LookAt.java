@@ -26,7 +26,7 @@ public class LookAt extends AbstractView {
 	 * Default=0 (North). (See diagram below.) Values range from 0 to 360
 	 * degrees.
 	 */
-	private double heading;
+	private Double heading;
 
 	/*
 	 * <tilt> Angle between the direction of the LookAt position and the normal
@@ -35,14 +35,14 @@ public class LookAt extends AbstractView {
 	 * degrees indicates viewing from directly above. A <tilt> value of 90
 	 * degrees indicates viewing along the horizon.
 	 */
-	private double tilt;
+	private Double tilt;
 
 	/*
 	 * <range>(required) Distance in meters from the point specified by
 	 * <longitude>, <latitude>, and <altitude> to the LookAt position. (See
 	 * diagram below.)
 	 */
-	private double range;
+	private Double range;
 
 	/*
 	 * <altitudeMode> Specifies how the <altitude> specified for the LookAt
@@ -59,29 +59,29 @@ public class LookAt extends AbstractView {
 		this.coordinates = coordinates;
 	}
 
-	public double getHeading() {
+	public Double getHeading() {
 		return heading;
 	}
 
-	public void setHeading(double heading) {
+	public void setHeading(Double heading) {
 		if (heading <= 360 && heading >= 0)
 			this.heading = heading;
 	}
 
-	public double getTilt() {
+	public Double getTilt() {
 		return tilt;
 	}
 
-	public void setTilt(double tilt) {
+	public void setTilt(Double tilt) {
 		if (tilt <= 90 && tilt >= 0)
 			this.tilt = tilt;
 	}
 
-	public double getRange() {
+	public Double getRange() {
 		return range;
 	}
 
-	public void setRange(double range) {
+	public void setRange(Double range) {
 		this.range = range;
 	}
 
@@ -95,16 +95,16 @@ public class LookAt extends AbstractView {
 	
 	public TreeNode<KML_element> getLinkedOutput (){
 		
-		TreeNode<KML_element> root = new TreeNode<KML_element>(new KML_element(this.getClass().getSimpleName(), "", false));
-		root.addChild(new KML_element("id", this.getId(), false));
+		TreeNode<KML_element> root = super.getLinkedOutput();
+		//root.addChild(new KML_element("id", this.getId(), false));
 
-		root.addChild(new KML_element("longitude", Double.toString(this.getCoordinates().getLon()), false));
-		root.addChild(new KML_element("latitude", Double.toString(this.getCoordinates().getLat()), false));
-		root.addChild(new KML_element("altitude", Double.toString(this.getCoordinates().getAlt()), false));
-		root.addChild(new KML_element("heading", Double.toString(this.getHeading()), false));
-		root.addChild(new KML_element("tilt", Double.toString(this.getTilt()), false));
-		root.addChild(new KML_element("range", Double.toString(this.getRange()), false));
-		root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		if(this.getCoordinates() != null)root.addChild(new KML_element("longitude", Double.toString(this.getCoordinates().getLon()), false));
+		if(this.getCoordinates() != null)root.addChild(new KML_element("latitude", Double.toString(this.getCoordinates().getLat()), false));
+		if(this.getCoordinates() != null)root.addChild(new KML_element("altitude", Double.toString(this.getCoordinates().getAlt()), false));
+		if(this.getHeading() != null)root.addChild(new KML_element("heading", Double.toString(this.getHeading()), false));
+		if(this.getTilt() != null)root.addChild(new KML_element("tilt", Double.toString(this.getTilt()), false));
+		if(this.getRange() != null)root.addChild(new KML_element("range", Double.toString(this.getRange()), false));
+		if(this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
 
 
 		return root; 

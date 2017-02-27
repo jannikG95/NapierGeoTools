@@ -6,7 +6,7 @@ import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Tour extends Feature {
 	
-	private Playlist playlist = null;
+	private Playlist playlist;
 	
 	public Playlist getPlaylist() {
 		return playlist;

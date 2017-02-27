@@ -15,19 +15,19 @@ public class PolyStyle extends ColorStyle {
 	 * Boolean value. Specifies whether to outline the polygon. Polygon outlines use the current LineStyle.
 	 */
 	
-	private boolean fillPolygon;
-	private boolean outLine;
+	private Boolean fillPolygon;
+	private Boolean outLine;
 	
 	public String isFillPolygon() {
 		return (fillPolygon) ? "1" : "0";
 	}
-	public void setFillPolygon(boolean fillPolygon) {
+	public void setFillPolygon(Boolean fillPolygon) {
 		this.fillPolygon = fillPolygon;
 	}
 	public String isOutLine() {
 		return (outLine) ? "1" : "0";
 	}
-	public void setOutLine(boolean outLine) {
+	public void setOutLine(Boolean outLine) {
 		this.outLine = outLine;
 	} 
 	
@@ -36,8 +36,8 @@ public class PolyStyle extends ColorStyle {
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 	
-		root.addChild(new KML_element("fill", this.isFillPolygon(), false));
-		root.addChild(new KML_element("width", this.isOutLine(), false));
+		if(this.fillPolygon != null)root.addChild(new KML_element("fill", this.isFillPolygon(), false));
+		if(this.outLine != null)root.addChild(new KML_element("outline", this.isOutLine(), false));
 
 		
 		return root; 

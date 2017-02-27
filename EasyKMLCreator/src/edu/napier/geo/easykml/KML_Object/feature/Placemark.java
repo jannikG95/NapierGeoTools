@@ -27,7 +27,7 @@ public class Placemark extends Feature {
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.addTreeNode(geometryObject.getLinkedOutput());
+		if(this.geometryObject != null)root.addTreeNode(geometryObject.getLinkedOutput());
 
 		return root; 
 	}

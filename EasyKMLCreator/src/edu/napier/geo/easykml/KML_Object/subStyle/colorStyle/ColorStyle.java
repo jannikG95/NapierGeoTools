@@ -15,9 +15,9 @@ public abstract class ColorStyle extends KML_object{
 	 */
 
 	private Color color;
-	private boolean colorModeActivated = false; // false = normal true = random
-	private String colorMode = "";
-	private int transparency = 100; // default value 100 percent. The object is
+	private Boolean colorModeActivated; // false = normal true = random
+	private String colorMode;
+	private Integer transparency; // default value 100 percent. The object is
 									// completely visible
 	
 	
@@ -33,11 +33,11 @@ public abstract class ColorStyle extends KML_object{
 		this.color = color;
 	}
 
-	public boolean isColorModeActivated() {
+	public Boolean isColorModeActivated() {
 		return colorModeActivated;
 	}
 
-	public void setColorModeActivated(boolean colorModeActivated) {
+	public void setColorModeActivated(Boolean colorModeActivated) {
 		if (colorModeActivated == true)
 			this.colorMode = "random";
 		else
@@ -50,11 +50,11 @@ public abstract class ColorStyle extends KML_object{
 		return colorMode;
 	}
 
-	public int getTransparency() {
+	public Integer getTransparency() {
 		return transparency;
 	}
 
-	public void setTransparency(int transparency) {
+	public void setTransparency(Integer transparency) {
 		if (transparency > 100 || transparency < 0)
 			this.transparency = 100; // default
 
@@ -88,8 +88,8 @@ public abstract class ColorStyle extends KML_object{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 	
-		root.addChild(new KML_element("color", colorInHexstring(), false));
-		root.addChild(new KML_element("colorMode", this.getColorMode(), false));
+		if(this.getColor() != null)root.addChild(new KML_element("color", colorInHexstring(), false));
+		if(this.getColorMode() != null)root.addChild(new KML_element("colorMode", this.getColorMode(), false));
 
 
 		return root; 

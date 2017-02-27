@@ -7,7 +7,7 @@ public class SoundCue extends TourPrimitive{
 
 
 	private String soundAddress;
-	private double delayedStart;
+	private Double delayedStart;
 	
 	public String getSoundAddress() {
 		return soundAddress;
@@ -15,10 +15,10 @@ public class SoundCue extends TourPrimitive{
 	public void setSoundAddress(String soundAddress) {
 		this.soundAddress = soundAddress;
 	}
-	public double getDelayedStart() {
+	public Double getDelayedStart() {
 		return delayedStart;
 	}
-	public void setDelayedStart(double delayedStart) {
+	public void setDelayedStart(Double delayedStart) {
 		this.delayedStart = delayedStart;
 	}	
 	
@@ -28,8 +28,8 @@ public class SoundCue extends TourPrimitive{
 
 		root.data.setName("gx:SoundCue");
 		
-		root.addChild(new KML_element("href", this.getSoundAddress(), false));
-		root.addChild(new KML_element("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
+		if(this.getSoundAddress() != null)root.addChild(new KML_element("href", this.getSoundAddress(), false));
+		if(this.getDelayedStart() != null)root.addChild(new KML_element("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
 
 		return root; 
 	}

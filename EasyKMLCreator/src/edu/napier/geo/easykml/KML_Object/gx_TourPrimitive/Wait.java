@@ -5,13 +5,13 @@ import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Wait extends TourPrimitive{
 	
-	private double duration;
+	private Double duration;
 	
 	
-	public double getDuration() {
+	public Double getDuration() {
 		return duration;
 	}
-	public void setDuration(double duration) {
+	public void setDuration(Double duration) {
 		this.duration = duration;
 	}
 	
@@ -21,7 +21,7 @@ public class Wait extends TourPrimitive{
 
 		root.data.setName("gx:Wait");
 	
-		root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
+		if(this.getDuration() != null)root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
 	
 		return root; 
 	}
