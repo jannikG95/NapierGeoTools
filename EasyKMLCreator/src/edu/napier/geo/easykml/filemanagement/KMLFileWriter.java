@@ -28,12 +28,10 @@ public class KMLFileWriter {
 		processLinkedOutputTree(kml_object);
 	}
 
-
 	// --------------------------------------------------------------------------------------------------------------
 	// private method section
 	// --------------------------------------------------------------------------------------------------------------
-	
-	
+
 	private void defineBasicDocumentStructure() {
 		KMLNamespaceDefinition = this.document.createElementNS("http://www.opengis.net/kml/2.2", "kml");
 		document.appendChild(KMLNamespaceDefinition);
@@ -65,22 +63,21 @@ public class KMLFileWriter {
 				if (!node.isLeaf()) {
 					System.err.println(node.getLevel());
 					kml_object_RootElement = creatDomElement(node.data.getName(), null,
-							ParentElementofLevel.get(node.getLevel()-1), node.data.isgExtenstion());
+							ParentElementofLevel.get(node.getLevel() - 1), node.data.isgExtenstion());
 					ParentElementofLevel.add(node.getLevel(), kml_object_RootElement);
 				} else {
 					if (node.data.getName() == "id" && node.data.getText() != "")
-						setElementID(kml_object_RootElement,"id" , node.data.getText());
+						setElementID(kml_object_RootElement, "id", node.data.getText());
 					else if (node.data.getName() == "targetID" && node.data.getText() != "")
-						setElementID(kml_object_RootElement,"targetId" , node.data.getText());
+						setElementID(kml_object_RootElement, "targetId", node.data.getText());
 					else {
 						creatDomElement(node.data.getName(), document.createTextNode(node.data.getText()),
-								ParentElementofLevel.get(node.getLevel()-1), node.data.isgExtenstion());
+								ParentElementofLevel.get(node.getLevel() - 1), node.data.isgExtenstion());
 					}
 				}
 			}
 		}
 	}
-
 
 	private void setElementID(Element element, String attr_Name, String attr_Text) {
 		if (attr_Text != null) {
@@ -98,12 +95,9 @@ public class KMLFileWriter {
 			innerElement = document.createElement(elementName);
 			parentElement.appendChild(innerElement);
 		} else {
-			String textInNode = textNode.getWholeText();
-			//if (!textInNode.equals("") && !textInNode.equals("0.0") && !textInNode.equals("0")) {
-				innerElement = document.createElement(elementName);
-				innerElement.appendChild(textNode);
-				parentElement.appendChild(innerElement);
-			//}
+			innerElement = document.createElement(elementName);
+			innerElement.appendChild(textNode);
+			parentElement.appendChild(innerElement);
 		}
 
 		return innerElement;

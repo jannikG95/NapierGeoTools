@@ -11,57 +11,69 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="edu.napier.geo.easykml.facade.KML_Facade" project="NapierGeoTools.EasyKMLCreator" 
-    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/facade/KML_Facade.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="148" y="294"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileCreator" 
+  <class id="2" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileCreator" 
     project="NapierGeoTools.EasyKMLCreator" 
     file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/filemanagement/KMLFileCreator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="410" y="69"/>    
+    <position height="-1" width="-1" x="378" y="91"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileSaver" 
+  <class id="3" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileSaver" 
     project="NapierGeoTools.EasyKMLCreator" 
     file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/filemanagement/KMLFileSaver.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="255" y="483"/>    
+    <position height="-1" width="-1" x="708" y="360"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileWriter" 
+  <class id="4" language="java" name="edu.napier.geo.easykml.filemanagement.KMLFileWriter" 
     project="NapierGeoTools.EasyKMLCreator" 
     file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/filemanagement/KMLFileWriter.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="654" y="276"/>    
+    <position height="-1" width="-1" x="706" y="140"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="6">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="7" name="fileWriter"/>      
-      <multiplicity id="8" minimum="0" maximum="1"/>    
+  <class id="5" language="java" name="edu.napier.geo.easykml.facade.KML_Facade" project="NapierGeoTools.EasyKMLCreator" 
+    file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/facade/KML_Facade.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="141" y="314"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="6">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="7">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="8">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="9" name="fileWriter"/>      
+      <multiplicity id="10" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <dependency id="11">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="false" package="false" protected="false" private="false" static="true"/>    
