@@ -5,7 +5,7 @@ Read-me
 -------
 
 QueryOsmAPI is a collection of Java classes allowing to parse raw OSM XML files and perform 
-aerial searches for tagged objects. This library is very simple to understand an collects the most
+areal searches for tagged objects. This library is very simple to understand an collects the most
 important functions in the QueryOsmFacade class. The API uses the BasicOSMParser library
 which uses the default Java SAX parser (org.xml.sax). 
 
@@ -39,20 +39,34 @@ The facade class contains a <code>Map<String,Element> elements</code> which stor
 The quereis searching for the "coffee" tag or an RegEx, after the file was parsed into the parser1 object can look like this:
 
 ```
-ArrayList <Location> locationsFound = facade.findLocations("coffee", currentLocation, parser1); 						//Testing with default Radius without regex
-ArrayList <Location> locationsFound = facade.findLocationsWithRadius(2.0, "coffee", currentLocation, parser1);			//Testing with own Radius without Regex
-ArrayList <Location> locationsFound = facade.findLocationsWithRegEx( "cof*e*", currentLocation, parser1 );				//Testing with default Radius and Regex
-ArrayList <Location> locationsFound = facade.findLocationsWithRegEx(2.0, "cof*e*", currentLocation, parser1);			//Testing with own radius of 2km and regex
-ArrayList <Location> locationsFound = facade.findLocationsWithinBoundingBox(parser1.getMapRange(), "coffee", parser1);	//Testing within Boundingbox without regex
-ArrayList <Location> locationsFound = facade.findLocationsWithRegEx("cof*e*", parser1.getMapRange(), parser1);			//Testing within Boundingbox and regex:
+//Query with default Radius without regex
+ArrayList <Location> locationsFound = facade.findLocations("coffee", currentLocation, parser1); 						
+
+//Query with own Radius without Regex
+ArrayList <Location> locationsFound = facade.findLocationsWithRadius(2.0, "coffee", currentLocation, parser1);			
+
+//Query with default Radius and Regex
+ArrayList <Location> locationsFound = facade.findLocationsWithRegEx( "cof*e*", currentLocation, parser1 );				
+
+//Query with own radius of 2km and regex
+ArrayList <Location> locationsFound = facade.findLocationsWithRegEx(2.0, "cof*e*", currentLocation, parser1);			
+
+//Query within Boundingbox without regex
+ArrayList <Location> locationsFound = facade.findLocationsWithinBoundingBox(parser1.getMapRange(), "coffee", parser1);	
+
+//Query within Boundingbox and regex:
+ArrayList <Location> locationsFound = facade.findLocationsWithRegEx("cof*e*", parser1.getMapRange(), parser1);			
 
 ```
 locationsFound now contains all the found locations. The radial search queries need a <code>currentLocation</code> to the define the search area.
 
 For prior analysis of the existing tags the tags can be printed either to the console or the a text file.
 ```
-	facade.printTagsInConsole(parser1);											//print to console
-	facade.printTagsToTxtFile(parser1, "filepath/nameForNewFile.txt"); 			//print to new text file
+	//print to console
+	facade.printTagsInConsole(parser1);		
+	
+	//print to new text file								
+	facade.printTagsToTxtFile(parser1, "filepath/nameForNewFile.txt"); 			
 ```
 
 
