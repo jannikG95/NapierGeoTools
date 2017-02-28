@@ -1,7 +1,7 @@
 QueryOsmAPI
 ==============
 
-Read-me
+README
 -------
 
 QueryOsmAPI is a collection of Java classes allowing to parse raw OSM XML files and perform 
@@ -9,7 +9,7 @@ areal searches for tagged objects. This library is very simple to understand an 
 important functions in the QueryOsmFacade class. The API uses the BasicOSMParser library
 which uses the default Java SAX parser (org.xml.sax). 
 
-Installation (for developers)
+Installation (For Developers)
 ------------------------------
 
 In order to use QueryOsmAPI, you can download the QueryOsmAPI.jar file. Alternatively,
@@ -19,7 +19,7 @@ you can put the content of src/main/ folder in the source directory of your proj
 Usage
 -----
 
-### In another project
+### In Another Project
 
 Here is a simple example of how to use the API. You just need to create a new QueryOsmFacade
 object, and then call the <code>parseOSMFile</code> method which takes a filepath as input .
@@ -58,7 +58,7 @@ ArrayList <Location> locationsFound = facade.findLocationsWithinBoundingBox(pars
 ArrayList <Location> locationsFound = facade.findLocationsWithRegEx("cof*e*", parser1.getMapRange(), parser1);			
 
 ```
-locationsFound now contains all the found locations. The radial search queries need a <code>currentLocation</code> to the define the search area.
+<code>locationsFound</code> now contains all the found locations. The radial search queries need a <code>currentLocation</code> to the define the search area.
 
 For prior analysis of the existing tags the tags can be printed either to the console or the a text file.
 ```
