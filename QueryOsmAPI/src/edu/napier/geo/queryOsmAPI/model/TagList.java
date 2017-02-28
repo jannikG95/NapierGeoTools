@@ -1,5 +1,9 @@
 package edu.napier.geo.queryOsmAPI.model;
 
+/** 
+ * @author Johannes Nguyen 
+ * A class that holds the tags sorted TreeMap for the search
+ */
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

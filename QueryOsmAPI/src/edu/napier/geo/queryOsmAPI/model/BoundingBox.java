@@ -1,4 +1,8 @@
 package edu.napier.geo.queryOsmAPI.model;
+/** 
+ * @author Johannes Nguyen 
+ * A class that defines the corner points of a rectangle-shaped area
+ */
 
 public class BoundingBox {
 	double minlon;

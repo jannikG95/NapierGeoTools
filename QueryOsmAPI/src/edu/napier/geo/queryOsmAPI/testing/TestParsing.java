@@ -4,6 +4,10 @@ import edu.napier.geo.queryOsmAPI.model.Element;
 import edu.napier.geo.queryOsmAPI.model.OSMParser;
 import edu.napier.geo.queryOsmAPI.osmFacade.QueryOsmFacade;
 
+/** 
+ * @author Johannes Nguyen 
+ * A class thats tests the parsing function using a selfmade OSM file
+ */
 public class TestParsing {
 	public static void main(String[] args) {
 

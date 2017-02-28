@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import edu.napier.geo.common.Location;
 import edu.napier.geo.queryOsmAPI.model.OSMParser;
 import edu.napier.geo.queryOsmAPI.osmFacade.QueryOsmFacade;
-
+/** 
+ * @author Johannes Nguyen 
+ * A class that performs examples of queries
+ */
 public class TestQueries {
 
 	public static void main(String[] args) {

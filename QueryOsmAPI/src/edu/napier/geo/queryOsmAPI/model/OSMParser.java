@@ -41,17 +41,17 @@ import org.xml.sax.helpers.XMLReaderFactory;
  * OSMParser parses XML file (OSM database extracts) and creates corresponding Java objects.
  * @author Adrien PAVIE
  */
+
+/** Modified by Johannes Nguyen*/
 public class OSMParser extends DefaultHandler {
 //ATTRIBUTES
 	/** The parsed OSM elements **/
 	private Map<String,Element> elements;
+	/** The parsed OSM bounds element **/
 	private BoundingBox mapRange;
-	
-	
-
 	/** The current read element **/
 	private Element current;
-	private ArrayList <Element> elementList = new ArrayList<Element>();
+	/** The parsed OSM taglist **/
 	private TagList tagList = new TagList();
 
 //CONSTRUCTOR
@@ -85,6 +85,7 @@ public class OSMParser extends DefaultHandler {
 	 * Parses a XML file and creates OSM Java objects
 	 * @param s The OSM database extract, in XML format, as a String
 	 * @return The corresponding OSM objects as a Map. Keys are elements ID, and values are OSM elements objects.
+	 * @return The corresponding OSM tag objects as a TreeMap, Keys are tags, and values are References to node objects
 	 * @throws IOException If an error occurs during file reading
 	 * @throws SAXException If an error occurs during parsing
 	 */
@@ -98,6 +99,7 @@ public class OSMParser extends DefaultHandler {
 	 * Parses a XML input and creates OSM Java objects
 	 * @param input The OSM database extract, in XML format, as an InputSource
 	 * @return The corresponding OSM objects as a Map. Keys are elements ID, and values are OSM elements objects.
+	 * @return The corresponding OSM tag objects as a TreeMap, Keys are tags, and values are References to node objects
 	 * @throws IOException If an error occurs during reading
 	 * @throws SAXException If an error occurs during parsing
 	 */
@@ -174,7 +176,7 @@ public class OSMParser extends DefaultHandler {
 						|| (localName.equals("relation") && ((Relation) current).getMembers().size() > 0)) {
 					
 					elements.put(current.getId(), current);
-					elementList.add(current);
+					
 				}
 				current = null;
 			}

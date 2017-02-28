@@ -11,6 +11,10 @@ import edu.napier.geo.common.Location;
 import edu.napier.geo.queryOsmAPI.model.BoundingBox;
 import edu.napier.geo.queryOsmAPI.model.OSMParser;
 import edu.napier.geo.queryOsmAPI.model.Query;
+/** 
+ * @author Johannes Nguyen 
+ * A class that summarizes the most important functions of this API
+ */
 
 public class QueryOsmFacade {
 	OSMParser parser = new OSMParser();
