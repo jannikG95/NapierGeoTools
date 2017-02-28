@@ -36,7 +36,7 @@ The created Java objects are then stored in the Parser object.
 The facade class contains a <code>Map<String,Element> elements</code> which stores all the created nodes and a
 <code>TagList taglist</code> object that contains a <code>TreeMap<String,ArrayList<String>> listOfTags </code> with references to the associated node objects.
 
-The quereis searching for the "coffee" tag or an RegEx, after the file was parsed into the parser1 object can look like this:
+The queries searching for the "coffee" tag or an RegEx, after the file was parsed into the parser1 object can look like this:
 
 ```
 //Query with default Radius without regex
