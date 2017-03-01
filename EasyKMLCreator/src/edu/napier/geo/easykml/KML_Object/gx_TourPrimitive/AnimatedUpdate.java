@@ -34,13 +34,12 @@ public class AnimatedUpdate extends TourPrimitive{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.data.setName("gx:AnimatedUpdate");
-		
-		
-		if(this.getDuration() != null)root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
+		root.data.setgExtenstion(true);
+
+		if(this.getDuration() != null)root.addChild(new KML_element("duration", Double.toString(this.getDuration()), true));
 		if(this.getUpdate() != null)root.addTreeNode(update.getLinkedOutput());
 
-		if(this.getDelayedStart() != null)root.addChild(new KML_element("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
+		if(this.getDelayedStart() != null)root.addChild(new KML_element("delayedStart", Double.toString(this.getDelayedStart()), true));
 
 
 		return root; 

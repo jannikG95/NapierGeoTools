@@ -22,7 +22,7 @@ public class Playlist extends KML_object {
 
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.data.setName("gx:Playlist");
+		root.data.setgExtenstion(true);
 		
 		if (actionList.size() > 0){
 			for (TourPrimitive tourPrimitive : actionList) {

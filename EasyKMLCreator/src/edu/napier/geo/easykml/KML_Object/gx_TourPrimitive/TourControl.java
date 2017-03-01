@@ -15,9 +15,10 @@ public class TourControl extends TourPrimitive{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.data.setName("gx:TourControl");
-	
-		root.addChild(new KML_element("gx:playMode", this.getPLAYMODE(), true));
+		root.data.setgExtenstion(true);
+
+		
+		root.addChild(new KML_element("playMode", this.getPLAYMODE(), true));
 	
 		return root; 
 	}

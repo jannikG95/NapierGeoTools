@@ -1,15 +1,12 @@
 package edu.napier.geo.easykml.filemanagement;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Text;
+import org.jdom.*;
+import org.jdom.Namespace;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
-import edu.napier.geo.easykml.KML_Object.feature.Placemark;
-import edu.napier.geo.easykml.KML_Object.feature.Tour;
-import edu.napier.geo.easykml.KML_Object.stylesector.Style;
 import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
@@ -33,16 +30,20 @@ public class KMLFileWriter {
 	// --------------------------------------------------------------------------------------------------------------
 
 	private void defineBasicDocumentStructure() {
-		KMLNamespaceDefinition = this.document.createElementNS("http://www.opengis.net/kml/2.2", "kml");
-		document.appendChild(KMLNamespaceDefinition);
-
-		rootElement = document.createElement("Document");
-		KMLNamespaceDefinition.appendChild(rootElement);
+		KMLNamespaceDefinition = new Element("kml", Namespace.getNamespace("http://www.opengis.net/kml/2.2"));	
+		document.setRootElement(KMLNamespaceDefinition);
+		
+		rootElement = new Element("Document");
+		KMLNamespaceDefinition.addContent(rootElement);
 	}
 
-	private void addGoogleExtansionsPack() {
-		if (KMLNamespaceDefinition.getAttribute("xmlns:gx") != null)
-			KMLNamespaceDefinition.setAttribute("xmlns:gx", "http://www.google.com/kml/ext/2.2");
+	private void addGoogleExtansionsPack(Element element) {
+		List additional_Namespaces = KMLNamespaceDefinition.getAdditionalNamespaces();
+		
+		if (additional_Namespaces.size() == 0)
+			KMLNamespaceDefinition.addNamespaceDeclaration(Namespace.getNamespace("gx", "http://www.google.com/kml/ext/2.2"));
+		
+		element.setNamespace((Namespace) KMLNamespaceDefinition.getAdditionalNamespaces().get(0));
 	}
 
 	private void processLinkedOutputTree(KML_object kml_object) {
@@ -55,24 +56,30 @@ public class KMLFileWriter {
 
 		for (TreeNode<KML_element> node : treeRoot) {
 			if (node.isRoot()) {
-				kml_object_RootElement = creatDomElement(treeRoot.data.getName(), null, rootElement,
-						treeRoot.data.isgExtenstion());
+				kml_object_RootElement = new Element(treeRoot.data.getName());
+				if(treeRoot.data.isgExtenstion())addGoogleExtansionsPack(kml_object_RootElement);
+				rootElement.addContent(kml_object_RootElement);
+				
 				ParentElementofLevel.add(node.getLevel(), kml_object_RootElement);
 			} else {
 
 				if (!node.isLeaf()) {
-					System.err.println(node.getLevel());
-					kml_object_RootElement = creatDomElement(node.data.getName(), null,
-							ParentElementofLevel.get(node.getLevel() - 1), node.data.isgExtenstion());
+					//System.err.println(node.getLevel());
+					kml_object_RootElement = new Element(node.data.getName());
+					ParentElementofLevel.get(node.getLevel() - 1).addContent(kml_object_RootElement);
+					if(node.data.isgExtenstion())addGoogleExtansionsPack(kml_object_RootElement);
+
 					ParentElementofLevel.add(node.getLevel(), kml_object_RootElement);
 				} else {
 					if (node.data.getName() == "id" && node.data.getText() != "")
 						setElementID(kml_object_RootElement, "id", node.data.getText());
-					else if (node.data.getName() == "targetID" && node.data.getText() != "")
-						setElementID(kml_object_RootElement, "targetId", node.data.getText());
+					else if (node.data.getName() == "targetId" && node.data.getText() != ""){
+						setElementID(ParentElementofLevel.get(node.getLevel()), "targetId", node.data.getText());}
 					else {
-						creatDomElement(node.data.getName(), document.createTextNode(node.data.getText()),
-								ParentElementofLevel.get(node.getLevel() - 1), node.data.isgExtenstion());
+						kml_object_RootElement = new Element(node.data.getName());
+						kml_object_RootElement.setText(node.data.getText());
+						ParentElementofLevel.get(node.getLevel() - 1).addContent(kml_object_RootElement);
+						if(node.data.isgExtenstion())addGoogleExtansionsPack(kml_object_RootElement);
 					}
 				}
 			}
@@ -85,22 +92,5 @@ public class KMLFileWriter {
 		}
 	}
 
-	private Element creatDomElement(String elementName, Text textNode, Element parentElement, boolean gExtension) {
-		Element innerElement = null;
-
-		if (gExtension == true) {
-			this.addGoogleExtansionsPack();
-		}
-		if (textNode == null) {
-			innerElement = document.createElement(elementName);
-			parentElement.appendChild(innerElement);
-		} else {
-			innerElement = document.createElement(elementName);
-			innerElement.appendChild(textNode);
-			parentElement.appendChild(innerElement);
-		}
-
-		return innerElement;
-	}
 
 }

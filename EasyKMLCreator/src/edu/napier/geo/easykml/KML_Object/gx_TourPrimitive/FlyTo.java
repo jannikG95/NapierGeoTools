@@ -39,11 +39,11 @@ public class FlyTo extends TourPrimitive{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.data.setName("gx:FlyTo");
+		root.data.setgExtenstion(true);
+
 		
-		
-		if(this.getDuration() != null)root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
-		if(this.getFlyToMode() != null)root.addChild(new KML_element("gx:flyToMode", this.getFlyToMode(), true));
+		if(this.getDuration() != null)root.addChild(new KML_element("duration", Double.toString(this.getDuration()), true));
+		if(this.getFlyToMode() != null)root.addChild(new KML_element("flyToMode", this.getFlyToMode(), true));
 		if(abstractView != null)root.addTreeNode(abstractView.getLinkedOutput());
 
 		return root; 
