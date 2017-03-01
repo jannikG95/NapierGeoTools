@@ -1,5 +1,7 @@
 package edu.napier.geo.common;
 
+import java.io.Serializable;
+
 /*
  * An abstract class that defines a geographical location.
  * The basic coordinate system is lattitude and longitude.
@@ -7,7 +9,11 @@ package edu.napier.geo.common;
  * Neil Urquhart 21/2/17
  * 
  */
-public class Location {
+public class Location implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -683917161904070450L;
 	//Base location. Set by constructor and not changed
 	protected double lat = 0;
 	protected double lon =0;
@@ -34,6 +40,20 @@ public class Location {
 		this.lat = lat;
 		this.lon = lon;
 		this.alt = alt;
+	}
+	
+	public Location(double lat, double lon, String source)
+			throws IllegalArgumentException {
+		// Validate
+		if ((lat < -90) || (lat > 90))
+			throw new IllegalArgumentException();
+
+		if ((lon < -180) || (lon > 180))
+			throw new IllegalArgumentException();
+		this.lat = lat;
+		this.lon = lon;
+		this.alt = 0;
+		this.source = source;
 	}
 	
 	public Location(double lat, double lon) throws IllegalArgumentException{
@@ -100,6 +120,13 @@ public class Location {
 			throw new IllegalArgumentException();
 		
 		this.alt = alt;
+	}
+	
+	public boolean hasSameLocationAs(edu.napier.geo.common.Location location) {
+		if (location.getLat() == this.getLat()
+				&& location.getLon() == this.getLon())
+			return true;
+		return false;
 	}
 	
 	/*
