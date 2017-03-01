@@ -1,6 +1,8 @@
 package edu.napier.geo.easykml.facade;
 
-import org.w3c.dom.Document;
+
+
+import org.jdom.Document;
 
 import edu.napier.geo.easykml.KML_Object.feature.Placemark;
 import edu.napier.geo.easykml.KML_Object.feature.Tour;

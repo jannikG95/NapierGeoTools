@@ -19,9 +19,9 @@ public class Wait extends TourPrimitive{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.data.setName("gx:Wait");
+		root.data.setgExtenstion(true);
 	
-		if(this.getDuration() != null)root.addChild(new KML_element("gx:duration", Double.toString(this.getDuration()), true));
+		if(this.getDuration() != null)root.addChild(new KML_element("duration", Double.toString(this.getDuration()), true));
 	
 		return root; 
 	}

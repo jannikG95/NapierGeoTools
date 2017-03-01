@@ -26,10 +26,11 @@ public class SoundCue extends TourPrimitive{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.data.setName("gx:SoundCue");
+		root.data.setgExtenstion(true);
+
 		
 		if(this.getSoundAddress() != null)root.addChild(new KML_element("href", this.getSoundAddress(), false));
-		if(this.getDelayedStart() != null)root.addChild(new KML_element("gx:delayedStart", Double.toString(this.getDelayedStart()), true));
+		if(this.getDelayedStart() != null)root.addChild(new KML_element("delayedStart", Double.toString(this.getDelayedStart()), true));
 
 		return root; 
 	}

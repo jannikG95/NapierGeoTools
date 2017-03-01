@@ -1,7 +1,8 @@
 package edu.napier.geo.easykml.filemanagement;
 
 import javax.xml.parsers.*;
-import org.w3c.dom.Document;
+
+import org.jdom.Document;
 
 public class KMLFileCreator {
 
@@ -12,16 +13,7 @@ public class KMLFileCreator {
 	}
 	
 	private void initializeDocument(){
-        DocumentBuilderFactory dbFactory =
-        DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder;
-		try {
-			dBuilder = dbFactory.newDocumentBuilder();
-	        document = dBuilder.newDocument();
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		document = new Document();
 	}
 	
 	public Document getKMLDoument(){

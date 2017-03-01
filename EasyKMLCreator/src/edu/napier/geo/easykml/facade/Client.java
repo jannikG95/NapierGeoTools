@@ -235,7 +235,7 @@ public class Client {
 
 		// save Document
 		simpleKML.saveKMLDocument(
-				"C:\\Users\\Jannik\\Google Drive\\Uni\\2. `Trimester\\Hon Project\\EasyKMLCreator.kml");
+				"C:\\Users\\Jannik\\Google Drive\\Uni\\2. `Trimester\\Hon Project\\EasyKMLCreator2.kml");
 		
 
 	}

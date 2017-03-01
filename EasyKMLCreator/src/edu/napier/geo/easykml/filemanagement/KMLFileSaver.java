@@ -1,38 +1,40 @@
 package edu.napier.geo.easykml.filemanagement;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.Document;
+import org.jdom.Document;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
 
 public class KMLFileSaver {
 
-	public void saveFile(Document document, String destination){
-        TransformerFactory transformerFactory =
-        TransformerFactory.newInstance();
-        Transformer transformer;
-		try {
-			transformer = transformerFactory.newTransformer();
-	        DOMSource source = new DOMSource(document);
-	        
-	        StreamResult result;
-	        if(destination != ""){
-	        	result = new StreamResult(new File(destination));
-	        }else {
-	        	result = new StreamResult(new File("./EasyKMLCreator.kml"));
-	        }
+	public void saveFile(Document document, String destination) {
 
-	        transformer.transform(source, result);
-	         // Output to console for testing
-	         StreamResult consoleResult =
-	         new StreamResult(System.out);
-	         transformer.transform(source, consoleResult);
-		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		try {
+			// new XMLOutputter().output(doc, System.out);
+			XMLOutputter xmlOutput = new XMLOutputter();
+
+			// display nice nice
+			xmlOutput.setFormat(Format.getPrettyFormat());
+
+			FileWriter result;
+			if (destination != "") {
+				result = new FileWriter(destination + ".kml");
+			} else {
+				result = new FileWriter("./EasyKMLCreator.kml");
+			}
+
+			xmlOutput.output(document, result);
+
+			System.out.println("File Saved!");
+		} catch (IOException io) {
+			System.out.println(io.getMessage());
 		}
 
 	}

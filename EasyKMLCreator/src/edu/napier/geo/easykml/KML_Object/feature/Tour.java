@@ -19,7 +19,7 @@ public class Tour extends Feature {
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		root.data.setName("gx:Tour");
+		root.data.setgExtenstion(true);
 		
 		if(playlist != null)root.addTreeNode(playlist.getLinkedOutput());
 
