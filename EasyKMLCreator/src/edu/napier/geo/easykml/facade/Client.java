@@ -24,7 +24,6 @@ import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LabelStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LineStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.PolyStyle;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.Time;
-import edu.napier.geo.easykml.KML_Object.timePrimitive.TimePrimitive;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.TimeStamp;
 import edu.napier.geo.easykml.Update.Change;
 import edu.napier.geo.easykml.Update.Update;
@@ -35,7 +34,7 @@ public class Client {
 
 
 	public static void main(String[] args) {
-		KML_Facade simpleKML = new KML_Facade();
+		EasyKMLCreator simpleKML = new EasyKMLCreator();
 
 		
 		// create Styles

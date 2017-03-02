@@ -1,7 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.geometry;
 
 import edu.napier.geo.common.Location;
-import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.StringBuilder;
 import edu.napier.geo.easykml.helperClasses.TreeNode;

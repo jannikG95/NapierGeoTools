@@ -1,8 +1,9 @@
 package edu.napier.geo.easykml.filemanagement;
 
-import javax.xml.parsers.*;
 
-import org.jdom.Document;
+import org.jdom2.Document;
+
+
 
 public class KMLFileCreator {
 

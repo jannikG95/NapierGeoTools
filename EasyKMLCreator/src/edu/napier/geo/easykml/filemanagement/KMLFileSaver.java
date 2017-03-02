@@ -1,16 +1,11 @@
 package edu.napier.geo.easykml.filemanagement;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import javax.xml.transform.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import org.jdom.Document;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.Document;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 public class KMLFileSaver {
 

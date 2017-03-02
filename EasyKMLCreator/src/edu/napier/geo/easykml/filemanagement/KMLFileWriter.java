@@ -3,8 +3,7 @@ package edu.napier.geo.easykml.filemanagement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jdom.*;
-import org.jdom.Namespace;
+import org.jdom2.*;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.helperClasses.KML_element;
@@ -38,7 +37,7 @@ public class KMLFileWriter {
 	}
 
 	private void addGoogleExtansionsPack(Element element) {
-		List additional_Namespaces = KMLNamespaceDefinition.getAdditionalNamespaces();
+		List<Namespace> additional_Namespaces = KMLNamespaceDefinition.getAdditionalNamespaces();
 		
 		if (additional_Namespaces.size() == 0)
 			KMLNamespaceDefinition.addNamespaceDeclaration(Namespace.getNamespace("gx", "http://www.google.com/kml/ext/2.2"));

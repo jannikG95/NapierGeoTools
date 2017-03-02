@@ -1,7 +1,5 @@
 package edu.napier.geo.easykml.KML_Object.timePrimitive;
 
-import java.text.DecimalFormat;
-import java.util.Calendar;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.helperClasses.KML_element;

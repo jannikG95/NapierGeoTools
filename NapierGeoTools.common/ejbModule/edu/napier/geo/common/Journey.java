@@ -1,6 +1,6 @@
 package edu.napier.geo.common;
 
-import java.util.List;
+
 
 /*
  * A basic class to represent a journey that links two locations

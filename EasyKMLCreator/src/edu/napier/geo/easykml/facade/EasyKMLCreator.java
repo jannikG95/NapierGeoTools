@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.facade;
 
-import org.jdom.Document;
+import org.jdom2.Document;
 
 import edu.napier.geo.easykml.KML_Object.feature.Placemark;
 import edu.napier.geo.easykml.KML_Object.feature.Tour;
@@ -9,7 +9,7 @@ import edu.napier.geo.easykml.filemanagement.KMLFileCreator;
 import edu.napier.geo.easykml.filemanagement.KMLFileSaver;
 import edu.napier.geo.easykml.filemanagement.KMLFileWriter;
 
-public class KML_Facade {
+public class EasyKMLCreator {
 
 	private Document KML_Document;
 	private KMLFileWriter fileWriter;
@@ -18,7 +18,7 @@ public class KML_Facade {
 	/**
 	 * Creates a new instance of the EasyKMLCreator.
 	 */
-	public KML_Facade() {
+	public EasyKMLCreator() {
 	}
 
 	/**
