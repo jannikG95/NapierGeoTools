@@ -12,6 +12,7 @@ public abstract class AbstractView extends KML_object{
 	public static final String VOPTION_SUNLIGHT = "sunlight";
 	public static final String VOPTION_GROUNDNAVIGATION = "groundnavigation";
 
+
 	private TimePrimitive timePrimitive = null; // Timespan or Timestamp
 	private String viewerOption;
 	

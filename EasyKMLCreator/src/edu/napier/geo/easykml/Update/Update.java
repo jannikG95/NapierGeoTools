@@ -9,6 +9,15 @@ public class Update {
 	private Change change;
 	private Create create; 
 	private Delete delete;
+	
+	/**
+	 * Update is not fully implemented yet
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#update}
+	 */
+	public Update() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getTargetHref() {
 		return targetHref;

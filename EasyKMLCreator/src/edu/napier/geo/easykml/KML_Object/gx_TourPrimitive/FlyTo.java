@@ -15,6 +15,20 @@ public class FlyTo extends TourPrimitive{
 	private AbstractView abstractView;
 	
 	
+	/**
+	 * FlyTo specifies a point on the earth to which the camera will fly during a Tour.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#gxflyto}
+	 * 
+	 * FlyTo is part of the Google extension pack.
+	 * @param duration
+	 * @param abstractView
+	 */
+	public FlyTo(Double duration, AbstractView abstractView) {
+		this.duration = duration;
+		this.abstractView = abstractView;
+	}
+	
 
 	public Double getDuration() {
 		return duration;

@@ -8,6 +8,18 @@ public class Tour extends Feature {
 	
 	private Playlist playlist;
 	
+	/**
+	 * A Tour is a child class from feature which contain a single Playlist instance.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#gxtour}
+	 * 
+	 * Tour is part of the Google extension pack.
+	 * @param playlist
+	 */
+	public Tour(Playlist playlist) {
+		this.playlist = playlist;
+	}
+	
 	public Playlist getPlaylist() {
 		return playlist;
 	}

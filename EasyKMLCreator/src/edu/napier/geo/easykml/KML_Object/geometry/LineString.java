@@ -37,6 +37,13 @@ public class LineString extends KML_Geometry {
 	 * AltitudeModes class.
 	 */
 
+	/**
+	 * A LineSting defines a path which is built up from a list of locations.
+	 * For more information visit:
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#linestring}
+	 * 
+	 * @param locations
+	 */
 	public LineString(ArrayList<Location> locations) {
 		this.locations = locations;
 	}
@@ -88,37 +95,48 @@ public class LineString extends KML_Geometry {
 	public void setCoordinates(ArrayList<Location> locations) {
 		this.locations = locations;
 	}
-	
-	public TreeNode<KML_element> getLinkedOutput (){
-		
+
+	public TreeNode<KML_element> getLinkedOutput() {
+
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		if(gxAltitudeOffset != null)root.addChild(new KML_element("gx:altitudeOffse", Double.toString(this.getGxAltitudeOffset()), true));
-		if(this.extruded != null)root.addChild(new KML_element("extrude", this.isExtruded(), false));
-		if(this.tessellated != null)root.addChild(new KML_element("tessellate", this.isTessellated(), false));
-		if(this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
-		if(this.getGxDrawOrder() != null)root.addChild(new KML_element("gx:drawOrder", Integer.toString(this.getGxDrawOrder()), true));
-		if(this.getCoordinates() != null)root.addChild(new KML_element("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
+		if (gxAltitudeOffset != null)
+			root.addChild(new KML_element("gx:altitudeOffse", Double.toString(this.getGxAltitudeOffset()), true));
+		if (this.extruded != null)
+			root.addChild(new KML_element("extrude", this.isExtruded(), false));
+		if (this.tessellated != null)
+			root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+		if (this.getAltitudeMode() != null)
+			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		if (this.getGxDrawOrder() != null)
+			root.addChild(new KML_element("gx:drawOrder", Integer.toString(this.getGxDrawOrder()), true));
+		if (this.getCoordinates() != null)
+			root.addChild(new KML_element("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
 
-		return root; 
+		return root;
 	}
 
-//	private void checkExtrudedPreconditions(boolean extrudedValue, String altitudeMode) {
-//		if (extrudedValue == true && (altitudeMode != AltitudeModes.RELATIVE_TO_GROUND
-//				|| altitudeMode != AltitudeModes.RELATIVE_TO_SEA_FLOOR || altitudeMode != AltitudeModes.ABSOLUT)) {
-//			this.extruded = false;
-//		} else {
-//			this.extruded = extrudedValue;
-//		}
-//	}
-//
-//	private void checkTesselatedPreconditions(boolean tesselatedValue, String altitudeMode) {
-//		if (tesselatedValue == true && (altitudeMode != AltitudeModes.CLAMP_TO_GROUND
-//				|| altitudeMode != AltitudeModes.CLAMP_TO_SEA_FLOOR)) {
-//			this.tessellated = false;
-//		} else {
-//			this.extruded = tesselatedValue;
-//		}
-//	}
+	// private void checkExtrudedPreconditions(boolean extrudedValue, String
+	// altitudeMode) {
+	// if (extrudedValue == true && (altitudeMode !=
+	// AltitudeModes.RELATIVE_TO_GROUND
+	// || altitudeMode != AltitudeModes.RELATIVE_TO_SEA_FLOOR || altitudeMode !=
+	// AltitudeModes.ABSOLUT)) {
+	// this.extruded = false;
+	// } else {
+	// this.extruded = extrudedValue;
+	// }
+	// }
+	//
+	// private void checkTesselatedPreconditions(boolean tesselatedValue, String
+	// altitudeMode) {
+	// if (tesselatedValue == true && (altitudeMode !=
+	// AltitudeModes.CLAMP_TO_GROUND
+	// || altitudeMode != AltitudeModes.CLAMP_TO_SEA_FLOOR)) {
+	// this.tessellated = false;
+	// } else {
+	// this.extruded = tesselatedValue;
+	// }
+	// }
 
 }

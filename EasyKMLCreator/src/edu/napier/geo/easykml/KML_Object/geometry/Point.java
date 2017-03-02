@@ -12,6 +12,13 @@ public class Point extends KML_Geometry {
 	private String altitudeMode;
 	private Boolean extruded;
 
+	/**
+	 * A point defines a geographical location on the map. For more information
+	 * visit:
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#point}
+	 * 
+	 * @param location
+	 */
 	public Point(Location location) {
 		this.location = location;
 	}

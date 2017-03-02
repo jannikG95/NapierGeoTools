@@ -6,7 +6,7 @@ import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
-public class Polygon extends KML_Geometry{
+public class Polygon extends KML_Geometry {
 
 	/*
 	 * Information Area (Source: KML Reference Google Developers):
@@ -34,7 +34,20 @@ public class Polygon extends KML_Geometry{
 	private String altitudeMode;
 	private LinearRing outerBoundry;
 	private ArrayList<LinearRing> innerBoundryList;
-	
+
+	/**
+	 * A polygon is a figure that is bounded by a finite chain of straight lines
+	 * closing in a loop. To define a polygon at one LinearRing is needed to
+	 * define the outer boundary of the polygon. Furthermore n LinearRings may
+	 * be added to define optional inner Boundaries. visit:
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#polygon}
+	 * 
+	 * @param outerBoundry
+	 */
+	public Polygon(LinearRing outerBoundry) {
+		this.outerBoundry = outerBoundry; 
+	}
+
 	public String isExtruded() {
 		return (extruded) ? "1" : "0";
 	}
@@ -72,32 +85,34 @@ public class Polygon extends KML_Geometry{
 	}
 
 	public void addInnerBoundry(LinearRing innerBoundry) {
-		if(this.innerBoundryList == null) {
+		if (this.innerBoundryList == null) {
 			this.innerBoundryList = new ArrayList<>();
 		}
 		this.innerBoundryList.add(innerBoundry);
 	}
-	
+
 	public void setInnerBoundryList(ArrayList<LinearRing> innerBoundryList) {
 		this.innerBoundryList = innerBoundryList;
 	}
 
-	public TreeNode<KML_element> getLinkedOutput (){
-		
+	public TreeNode<KML_element> getLinkedOutput() {
+
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		if (this.extruded != null)root.addChild(new KML_element("extrude", this.isExtruded(), false));
-		if (this.tessellated != null)root.addChild(new KML_element("tessellate", this.isTessellated(), false));
-		if (this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
-		if (this.getOuterBoundry() != null)root.addChild(new KML_element("outerBoundaryIs", null, false)).addTreeNode(outerBoundry.getLinkedOutput());
+		if (this.extruded != null)
+			root.addChild(new KML_element("extrude", this.isExtruded(), false));
+		if (this.tessellated != null)
+			root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+		if (this.getAltitudeMode() != null)
+			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		if (this.getOuterBoundry() != null)
+			root.addChild(new KML_element("outerBoundaryIs", null, false)).addTreeNode(outerBoundry.getLinkedOutput());
 		for (LinearRing linearRing : innerBoundryList) {
 			TreeNode<KML_element> rootInner = root.addChild(new KML_element("innerBoundaryIs", null, false));
 			rootInner.addTreeNode(linearRing.getLinkedOutput());
 		}
-		
-		return root; 
+
+		return root;
 	}
-	
-	
 
 }

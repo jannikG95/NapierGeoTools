@@ -37,9 +37,7 @@ public class Client {
 	public static void main(String[] args) {
 		KML_Facade simpleKML = new KML_Facade();
 
-		// create Document
-		simpleKML.createKMLDocument();
-
+		
 		// create Styles
 		Style style = new Style();
 		style.setId("TestStyle");
@@ -112,8 +110,7 @@ public class Client {
 		innerBoundary.add(new Location(37.819402, -122.366488, 30.0));
 		innerBoundary.add(new Location(37.818977, -122.366212, 30.0));
 
-		Polygon polygon = new Polygon();
-		polygon.setOuterBoundry(new LinearRing(outerBoundary));
+		Polygon polygon = new Polygon(new LinearRing(outerBoundary));
 		polygon.addInnerBoundry(new LinearRing(innerBoundary));
 		polygon.setExtruded(true);
 		polygon.setAltitudeMode(AltitudeModes.RELATIVE_TO_GROUND);
@@ -131,45 +128,33 @@ public class Client {
 		placemark2.setStyleURL("TestStyle");
 		simpleKML.createPlacemark(placemark2);
 
-		Tour tour = new Tour();
-		tour.setId("TestID");
-		tour.setName("FirstTour");
+
 
 		Playlist playlist = new Playlist();
 
-		SoundCue soundCue = new SoundCue();
+		SoundCue soundCue = new SoundCue("C:\\Users\\Jannik\\Google Drive\\Uni\\2. `Trimester\\Hon Project\\Sound.mp3");
 		soundCue.setDelayedStart(2.0);
-		soundCue.setSoundAddress("C:\\Users\\Jannik\\Google Drive\\Uni\\2. `Trimester\\Hon Project\\Sound.mp3");
 
-		FlyTo flyTo1 = new FlyTo();
-		flyTo1.setId("FirstFly");
-		flyTo1.setDuration(5.0);
 		Camera camera1 = new Camera();
 		camera1.setCoordinates(new Location(-43.671, 170.157, 9700.0));
 		camera1.setHeading(-6.0);
 		camera1.setTilt(33.0);
-		flyTo1.setAbstractView(camera1);
+		FlyTo flyTo1 = new FlyTo(5.0, camera1);
+		flyTo1.setId("FirstFly");
 
-		Wait wait1 = new Wait();
+		Wait wait1 = new Wait(5.0);
 		wait1.setId("WaitIDTest");
-		wait1.setDuration(5.0);
 
-		FlyTo flyTo2 = new FlyTo();
-		flyTo2.setDuration(6.0);
 		Camera camera2 = new Camera();
-		TimeStamp t = new TimeStamp();
-		t.setTimeStamp(new Time());
+		TimeStamp t = new TimeStamp(new Time());
 		camera2.setTimePrimitive(t);
 		camera2.setId("CAM_ID");
 		camera2.setCoordinates(new Location(-39.663, 174.063, 18275.0));
 		camera2.setHeading(-5.0);
 		camera2.setTilt(65.0);
 		camera2.setAltitudeMode(AltitudeModes.ABSOLUT);
-		flyTo2.setAbstractView(camera2);
+		FlyTo flyTo2 = new FlyTo(6.0, camera2);
 
-		FlyTo flyTo3 = new FlyTo();
-		flyTo3.setDuration(3.0);
-		flyTo3.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 		LookAt lookAt1 = new LookAt();
 		lookAt1.setId("Lookatidtest");
 		lookAt1.setCoordinates(new Location(-39.279, 174.007, 0.0));
@@ -177,21 +162,22 @@ public class Client {
 		lookAt1.setTilt(68.065);
 		lookAt1.setRange(6811.884);
 		lookAt1.setAltitudeMode(AltitudeModes.RELATIVE_TO_GROUND);
-		flyTo3.setAbstractView(lookAt1);
+		FlyTo flyTo3 = new FlyTo(3.0, lookAt1);
+		flyTo3.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
+
 
 		TourControl tourControl = new TourControl();
 		tourControl.setId("hallo");
 
-		FlyTo flyTo4 = new FlyTo();
-		flyTo4.setDuration(3.0);
-		flyTo4.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 		LookAt lookAt2 = new LookAt();
 		lookAt2.setCoordinates(new Location(-39.321, 174.064, 0.0));
 		lookAt2.setHeading(-48.463);
 		lookAt2.setTilt(67.946);
 		lookAt2.setRange(4202.579);
 		lookAt2.setAltitudeMode(AltitudeModes.RELATIVE_TO_GROUND);
-		flyTo4.setAbstractView(lookAt2);
+		FlyTo flyTo4 = new FlyTo(3.0, lookAt2);
+		flyTo4.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
+
 
 		AnimatedUpdate animatedUpdate = new AnimatedUpdate();
 		animatedUpdate.setDuration(6.5);
@@ -206,17 +192,15 @@ public class Client {
 		update.setChange(change);
 		animatedUpdate.setUpdate(update);
 
-		FlyTo flyTo5 = new FlyTo();
-		flyTo5.setDuration(4.1);
 		Camera cam = new Camera();
 		cam.setCoordinates(new Location(-43.671, 170.157, 9700.0));
 		cam.setHeading(-6.333);
 		cam.setTilt(33.5);
 		cam.setRoll(0.0);
-		flyTo5.setAbstractView(cam);
+		FlyTo flyTo5 = new FlyTo(4.1, cam);
 
-		Wait wait2 = new Wait();
-		wait2.setDuration(8.0);
+
+		Wait wait2 = new Wait(8.0);
 
 		playlist.addPrimitiveAction(soundCue);
 		playlist.addPrimitiveAction(flyTo1);
@@ -228,8 +212,10 @@ public class Client {
 		playlist.addPrimitiveAction(animatedUpdate);
 		playlist.addPrimitiveAction(flyTo5);
 		playlist.addPrimitiveAction(wait2);
-
-		tour.setPlaylist(playlist);
+		
+		Tour tour = new Tour(playlist);
+		tour.setId("TestID");
+		tour.setName("FirstTour");
 
 		simpleKML.createTour(tour);
 

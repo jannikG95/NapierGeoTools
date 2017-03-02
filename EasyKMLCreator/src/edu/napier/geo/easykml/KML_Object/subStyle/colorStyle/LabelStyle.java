@@ -13,6 +13,16 @@ public class LabelStyle extends ColorStyle {
 	 */
 	
 	private Float scale;
+	
+	
+	/**
+	 * Labelstyle specifies how Labels are drawn.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#labelstyle}
+	 */
+	public LabelStyle() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Float getScale() {
 		return scale;

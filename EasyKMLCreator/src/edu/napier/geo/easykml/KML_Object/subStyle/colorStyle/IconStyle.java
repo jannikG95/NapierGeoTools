@@ -24,6 +24,15 @@ public class IconStyle extends ColorStyle {
 	private Float heading; // Value range from 0 to 360
 	private String iconHttpAddress;
 
+	/**
+	 * IconStyle specifies how point Placemarks are drawn.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#iconstyle}
+	 */
+	public IconStyle() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Float getScale() {
 		return scale;
 	}

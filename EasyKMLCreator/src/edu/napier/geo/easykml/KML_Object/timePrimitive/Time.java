@@ -7,6 +7,13 @@ public class Time {
 	
 	private String formattedString;
 
+	/**
+	 * Time defines a formatted dateTime string according to the XML schema time
+	 */
+	public Time() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public String setYear(int year) {
 		formattedString = Integer.toString(year);
 		

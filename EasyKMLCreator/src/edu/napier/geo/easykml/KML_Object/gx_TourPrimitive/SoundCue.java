@@ -9,6 +9,18 @@ public class SoundCue extends TourPrimitive{
 	private String soundAddress;
 	private Double delayedStart;
 	
+	/**
+	 * SoundCue contains a sound address which specifies a sound to play while a tour is running.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#gxsoundcue}
+	 * 
+	 * SoundCue is part of the Google extension pack.
+	 * @param soundAdress
+	 */
+	public SoundCue(String soundAdress) {
+		this.soundAddress = soundAdress;
+	}
+	
 	public String getSoundAddress() {
 		return soundAddress;
 	}

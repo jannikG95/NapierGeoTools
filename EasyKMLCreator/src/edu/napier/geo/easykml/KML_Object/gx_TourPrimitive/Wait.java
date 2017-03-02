@@ -7,6 +7,17 @@ public class Wait extends TourPrimitive{
 	
 	private Double duration;
 	
+	/**
+	 * Wait lets the camera remain on the last point of the tour for a specific duration.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#gxwait}
+	 * 
+	 * SoundCue is part of the Google extension pack.
+	 * @param duration
+	 */
+	public Wait(double duration) {
+		this.duration = duration;
+	}
 	
 	public Double getDuration() {
 		return duration;

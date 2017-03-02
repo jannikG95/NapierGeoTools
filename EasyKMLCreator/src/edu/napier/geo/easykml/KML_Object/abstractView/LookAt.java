@@ -50,7 +50,16 @@ public class LookAt extends AbstractView {
 	 */
 	private String altitudeMode;
 	
-
+	/**
+	 * LookAt is used to define the virtual camera that views the surface. It
+	 * defines its position and viewing direction in relation to the object that being viewed.
+	 * For more information visit:
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#lookat}
+	 */
+	public LookAt() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Location getCoordinates() {
 		return coordinates;
 	}

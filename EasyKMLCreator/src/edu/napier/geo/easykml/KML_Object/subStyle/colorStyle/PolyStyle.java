@@ -18,6 +18,15 @@ public class PolyStyle extends ColorStyle {
 	private Boolean fillPolygon;
 	private Boolean outLine;
 	
+	/**
+	 * PolyStyle specifies how polygons are drawn.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#polystyle}
+	 */
+	public PolyStyle() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public String isFillPolygon() {
 		return (fillPolygon) ? "1" : "0";
 	}

@@ -38,20 +38,27 @@ public class Camera extends AbstractView {
 	private Double tilt;
 
 	/*
-	 * <roll> 
-	 * Rotation, in degrees, of the camera around the Z axis. Values
+	 * <roll> Rotation, in degrees, of the camera around the Z axis. Values
 	 * range from -180 to +180 degrees.
 	 */
 	private Double roll;
-	
+
 	/*
-	 * <altitudeMode>
-	 * Specifies how the <altitude> specified for the LookAt point is
-	 * interpreted.
+	 * <altitudeMode> Specifies how the <altitude> specified for the LookAt
+	 * point is interpreted.
 	 */
 	private String altitudeMode;
 
-	
+	/**
+	 * Camera is used to define the virtual camera that views the surface. It
+	 * defines its position and viewing direction relative to the earth surface.
+	 * For more information visit:
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#camera}
+	 */
+	public Camera() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Location getCoordinates() {
 		return coordinates;
 	}
@@ -94,26 +101,28 @@ public class Camera extends AbstractView {
 	public void setAltitudeMode(String altitudeMode) {
 		this.altitudeMode = altitudeMode;
 	}
-	
-	
-	public TreeNode<KML_element> getLinkedOutput (){
-		
+
+	public TreeNode<KML_element> getLinkedOutput() {
+
 		TreeNode<KML_element> root = super.getLinkedOutput();
-		//root.addChild(new KML_element("id", this.getId(), false));
+		// root.addChild(new KML_element("id", this.getId(), false));
 
-		if(this.getCoordinates() != null)root.addChild(new KML_element("longitude", Double.toString(this.getCoordinates().getLon()), false));
-		if(this.getCoordinates() != null)root.addChild(new KML_element("latitude", Double.toString(this.getCoordinates().getLat()), false));
-		if(this.getCoordinates() != null)root.addChild(new KML_element("altitude", Double.toString(this.getCoordinates().getAlt()), false));
-		if(this.getHeading() != null)root.addChild(new KML_element("heading", Double.toString(this.getHeading()), false));
-		if(this.getTilt() != null)root.addChild(new KML_element("tilt", Double.toString(this.getTilt()), false));
-		if(this.getRoll() != null)root.addChild(new KML_element("roll", Double.toString(this.getRoll()), false));
-		if(this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		if (this.getCoordinates() != null)
+			root.addChild(new KML_element("longitude", Double.toString(this.getCoordinates().getLon()), false));
+		if (this.getCoordinates() != null)
+			root.addChild(new KML_element("latitude", Double.toString(this.getCoordinates().getLat()), false));
+		if (this.getCoordinates() != null)
+			root.addChild(new KML_element("altitude", Double.toString(this.getCoordinates().getAlt()), false));
+		if (this.getHeading() != null)
+			root.addChild(new KML_element("heading", Double.toString(this.getHeading()), false));
+		if (this.getTilt() != null)
+			root.addChild(new KML_element("tilt", Double.toString(this.getTilt()), false));
+		if (this.getRoll() != null)
+			root.addChild(new KML_element("roll", Double.toString(this.getRoll()), false));
+		if (this.getAltitudeMode() != null)
+			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
 
-
-		return root; 
+		return root;
 	}
-	
-	
-	
-	
+
 }

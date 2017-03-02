@@ -8,6 +8,15 @@ public class TimeSpan extends TimePrimitive{
 	private Time beginStamp;
 	private Time endStamp;
 	
+	/**
+	 * TimeSpan represents a time span bounded by begin and and times
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#timespan}
+	 */
+	public TimeSpan(Time begin, Time end) {
+		this.beginStamp = begin;
+		this.endStamp = end;
+	}
 	
 	public Time getBeginStamp() {
 		return beginStamp;

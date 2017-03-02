@@ -16,6 +16,15 @@ public class Style extends KML_object{
 	private PolyStyle polyStyle;
 	
 
+	/**
+	 * Style may contain the substyles IconStyle, LabelStyle, LineStyle and PolyStyle.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#style}
+	 */
+	public Style() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public IconStyle getIconStyle() {
 		return iconStyle;
 	}

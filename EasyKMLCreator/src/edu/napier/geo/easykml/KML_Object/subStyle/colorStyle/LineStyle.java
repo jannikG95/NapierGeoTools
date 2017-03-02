@@ -38,6 +38,15 @@ public class LineStyle extends ColorStyle {
 	private Float gxOuterWidth;
 	private Float gxPhysicalWidth;
 	private Boolean gxLabelVisibility;
+	
+	/**
+	 * LineStyle specifies how Lines are drawn.
+	 * For more information visit: 
+	 * {@link: https://developers.google.com/kml/documentation/kmlreference#linestyle}
+	 */
+	public LineStyle() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Float getWidth() {
 		return width;
