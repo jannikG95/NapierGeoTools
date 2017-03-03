@@ -8,23 +8,23 @@ public class MyFlagEncoderFactory implements FlagEncoderFactory {
 
 	@Override
 	public FlagEncoder createFlagEncoder(String name, PMap configuration) {
-		if(name.equals(CAR))
+		if(name.equals("car"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(CAR, configuration);
-		if(name.equals(BIKE))
+		if(name.equals("bike"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(BIKE, configuration);
-		if(name.equals(CAR4WD))
+		if(name.equals("car4wd"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(CAR4WD, configuration);
-		if(name.equals(MOUNTAINBIKE))
+		if(name.equals("mtb"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(MOUNTAINBIKE, configuration);
-		if(name.equals(MOTORCYCLE))
+		if(name.equals("motorcycle"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(MOTORCYCLE, configuration);
-		if(name.equals(RACINGBIKE))
+		if(name.equals("racingbike"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(RACINGBIKE, configuration);
-		if(name.equals(HIKE))
+		if(name.equals("hike"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(HIKE, configuration);
-		if(name.equals(FOOT))
+		if(name.equals("foot"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(FOOT, configuration);
-		if(name.equals(BIKE2))
+		if(name.equals("bike2"))
 			return FlagEncoderFactory.DEFAULT.createFlagEncoder(BIKE2, configuration);
 		if(name.equals("customCar"))
 			return new CustomCarFlagEncoder();

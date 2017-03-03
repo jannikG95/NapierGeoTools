@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.graphhopper.GHRequest;
 import com.graphhopper.GHResponse;
-import com.graphhopper.GraphHopper;
 import com.graphhopper.PathWrapper;
 import com.graphhopper.reader.osm.GraphHopperOSM;
 import com.graphhopper.routing.util.EncodingManager;
@@ -23,7 +22,7 @@ import edu.napier.geo.common.Location;
 
 public class GHRouting {
 
-	private GraphHopper hopper;
+	private CustomGraphHopper hopper;
 	private GHJourney journey;
 	
 	public GHRouting(GHJourney journey){
@@ -50,7 +49,7 @@ public class GHRouting {
 	 * reads in the OSM file and specifies the location for local storage
 	 */
 	private void selectOSMFile() {
-		hopper = new GraphHopperOSM().forDesktop();
+		hopper = (CustomGraphHopper) new GraphHopperOSM().forDesktop();
 		
 		String pathToOSM = (String) journey.getOptions().get("pathToOSM");
 		hopper.setDataReaderFile(pathToOSM);
