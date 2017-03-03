@@ -10,7 +10,9 @@ import edu.napier.geo.publicTransport.ResponseTfL.TflJourney;
 public class JourneyInformation extends edu.napier.geo.common.Journey implements
 		Serializable {
 	/**
-	 * @author Jan-Niklas Keiner 2017/03/01
+	 * @author Jan-Niklas Keiner 
+	 * 
+	 * 2017/03/01
 	 * 
 	 *         This is a class to store information about Journeys from and to a
 	 *         Location. Objects of this class contain the information. It

@@ -11,7 +11,9 @@ import edu.napier.geo.common.Location;
 
 /**
  * 
- * @author Jan-Niklas Keiner 2017/02/28
+ * @author Jan-Niklas Keiner 
+ * 
+ * 2017/02/28
  * 
  *         This class has static methods for giving back JSON Strings from TfL
  *         for requests with the different static methods

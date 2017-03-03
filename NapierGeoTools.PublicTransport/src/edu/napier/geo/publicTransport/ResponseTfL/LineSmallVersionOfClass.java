@@ -4,7 +4,13 @@ import java.io.Serializable;
 
 public class LineSmallVersionOfClass implements Serializable {
 	/**
-	 * 
+	 * Created with https://timboudreau.com/blog/json/read under Creative
+	 * Commons CC BY-NC-SA 3.0 license. Author of the used software: Tim Boudreau.  
+	 * Changes: Jan-Niklas Keiner 2017/03/02
+	 * Changes: separation of inner classes, adding getter methods and making
+	 * objects compatible to objects of the public transport project. License:
+	 * https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+	 *
 	 */
 	private static final long serialVersionUID = 2705538284996131199L;
 	private String id;
@@ -14,8 +20,8 @@ public class LineSmallVersionOfClass implements Serializable {
 	private String type;
 	private Crowding crowding;
 
-	public LineSmallVersionOfClass(String id, String name, String uri, String fullName, String type,
-			Crowding crowding) {
+	public LineSmallVersionOfClass(String id, String name, String uri,
+			String fullName, String type, Crowding crowding) {
 		this.id = id;
 		this.name = name;
 		this.uri = uri;
@@ -48,5 +54,4 @@ public class LineSmallVersionOfClass implements Serializable {
 		return crowding;
 	}
 
-	
 }

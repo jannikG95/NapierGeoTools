@@ -20,17 +20,14 @@ import edu.napier.geo.publicTransport.ResponseTfL.*;
  * 
  * @author Jan-Niklas Keiner
  * 
- *         Licensed under the Apache License, Version 2.0 (the "License"); you
- *         may not use this file except in compliance with the License. You may
- *         obtain a copy of the License at
+ * Licensed under the Creative Commons BY-NC-SA License. 
+ * https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode			
+ * The edu.napier.geo.publicTransport.ResponseTfl Package Code is based on a JSON to POJO converter 
+ * (https://timboudreau.com/blog/json/read) under this license.
  * 
+ *         Uses GSON, which is licensed under the Apache 2.0 License:
  *         http://www.apache.org/licenses/LICENSE-2.0
  * 
- *         Unless required by applicable law or agreed to in writing, software
- *         distributed under the License is distributed on an "AS IS" BASIS,
- *         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- *         implied. See the License for the specific language governing
- *         permissions and limitations under the License.
  * 
  *         Objects of this class can get request TfL API and convert the
  *         response (JSON) to Pojo (plain old java object) and get information
@@ -41,7 +38,12 @@ import edu.napier.geo.publicTransport.ResponseTfL.*;
  *         file). It uses Google GSON for converting JSON to POJO. It provides
  *         methods to get information out of the information storage. It
  *         provides methods to get information out of the last response Object,
- *         which was created by GSON out of a JSON from TfL.
+ *         which was created by GSON out of a JSON from TfL. 
+ *         
+ *         
+ *         
+ *         
+ *          
  */
 
 /**
@@ -50,7 +52,6 @@ import edu.napier.geo.publicTransport.ResponseTfL.*;
  */
 
 public class PublicTransport {
-
 	private InformationStorage informationStorage;
 	String informationStorageFilePath;
 	public static String informationStorageFilePathDefault = "informationStorage.ser";
@@ -105,11 +106,9 @@ public class PublicTransport {
 	}
 
 	public PublicTransport(boolean resetInformationStorage) {
-		this(resetInformationStorage,informationStorageFilePathDefault);
+		this(resetInformationStorage, informationStorageFilePathDefault);
 
 	}
-
-	
 
 	/**
 	 * Method for demonstration only This method prints out all Journeys of the
