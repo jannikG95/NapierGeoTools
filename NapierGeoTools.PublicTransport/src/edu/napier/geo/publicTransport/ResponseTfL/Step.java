@@ -11,6 +11,12 @@ public class Step implements Serializable {
 	 * Changes: separation of inner classes, adding getter methods and making
 	 * objects compatible to objects of the public transport project. License:
 	 * https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+	 * 
+	 * 
+	 * Class based on JSON Response of the TfL API format with a few changes
+	 * (like storing lon and lat in Locations). See empty example response in
+	 * documentation.
+	 *
 	 */
 	private static final long serialVersionUID = -5809255402033736238L;
 	private String description;

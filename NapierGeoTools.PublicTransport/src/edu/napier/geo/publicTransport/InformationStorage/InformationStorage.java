@@ -43,11 +43,11 @@ public class InformationStorage implements Serializable {
 	 * Gets all information of a JourneyInformation out of this objets for each
 	 * journey of the given Array
 	 * 
-	 * @param journeys
+	 * @param tflJourneys Array of TflJourneys to store
 	 */
-	private void storeJourneys(TflJourney[] journeys) {
-		if (journeys != null) {
-			for (TflJourney tflJourney : journeys) {
+	private void storeJourneys(TflJourney[] tflJourneys) {
+		if (tflJourneys != null) {
+			for (TflJourney tflJourney : tflJourneys) {
 				storeJourney(tflJourney);
 			}
 		}
@@ -62,7 +62,7 @@ public class InformationStorage implements Serializable {
 	 * constructor. To get the RouteLocations for other journeys, please use the
 	 * getJourney method and seperate the locations out of it.
 	 * 
-	 * @param tflJourney
+	 * @param tflJourney TflJourney to store
 	 */
 	private void storeJourney(TflJourney tflJourney) {
 		JourneyInformation j = getJourney(
@@ -95,7 +95,7 @@ public class InformationStorage implements Serializable {
 	 * 
 	 * @param journey
 	 *            TflJourney
-	 * @return ArrayList<Location> of all Locations of this route incl.
+	 * @return ArrayList of Locations objects of all Locations of this route incl.
 	 *         Locations in the path.
 	 */
 	public ArrayList<Location> getRouteLocationsOfJourney(TflJourney journey) {
@@ -128,7 +128,7 @@ public class InformationStorage implements Serializable {
 	 *            to the ArrayList. Coordinates have to be comma separated as
 	 *            well as locations, "[", "]" and spaces in the string are
 	 *            ignored. Coordinates in format: "lat,lon,lat,lon,..."
-	 * @return ArrayList<Location> that has been given. Contains the objects it
+	 * @return ArrayList of  Location objects that has been given. Contains the objects it
 	 *         contained when given + the Locations from the String
 	 */
 	private ArrayList<Location> addRouteLocationsOfString(
@@ -160,7 +160,7 @@ public class InformationStorage implements Serializable {
 	/**
 	 * Gives back the distance of a given TflJourney
 	 * 
-	 * @param tflJourney
+	 * @param tflJourney TflJourney of which the method should give the distance back
 	 * @return Integer of the distance of a TflJourney in m
 	 */
 	private int getDistanceOfTflJourney(TflJourney tflJourney) {
@@ -179,8 +179,8 @@ public class InformationStorage implements Serializable {
 	 * Gives back the JourneyInformation object for a journey from and to a
 	 * Location
 	 * 
-	 * @param from
-	 * @param to
+	 * @param from Location object
+	 * @param to Location object
 	 * @return the JourneyInformation object to a Journey from and to a
 	 *         Location. Returns null, if there is no Journey from and to the
 	 *         given Locations in the InformationStorage.
@@ -199,8 +199,8 @@ public class InformationStorage implements Serializable {
 	 * Gives back the average Walking distance in KM for a Journey from and to a
 	 * Location
 	 * 
-	 * @param from
-	 * @param to
+	 * @param from Location object
+	 * @param to Location object
 	 * @return double of the average walking distance in KM. returns-1, if no
 	 *         JourneyInformation for the given Locations in the
 	 *         InformationStorage.
@@ -216,8 +216,8 @@ public class InformationStorage implements Serializable {
 	/**
 	 * Gives back the average time for a Journey (in MS) from and to a Location
 	 * 
-	 * @param from
-	 * @param to
+	 * @param from Location object
+	 * @param to Location object
 	 * @return double of the average time in MS for the Journey. Returns -1, if
 	 *         no JourneyInformation object from and to the given Locations in
 	 *         the InformationStorage.
@@ -233,8 +233,8 @@ public class InformationStorage implements Serializable {
 	 * gives back the average number of Legs of a Journey from and to a
 	 * Location.
 	 * 
-	 * @param from
-	 * @param to
+	 * @param from Location object
+	 * @param to Location object
 	 * @return double of the average number of Legs. Returns -1, if no
 	 *         JourneyInformation object from and to the given Locations in the
 	 *         InformationStorage.
@@ -250,9 +250,9 @@ public class InformationStorage implements Serializable {
 	 * Gives back the Route of a Journey from and to a Location as an ArrayList
 	 * of Locations
 	 * 
-	 * @param from
-	 * @param to
-	 * @return ArrayListy<Location> of the Route of the Journey. Returns null,
+	 * @param from Location object
+	 * @param to Location object
+	 * @return ArrayListy of Location objects of the Route of the Journey. Returns null,
 	 *         if no JourneyInformation object from and to the given Locations
 	 *         in the InformationStorage.
 	 */
@@ -268,7 +268,7 @@ public class InformationStorage implements Serializable {
 	 * Gives back all stored JourneyInformation of this InformationStorage as an
 	 * ArrayList
 	 * 
-	 * @return ArrayList<JourneyInformation> of all JourneyInformation of this
+	 * @return ArrayList of JourneyInformation of all JourneyInformation of this
 	 *         InformationStorage
 	 */
 	public ArrayList<JourneyInformation> getStoredJourneyInformation() {
@@ -295,9 +295,9 @@ public class InformationStorage implements Serializable {
 	 * Gives back a ArrayList of TflJourneys of a Journey from and to a
 	 * Location.
 	 * 
-	 * @param from
-	 * @param to
-	 * @return ArrayList<TflJourney> of the Journey. Returns null, if no
+	 * @param from Location object
+	 * @param to Location object
+	 * @return ArrayList of TflJourney objects of the Journey. Returns null, if no
 	 *         JourneyInformation object from and to the given Locations in the
 	 *         InformationStorage.
 	 */
