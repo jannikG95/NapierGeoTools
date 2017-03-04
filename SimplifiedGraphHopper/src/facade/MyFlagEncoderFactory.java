@@ -4,6 +4,12 @@ import com.graphhopper.routing.util.FlagEncoder;
 import com.graphhopper.routing.util.FlagEncoderFactory;
 import com.graphhopper.util.PMap;
 
+/**
+ * Handles the creation of custom profiles
+ * 
+ * @author Jannik Enenkel
+ *
+ */
 public class MyFlagEncoderFactory implements FlagEncoderFactory {
 
 	@Override

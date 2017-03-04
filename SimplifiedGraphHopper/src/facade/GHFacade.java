@@ -35,7 +35,7 @@ public class GHFacade implements JourneyFactory, GHOptions {
 		optionsMap = new HashMap<String, Object>();
 		optionsMap.put("pathToOSM", null); // String
 		optionsMap.put("pathToFolder", null); // String
-		optionsMap.put("profilesForGraph", null); // FlagEncoder from getEncoder()
+		optionsMap.put("profilesForGraph", null); // FlagEncoder[] from getEncoder()
 		optionsMap.put("enableCH", null); // boolean
 		optionsMap.put("maxVisitedNodes", null); // int
 		optionsMap.put("includeElevation", null); // boolean
@@ -87,7 +87,6 @@ public class GHFacade implements JourneyFactory, GHOptions {
 	}
 
 	/**
-	 * http://wiki.openstreetmap.org/wiki/Map_Features for possible tags in custom flag encoder
 	 * @param name: the name of the routing profile
 	 * @return routing profile for the use with GraphHopper. If custom[...], the profile needs additional information
 	 */

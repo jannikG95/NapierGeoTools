@@ -4,6 +4,12 @@ import com.graphhopper.routing.util.FlagEncoder;
 import com.graphhopper.routing.weighting.AbstractWeighting;
 import com.graphhopper.util.EdgeIteratorState;
 
+/**
+ * This class can be modified to realize a custom weighting.
+ * 
+ * @author Jannik
+ *
+ */
 public class CustomWeighting extends AbstractWeighting{
 
 	public CustomWeighting(FlagEncoder encoder) {

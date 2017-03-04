@@ -1,5 +1,12 @@
 package facade;
 
+/**
+ * Contains most important options for the use of GraphHopper.
+ * Use these Strings to fill the optionsMap
+ * 
+ * @author Jannik Enenkel
+ *
+ */
 public interface GHOptions {
 	
 	// routing profiles
@@ -19,7 +26,7 @@ public interface GHOptions {
 	// weightings
 	final String FASTEST = "fastest";
 	final String SHORTEST = "shortest";
-	final String CURVATURE = "curvature";
+	final String CURVATURE = "curvature"; //not supported in version 0.8
 	final String SHORT_FASTEST = "short_fastest";
 	final String CUSTOM = "customWeighting";
 	

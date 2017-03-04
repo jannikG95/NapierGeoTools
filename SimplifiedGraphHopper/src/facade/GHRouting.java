@@ -6,7 +6,6 @@ import java.util.List;
 import com.graphhopper.GHRequest;
 import com.graphhopper.GHResponse;
 import com.graphhopper.PathWrapper;
-import com.graphhopper.reader.osm.GraphHopperOSM;
 import com.graphhopper.routing.util.EncodingManager;
 import com.graphhopper.routing.util.FlagEncoder;
 import com.graphhopper.util.PointList;
@@ -42,6 +41,7 @@ public class GHRouting {
 		setGHOptions();
 		hopper.importOrLoad();
 		makeRequest();
+		hopper.close();
 		return journey;
 	}
 	
@@ -49,7 +49,8 @@ public class GHRouting {
 	 * reads in the OSM file and specifies the location for local storage
 	 */
 	private void selectOSMFile() {
-		hopper = (CustomGraphHopper) new GraphHopperOSM().forDesktop();
+		hopper = new CustomGraphHopper();
+		hopper.forDesktop();
 		
 		String pathToOSM = (String) journey.getOptions().get("pathToOSM");
 		hopper.setDataReaderFile(pathToOSM);
@@ -66,7 +67,7 @@ public class GHRouting {
 //		String em = "";
 //		for (int i = 0; i < profiles.length; i++)
 //			em += profiles[i] + ",";
-		FlagEncoder fe = (FlagEncoder) journey.getOptions().get("profilesForGraph");
+		FlagEncoder[] fe = (FlagEncoder[]) journey.getOptions().get("profilesForGraph");
 		hopper.setEncodingManager(new EncodingManager(fe));
 		
 		boolean enableCH = (boolean) journey.getOptions().get("enableCH");
