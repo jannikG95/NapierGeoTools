@@ -58,7 +58,7 @@ public class PublicTransport {
 	public static String informationStorageFilePathDefault = "informationStorage.ser";
 	private ResponseTfL responseJavaObject;
 	private Gson gson;
-	InformationStorage informationStorageObject; // only for test
+//	InformationStorage informationStorageObject; // only for test
 	private String source = "PublicTransport";
 
 	/**

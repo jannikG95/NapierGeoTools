@@ -32,8 +32,6 @@ public class RequestAndGetJsonFromServer {
 	 * @return String in URL format
 	 */
 	private static String userPreferencesToString(ArrayList<String> preferences) {
-		// this method converts the Array of the User preferences to one long
-		// string
 		String res = "";
 		for (String string : preferences) {
 			if (string != null && string != "") {
@@ -97,18 +95,15 @@ public class RequestAndGetJsonFromServer {
 	 */
 	public static String getJSON(Location from, Location to,
 			ArrayList<String> preferences) throws IOException {
-		// this method gives back a string of the JSON response from TfL for
-		// request for a Journey from and to a Location with the preferences
-		// (given as ArrayList of Strings)
 		if (locationLonAndLatNotNull(from) && locationLonAndLatNotNull(to)) {
 			String userPreferences = userPreferencesToString(preferences);
 			if (from.getDescription() != null
-					&& !userPreferences.contains("fromName=")) {
+					&& !userPreferences.startsWith("fromName=")) {
 				userPreferences = userPreferences + "fromName="
 						+ from.getDescription();
 			}
 			if (to.getDescription() != null
-					&& !userPreferences.contains("toName=")) {
+					&& !userPreferences.startsWith("toName=")) {
 				userPreferences = userPreferences + "toName="
 						+ to.getDescription();
 			}
