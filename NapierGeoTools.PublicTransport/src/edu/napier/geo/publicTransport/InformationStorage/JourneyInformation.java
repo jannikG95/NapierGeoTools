@@ -40,8 +40,8 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	 * JourneyInformation should only be created, if there is no Journey from
 	 * and to the same Location.
 	 * 
-	 * @param from
-	 * @param to
+	 * @param from Location object
+	 * @param to Location object
 	 * @param timeMinutes
 	 *            Integer of the duration in Minutes.
 	 * @param numberOfLegs
@@ -166,7 +166,7 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	 * Method to add a number of legs to the list of number of legs. Average
 	 * number of legs is calculated and updated automatically.
 	 * 
-	 * @param numberOfLegs
+	 * @param numberOfLegs int of number of Legs that should be added to the list of all number of legs to create the average
 	 */
 	public void addLeg(int numberOfLegs) {
 		this.legs.add(numberOfLegs);
