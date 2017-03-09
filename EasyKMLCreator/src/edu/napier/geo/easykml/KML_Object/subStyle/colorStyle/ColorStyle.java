@@ -17,7 +17,7 @@ public abstract class ColorStyle extends KML_object{
 	private Color color;
 	private Boolean colorModeActivated; // false = normal true = random
 	private String colorMode;
-	private Integer transparency; // default value 100 percent. The object is
+	private Integer transparency = 100; // default value 100 percent. The object is
 									// completely visible
 	
 	

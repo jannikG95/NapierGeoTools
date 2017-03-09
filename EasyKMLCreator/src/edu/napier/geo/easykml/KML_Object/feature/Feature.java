@@ -12,7 +12,6 @@ public abstract class Feature extends KML_object {
 	private String name;
 	private Boolean visibility;
 	private Boolean open; 
-	private String author; 
 	private String description; 
 	private AbstractView abstractView;
 	private TimePrimitive timePrimitive;
@@ -38,12 +37,7 @@ public abstract class Feature extends KML_object {
 	public void setOpen(boolean open) {
 		this.open = open;
 	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -84,7 +78,6 @@ public abstract class Feature extends KML_object {
 		if(this.getName() != null)root.addChild(new KML_element("name", this.getName(), false));
 		if(this.visibility != null)root.addChild(new KML_element("visibility", this.isVisibility(), false));
 		if(this.open != null)root.addChild(new KML_element("open", this.isOpen(), false));
-		if(this.getAuthor() != null)root.addChild(new KML_element("atom:author", this.getAuthor(), false));
 		if(this.getDescription() != null)root.addChild(new KML_element("description", this.getDescription(), false));
 		if(getAbstractView() != null)root.addTreeNode(getAbstractView().getLinkedOutput()) ;
 		if(getTimePrimitive() != null)root.addTreeNode(getTimePrimitive().getLinkedOutput());

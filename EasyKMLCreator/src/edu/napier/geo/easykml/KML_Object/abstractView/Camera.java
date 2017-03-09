@@ -1,6 +1,7 @@
 package edu.napier.geo.easykml.KML_Object.abstractView;
 
 import edu.napier.geo.common.Location;
+import edu.napier.geo.easykml.helperClasses.AltitudeModes;
 import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
@@ -120,7 +121,7 @@ public class Camera extends AbstractView {
 		if (this.getRoll() != null)
 			root.addChild(new KML_element("roll", Double.toString(this.getRoll()), false));
 		if (this.getAltitudeMode() != null)
-			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), AltitudeModes.belongsToExtension(this.getAltitudeMode())));
 
 		return root;
 	}

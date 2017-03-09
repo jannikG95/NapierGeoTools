@@ -2,6 +2,7 @@ package edu.napier.geo.easykml.KML_Object.geometry;
 
 import java.util.ArrayList;
 
+import edu.napier.geo.easykml.helperClasses.AltitudeModes;
 import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
@@ -103,7 +104,7 @@ public class Polygon extends KML_Geometry {
 		if (this.tessellated != null)
 			root.addChild(new KML_element("tessellate", this.isTessellated(), false));
 		if (this.getAltitudeMode() != null)
-			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), AltitudeModes.belongsToExtension(this.getAltitudeMode())));
 		if (this.getOuterBoundry() != null)
 			root.addChild(new KML_element("outerBoundaryIs", null, false)).addTreeNode(outerBoundry.getLinkedOutput());
 		for (LinearRing linearRing : innerBoundryList) {
