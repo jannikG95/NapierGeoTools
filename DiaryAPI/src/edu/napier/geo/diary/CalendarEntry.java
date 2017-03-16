@@ -16,7 +16,7 @@ public class CalendarEntry implements Serializable {
 	private String summary = null;
 	private Location location = null;
 	private String uid = null;
-	private ArrayList<Ressource> allocatedRessources = new ArrayList<Ressource>();
+	private ArrayList<Resource> allocatedRessources = new ArrayList<Resource>();
 
 	//only required parameters
 	/** Constructor creating a new CalendarEntry with only the required parameters
@@ -62,7 +62,7 @@ public class CalendarEntry implements Serializable {
 	 */
 	public CalendarEntry (int yearStart, int monthStart, int dayStart, int hourStart, int minuteStart,
 			int yearEnd, int monthEnd, int dayEnd, int hourEnd, int minuteEnd,
-			String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 
 		start = LocalDateTime.of(yearStart, monthStart, dayStart, hourStart, minuteStart);
 		end = LocalDateTime.of(yearEnd, monthEnd, dayEnd, hourEnd, minuteEnd);
@@ -87,7 +87,7 @@ public class CalendarEntry implements Serializable {
 	 * @param ressources ressources associated with the event of the calendar entry
 	 * @throws StartEndException if the event end is earlier than the event start
 	 */
-	public CalendarEntry (LocalDateTime start, LocalDateTime end, String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+	public CalendarEntry (LocalDateTime start, LocalDateTime end, String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		this(start.getYear(),start.getMonthValue(), start.getDayOfMonth(),start.getHour(), start.getMinute(),
 				end.getYear(),end.getMonthValue(), end.getDayOfMonth(),end.getHour(), end.getMinute(),
 				description, summary, location, ressources);
@@ -233,7 +233,7 @@ public class CalendarEntry implements Serializable {
 	/** getter for the allocated Ressources
 	 * @return ArrayList of allocated Ressources
 	 */
-	public ArrayList<Ressource> getAllocatedRessources() {
+	public ArrayList<Resource> getAllocatedRessources() {
 		return allocatedRessources;
 	}
 
@@ -241,14 +241,14 @@ public class CalendarEntry implements Serializable {
 	/** adds Ressources to the CalendarEntry
 	 * @param res ArrayList of Ressources to add
 	 */
-	protected void addRessources(ArrayList<Ressource> res){
+	protected void addRessources(ArrayList<Resource> res){
 		allocatedRessources.addAll(res);
 	}
 	
 	/** removes Ressources from the CalendarEntry
 	 * @param res ArrayList of Ressources to remove
 	 */
-	protected void removeRessources(ArrayList<Ressource> res){
+	protected void removeRessources(ArrayList<Resource> res){
 		allocatedRessources.removeAll(res);
 	}
 

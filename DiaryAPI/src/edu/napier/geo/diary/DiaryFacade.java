@@ -18,8 +18,8 @@ public class DiaryFacade implements Serializable {
 
 	private static final long serialVersionUID = -5280517121909412401L;
 	private ArrayList<CalendarEntry> allEntries = new ArrayList<CalendarEntry>();
-	private ArrayList<Ressource> allRessources = new ArrayList<Ressource>();
-	ExportToICAL export = new ExportToICAL();
+	private ArrayList<Resource> allRessources = new ArrayList<Resource>();
+	ICalendarFileHandler export = new ICalendarFileHandler();
 
 	/**
 	 *  tries to read a saved file from an earlier execution - if this fails, it creates a new one
@@ -31,7 +31,7 @@ public class DiaryFacade implements Serializable {
 		try {						
 			ois = new ObjectInputStream(new FileInputStream("DiaryAPI.txt")); //read an existing file
 			allEntries = (ArrayList<CalendarEntry>) ois.readObject();
-			allRessources = (ArrayList<Ressource>) ois.readObject();
+			allRessources = (ArrayList<Resource>) ois.readObject();
 			System.out.println("File has been read successfully");
 
 		} catch (Exception ex) {
@@ -50,7 +50,7 @@ public class DiaryFacade implements Serializable {
 	/** returns an ArrayList containing all CalendarEntries
 	 * @return ArrayList containing all Ressources
 	 */
-	public ArrayList<Ressource> getAllRessources() {
+	public ArrayList<Resource> getAllRessources() {
 		return allRessources;
 	}
 
@@ -93,11 +93,11 @@ public class DiaryFacade implements Serializable {
 	 */
 	public CalendarEntry createCalendarEntry(int yearStart, int monthStart, int dayStart, int hourStart, int minuteStart,
 			int yearEnd, int monthEnd, int dayEnd, int hourEnd, int minuteEnd,
-			String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		CalendarEntry ce = new CalendarEntry(yearStart, monthStart, dayStart, hourStart, minuteStart, yearEnd, monthEnd, dayEnd, hourEnd, minuteEnd, description, summary, location, ressources);
 		allEntries.add(ce);
 		if (ressources!=null){
-			for (Ressource ressource : ressources) {
+			for (Resource ressource : ressources) {
 				ressource.addParticipation(ce);
 				if (!allRessources.contains(ressource))
 					allRessources.add(ressource);
@@ -145,7 +145,7 @@ public class DiaryFacade implements Serializable {
 	 * @return CalendarEntry object with the specified parameters
 	 * @throws StartEndException  if the event end is ealier than the event start
 	 */
-	public CalendarEntry createCalendarEntry(LocalDateTime start, LocalDateTime end, String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+	public CalendarEntry createCalendarEntry(LocalDateTime start, LocalDateTime end, String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		return createCalendarEntry(start.getYear(),start.getMonthValue(), start.getDayOfMonth(),start.getHour(), start.getMinute(),
 				end.getYear(),end.getMonthValue(), end.getDayOfMonth(),end.getHour(), end.getMinute(),
 				description, summary, location, ressources);
@@ -180,7 +180,7 @@ public class DiaryFacade implements Serializable {
 	 * @throws StartEndException if the event end is ealier than the event start
 	 */
 	public CalendarEntry createWholeDayEvent(int year, int month, int day,
-			String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		return createCalendarEntry(year, month, day, 0, 0, year, month, day, 23, 59,
 				description, summary, location, ressources);
 	}
@@ -196,7 +196,7 @@ public class DiaryFacade implements Serializable {
 	 * @return CalendarEntry object with the specified parameters
 	 * @throws StartEndException if the event end is ealier than the event start
 	 */
-	public CalendarEntry createWholeDayEvent(LocalDate day, String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+	public CalendarEntry createWholeDayEvent(LocalDate day, String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		return createCalendarEntry(day.getYear(),day.getMonthValue(), day.getDayOfMonth(),0,0,
 				day.getYear(),day.getMonthValue(), day.getDayOfMonth(),23,59,
 				description, summary, location, ressources);
@@ -217,7 +217,7 @@ public class DiaryFacade implements Serializable {
 	 * @throws StartEndException if the event end is ealier than the event start
 	 */
 	public ArrayList<CalendarEntry> createDailyEvent(int iterations, LocalDateTime start, LocalDateTime end,
-			String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		ArrayList<CalendarEntry> dailyCalendarEntries = new ArrayList<CalendarEntry>();
 		for (int i=0; i<iterations; i++){
 			dailyCalendarEntries.add(createCalendarEntry(start.getYear(),start.getMonthValue(), start.getDayOfMonth(),start.getHour(), start.getMinute(),
@@ -244,7 +244,7 @@ public class DiaryFacade implements Serializable {
 	 * @throws StartEndException if the event end is ealier than the event start
 	 */
 	public ArrayList<CalendarEntry> createWeeklyEvent(int iterations, LocalDateTime start, LocalDateTime end,
-			String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		ArrayList<CalendarEntry> weeklyCalendarEntries = new ArrayList<CalendarEntry>();
 		for (int i=0; i<iterations; i++){
 			weeklyCalendarEntries.add(createCalendarEntry(start.getYear(),start.getMonthValue(), start.getDayOfMonth(),start.getHour(), start.getMinute(),
@@ -271,7 +271,7 @@ public class DiaryFacade implements Serializable {
 	 * @throws StartEndException if the event end is ealier than the event start
 	 */
 	public ArrayList<CalendarEntry> createMonthlyEvent(int iterations, LocalDateTime start, LocalDateTime end,
-			String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		ArrayList<CalendarEntry> monthlyCalendarEntries = new ArrayList<CalendarEntry>();
 		for (int i=0; i<iterations; i++){
 			monthlyCalendarEntries.add(createCalendarEntry(start.getYear(),start.getMonthValue(), start.getDayOfMonth(),start.getHour(), start.getMinute(),
@@ -298,7 +298,7 @@ public class DiaryFacade implements Serializable {
 	 * @throws StartEndException if the event end is ealier than the event start
 	 */
 	public ArrayList<CalendarEntry> createYearlyEvent(int iterations, LocalDateTime start, LocalDateTime end,
-			String description, String summary,  Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary,  Location location, ArrayList<Resource> ressources) throws StartEndException{
 		ArrayList<CalendarEntry> yearlyCalendarEntries = new ArrayList<CalendarEntry>();
 		for (int i=0; i<iterations; i++){
 			yearlyCalendarEntries.add(createCalendarEntry(start.getYear(),start.getMonthValue(), start.getDayOfMonth(),start.getHour(), start.getMinute(),
@@ -327,7 +327,7 @@ public class DiaryFacade implements Serializable {
 	 */
 	public void deleteEvent(CalendarEntry ce){
 		allEntries.remove(ce);
-		for (Ressource ressource : allRessources) {
+		for (Resource ressource : allRessources) {
 			ressource.removeParticipation(ce);
 		}
 		saveDataPersistently();
@@ -338,7 +338,7 @@ public class DiaryFacade implements Serializable {
 	 */
 	public void deleteAllEvents(){
 		allEntries.clear();
-		for (Ressource ressource : allRessources) {
+		for (Resource ressource : allRessources) {
 			ressource.removeAllParticipations();
 		}
 		saveDataPersistently();
@@ -348,12 +348,12 @@ public class DiaryFacade implements Serializable {
 	 * @param name a name for the ressource
 	 * @return a Ressource object with the specified name
 	 */
-	public Ressource createOrAccessRessource(String name){		//if the same name = returns existing Ressource
-		for (Ressource ressource : allRessources) {
+	public Resource createOrAccessRessource(String name){		//if the same name = returns existing Ressource
+		for (Resource ressource : allRessources) {
 			if (ressource.getName().equals(name))
 				return ressource;
 		}
-		Ressource r = new Ressource(name);
+		Resource r = new Resource(name);
 		allRessources.add(r);
 		saveDataPersistently();
 		return r;
@@ -364,10 +364,10 @@ public class DiaryFacade implements Serializable {
 	 * @param res the ressources that shall be allocated to the CalendarEntry
 	 * @return the updated CalendarEntry object
 	 */
-	public CalendarEntry addRessourcesToEvent(CalendarEntry ce, ArrayList<Ressource> res){
-		ArrayList<Ressource> existingRessources = ce.getAllocatedRessources();
-		ArrayList<Ressource> ressourcesToAdd = new ArrayList<Ressource>();
-		for (Ressource ressource : res) {
+	public CalendarEntry addRessourcesToEvent(CalendarEntry ce, ArrayList<Resource> res){
+		ArrayList<Resource> existingRessources = ce.getAllocatedRessources();
+		ArrayList<Resource> ressourcesToAdd = new ArrayList<Resource>();
+		for (Resource ressource : res) {
 			if (!existingRessources.contains(ressource)){
 				ressourcesToAdd.add(ressource);
 				ressource.addParticipation(ce);
@@ -383,8 +383,8 @@ public class DiaryFacade implements Serializable {
 	 * @param res  the ressources that shall be removed from the CalendarEntry
 	 * @return the updated CalendarEntry object
 	 */
-	public CalendarEntry removeRessourcesFromEvent(CalendarEntry ce, ArrayList<Ressource> res){
-		for (Ressource ressource : res) {
+	public CalendarEntry removeRessourcesFromEvent(CalendarEntry ce, ArrayList<Resource> res){
+		for (Resource ressource : res) {
 			ressource.removeParticipation(ce);
 		}
 		ce.removeRessources(res);
@@ -515,7 +515,7 @@ public class DiaryFacade implements Serializable {
 	 * @param r Ressource to check for conflicting allocated events
 	 * @return ArrayList of CalendarEntry objects associated to the ressource that overlap 
 	 */
-	public ArrayList<CalendarEntry> checkRessourceForConflictingEvents(Ressource r){
+	public ArrayList<CalendarEntry> checkRessourceForConflictingEvents(Resource r){
 		return r.getConflictingEvents();
 	}
 	
@@ -526,7 +526,7 @@ public class DiaryFacade implements Serializable {
 	 * @param end end instant of timespan to test
 	 * @return true if no CalendarEntries are scheduled to use the ressource for the specified timespan, else false
 	 */
-	public boolean ressourceIsAvailiableBetween(Ressource r, LocalDateTime start, LocalDateTime end){
+	public boolean ressourceIsAvailiableBetween(Resource r, LocalDateTime start, LocalDateTime end){
 		return r.isAvailiableBetween(start, end);
 	}
 	
@@ -535,7 +535,7 @@ public class DiaryFacade implements Serializable {
 	 * @param r Ressource to use
 	 * @return ArrayList of CalendarEntries allocated to the Ressource
 	 */
-	public ArrayList<CalendarEntry> getEventsAllocatedToRessource(Ressource r){
+	public ArrayList<CalendarEntry> getEventsAllocatedToRessource(Resource r){
 		return r.getParticipating();
 	}
 

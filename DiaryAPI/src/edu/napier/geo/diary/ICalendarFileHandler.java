@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ExportToICAL {
+public class ICalendarFileHandler {
 
 	private String icsString="";
 
