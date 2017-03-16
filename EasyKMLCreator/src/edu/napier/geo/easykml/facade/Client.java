@@ -13,7 +13,6 @@ import edu.napier.geo.easykml.KML_Object.geometry.LineString;
 import edu.napier.geo.easykml.KML_Object.geometry.LinearRing;
 import edu.napier.geo.easykml.KML_Object.geometry.Point;
 import edu.napier.geo.easykml.KML_Object.geometry.Polygon;
-import edu.napier.geo.easykml.KML_Object.gx_TourPrimitive.AnimatedUpdate;
 import edu.napier.geo.easykml.KML_Object.gx_TourPrimitive.FlyTo;
 import edu.napier.geo.easykml.KML_Object.gx_TourPrimitive.SoundCue;
 import edu.napier.geo.easykml.KML_Object.gx_TourPrimitive.TourControl;
@@ -25,15 +24,13 @@ import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LineStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.PolyStyle;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.Time;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.TimeStamp;
-import edu.napier.geo.easykml.Update.Change;
-import edu.napier.geo.easykml.Update.Update;
 import edu.napier.geo.easykml.helperClasses.AltitudeModes;
 
 
 public class Client {
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		EasyKMLCreator simpleKML = new EasyKMLCreator();
 
 		
@@ -178,18 +175,6 @@ public class Client {
 		flyTo4.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 
 
-		AnimatedUpdate animatedUpdate = new AnimatedUpdate();
-		animatedUpdate.setDuration(6.5);
-
-		Change change = new Change();
-		change.setKmlObjectName("IconStyle");
-		change.setTargetID("istyle");
-		change.setTag("scale");
-		change.setNewText("10.0");
-
-		Update update = new Update();
-		update.setChange(change);
-		animatedUpdate.setUpdate(update);
 
 		Camera cam = new Camera();
 		cam.setCoordinates(new Location(-43.671, 170.157, 9700.0));
@@ -208,7 +193,6 @@ public class Client {
 		playlist.addPrimitiveAction(flyTo3);
 		playlist.addPrimitiveAction(tourControl);
 		playlist.addPrimitiveAction(flyTo4);
-		playlist.addPrimitiveAction(animatedUpdate);
 		playlist.addPrimitiveAction(flyTo5);
 		playlist.addPrimitiveAction(wait2);
 		

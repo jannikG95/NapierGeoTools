@@ -13,7 +13,7 @@ public abstract class AbstractView extends KML_object{
 	public static final String VOPTION_GROUNDNAVIGATION = "groundnavigation";
 
 
-	private TimePrimitive timePrimitive = null; // Timespan or Timestamp
+	private TimePrimitive timePrimitive = null; // gx:Timespan or gx:Timestamp
 	private String viewerOption;
 	
 	public TimePrimitive getTimePrimitive() {
@@ -33,7 +33,11 @@ public abstract class AbstractView extends KML_object{
 		
 		TreeNode<KML_element> root = super.getLinkedOutput();
 
-		if(getTimePrimitive() != null)root.addTreeNode(getTimePrimitive().getLinkedOutput());
+		if(getTimePrimitive() != null){
+			TreeNode<KML_element> timePrim = getTimePrimitive().getLinkedOutput();
+			timePrim.data.setgExtenstion(true);
+			root.addTreeNode(timePrim);
+		}
 		if(this.getViewerOption() != null)root.addChild(new KML_element("gx:ViewerOptions", this.getViewerOption(), true));
 
 		return root; 

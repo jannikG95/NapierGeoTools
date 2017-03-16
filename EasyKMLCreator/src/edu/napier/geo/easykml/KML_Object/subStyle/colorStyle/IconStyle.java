@@ -46,7 +46,7 @@ public class IconStyle extends ColorStyle {
 	}
 
 	public void setHeading(Float heading) {
-		if (this.heading > 360 || this.heading < 0) this.heading = 0.0f;
+		if (heading > 360 || heading < 0) this.heading = 0.0f;
 		else this.heading = heading;
 	}
 

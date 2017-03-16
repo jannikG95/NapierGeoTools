@@ -1,6 +1,7 @@
 package edu.napier.geo.easykml.KML_Object.abstractView;
 
 import edu.napier.geo.common.Location;
+import edu.napier.geo.easykml.helperClasses.AltitudeModes;
 import edu.napier.geo.easykml.helperClasses.KML_element;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
@@ -113,7 +114,7 @@ public class LookAt extends AbstractView {
 		if(this.getHeading() != null)root.addChild(new KML_element("heading", Double.toString(this.getHeading()), false));
 		if(this.getTilt() != null)root.addChild(new KML_element("tilt", Double.toString(this.getTilt()), false));
 		if(this.getRange() != null)root.addChild(new KML_element("range", Double.toString(this.getRange()), false));
-		if(this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+		if(this.getAltitudeMode() != null)root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), AltitudeModes.belongsToExtension(this.getAltitudeMode())));
 
 
 		return root; 

@@ -17,12 +17,16 @@ public class GHJourney extends Journey {
 	
 	private final String origin = "GraphHopper";
 	private HashMap<String, Object> options;
-	protected List<Location> waypoints;
+	protected List<Location> waypoints; // contains routing information
 
 	public GHJourney(Location a, Location b) {
 		super(a, b);
 	}
 
+	/**
+	 * 
+	 * @return the origin of this journey (here: GraphHopper)
+	 */
 	public String getOrigin() {
 		return origin;
 	}
