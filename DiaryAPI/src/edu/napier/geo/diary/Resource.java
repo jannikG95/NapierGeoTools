@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Ressource implements Serializable {
+public class Resource implements Serializable {
 
 	private static final long serialVersionUID = 4883692450600389560L;
 	private String name;
@@ -13,7 +13,7 @@ public class Ressource implements Serializable {
 	/** Constructor
 	 * @param name name of the ressource
 	 */
-	public Ressource(String name){
+	public Resource(String name){
 		this.name = name;
 	}
 

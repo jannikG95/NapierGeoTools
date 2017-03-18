@@ -26,27 +26,27 @@ public class API_Demo {
 		Location location1 = df.createTextOnlyLocation("Location 1");
 		Location location2 = df.createTextOnlyLocation("Location 2");
 		Location location3 = df.createTextOnlyLocation("Location 3");
-		Ressource ressource1 = df.createOrAccessRessource("Ressource 1");
-		Ressource ressource2 = df.createOrAccessRessource("Ressource 2");
-		Ressource ressource3 = df.createOrAccessRessource("Ressource 3");
-		Ressource ressource4 = df.createOrAccessRessource("Ressource 4");
+		Resource ressource1 = df.createOrAccessRessource("Ressource 1");
+		Resource ressource2 = df.createOrAccessRessource("Ressource 2");
+		Resource ressource3 = df.createOrAccessRessource("Ressource 3");
+		Resource ressource4 = df.createOrAccessRessource("Ressource 4");
 		
-		ArrayList<Ressource> ressource_1 = new ArrayList<Ressource>();
+		ArrayList<Resource> ressource_1 = new ArrayList<Resource>();
 		ressource_1.add(ressource1);
-		ArrayList<Ressource> ressources3and4 = new ArrayList<Ressource>();
+		ArrayList<Resource> ressources3and4 = new ArrayList<Resource>();
 		ressources3and4.add(ressource3);
 		ressources3and4.add(ressource4);
-		ArrayList<Ressource> ressources1and2 = new ArrayList<Ressource>();
+		ArrayList<Resource> ressources1and2 = new ArrayList<Resource>();
 		ressources1and2.add(ressource1);
 		ressources1and2.add(ressource2);
-		ArrayList<Ressource> ressources2and3 = new ArrayList<Ressource>();
+		ArrayList<Resource> ressources2and3 = new ArrayList<Resource>();
 		ressources2and3.add(ressource2);
 		ressources2and3.add(ressource3);
 		
 		scanner.nextLine();
 		System.out.println("Test to check that no different Ressources with the same name are possible");
 		scanner.nextLine();
-		Ressource ressource5 = df.createOrAccessRessource("Ressource 1");
+		Resource ressource5 = df.createOrAccessRessource("Ressource 1");
 		System.out.println(ressource1==ressource5);
 		scanner.nextLine();
 		System.out.println("Create a single event");
@@ -90,7 +90,7 @@ public class API_Demo {
 		System.out.println(ce);
 		scanner.nextLine();
 		System.out.println("Remove Ressource 1 from the event");
-		ArrayList<Ressource> toRemove = new ArrayList<Ressource>();
+		ArrayList<Resource> toRemove = new ArrayList<Resource>();
 		toRemove.add(ressource1);
 		scanner.nextLine();
 		System.out.println(ressource_1);
@@ -185,5 +185,7 @@ public class API_Demo {
 		for (CalendarEntry entry : list) {
 			System.out.println(entry.toString());
 		}
+		scanner.nextLine();
+		System.out.println("API Demo finished");
 	}
 }
