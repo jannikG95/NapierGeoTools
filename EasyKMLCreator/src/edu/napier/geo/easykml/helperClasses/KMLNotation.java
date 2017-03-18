@@ -1,13 +1,13 @@
 package edu.napier.geo.easykml.helperClasses;
 
 
-public class KML_element {
+public class KMLNotation {
 
 	private String name;
 	private String text;
 	private Boolean gExtenstion;
 
-	public KML_element(String name, String text, boolean gExtension) {
+	public KMLNotation(String name, String text, boolean gExtension) {
 		this.name = name;
 		this.text = text;
 		this.gExtenstion = gExtension;

@@ -6,7 +6,7 @@ import java.util.List;
 import org.jdom2.*;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class KMLFileWriter {
@@ -48,14 +48,13 @@ public class KMLFileWriter {
 	}
 
 	private void processLinkedOutputTree(KML_object kml_object) {
-		TreeNode<KML_element> treeRoot = kml_object.getLinkedOutput();
+		TreeNode<KMLNotation> treeRoot = kml_object.getLinkedOutput();
 
-		System.out.println(treeRoot.data.getName());
+		//System.out.println(treeRoot.data.getName());
 
-		Element kml_object_RootElement = null;
 		ArrayList<Element> ParentElementofLevel = new ArrayList<>();
 
-		for (TreeNode<KML_element> node : treeRoot) {
+		for (TreeNode<KMLNotation> node : treeRoot) {
 			if (node.isRoot()) {
 				ParentElementofLevel.add(node.getLevel(), createJDOMElement(node, rootElement));
 			} else {
@@ -75,8 +74,8 @@ public class KMLFileWriter {
 		}
 
 	}
-
-	private Element createJDOMElement(TreeNode<KML_element> node, Element parent) {
+	
+	private Element createJDOMElement(TreeNode<KMLNotation> node, Element parent) {
 		if(node.data.isgExtenstion()) addGoogleExtansionsPack();
 		Element childElement = new Element(node.data.getName(), !node.data.isgExtenstion() ? KMLNamespaceDefinition.getNamespace()
 				: KMLNamespaceDefinition.getAdditionalNamespaces().get(0));

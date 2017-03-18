@@ -4,7 +4,7 @@ import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.KML_Object.abstractView.AbstractView;
 import edu.napier.geo.easykml.KML_Object.stylesector.Style;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.TimePrimitive;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public abstract class Feature extends KML_object {
@@ -70,19 +70,19 @@ public abstract class Feature extends KML_object {
 	}
 	
 	
-	public TreeNode<KML_element> getLinkedOutput (){
+	public TreeNode<KMLNotation> getLinkedOutput (){
 		
 		
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 
-		if(this.getName() != null)root.addChild(new KML_element("name", this.getName(), false));
-		if(this.visibility != null)root.addChild(new KML_element("visibility", this.isVisibility(), false));
-		if(this.open != null)root.addChild(new KML_element("open", this.isOpen(), false));
-		if(this.getDescription() != null)root.addChild(new KML_element("description", this.getDescription(), false));
+		if(this.getName() != null)root.addChild(new KMLNotation("name", this.getName(), false));
+		if(this.visibility != null)root.addChild(new KMLNotation("visibility", this.isVisibility(), false));
+		if(this.open != null)root.addChild(new KMLNotation("open", this.isOpen(), false));
+		if(this.getDescription() != null)root.addChild(new KMLNotation("description", this.getDescription(), false));
 		if(getAbstractView() != null)root.addTreeNode(getAbstractView().getLinkedOutput()) ;
 		if(getTimePrimitive() != null)root.addTreeNode(getTimePrimitive().getLinkedOutput());
 		if(getStyle() != null)root.addTreeNode(getStyle().getLinkedOutput());
-		if(this.getStyleURL() != null)root.addChild(new KML_element("styleUrl", this.getStyleURL(), false));
+		if(this.getStyleURL() != null)root.addChild(new KMLNotation("styleUrl", this.getStyleURL(), false));
 
 
 		return root; 

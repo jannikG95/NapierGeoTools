@@ -3,7 +3,7 @@ package edu.napier.geo.easykml.KML_Object.subStyle.colorStyle;
 import java.awt.Color;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public abstract class ColorStyle extends KML_object{
@@ -84,12 +84,12 @@ public abstract class ColorStyle extends KML_object{
 		return "ffffffff";
 	}
 	
-	public TreeNode<KML_element> getLinkedOutput (){
+	public TreeNode<KMLNotation> getLinkedOutput (){
 		
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 	
-		if(this.getColor() != null)root.addChild(new KML_element("color", colorInHexstring(), false));
-		if(this.getColorMode() != null)root.addChild(new KML_element("colorMode", this.getColorMode(), false));
+		if(this.getColor() != null)root.addChild(new KMLNotation("color", colorInHexstring(), false));
+		if(this.getColorMode() != null)root.addChild(new KMLNotation("colorMode", this.getColorMode(), false));
 
 
 		return root; 
