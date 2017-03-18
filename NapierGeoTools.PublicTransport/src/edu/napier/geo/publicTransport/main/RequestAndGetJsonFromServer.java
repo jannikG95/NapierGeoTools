@@ -1,4 +1,4 @@
-package edu.napier.geo.publicTransport.fascade;
+package edu.napier.geo.publicTransport.main;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -113,10 +113,23 @@ public class RequestAndGetJsonFromServer {
 		return null;
 	}
 
+	/**
+	 * this method gives back a string of the JSON response from TfL for request
+	 * for a Journey from and to coordinates (decimal) without further user Preferences
+	 * 
+	 * @param fromLat
+	 *            decimal
+	 * @param fromLong
+	 *            decimal
+	 * @param toLat
+	 *            decimal
+	 * @param toLong
+	 *            decimal
+	 * @return String of the TfL Response (in JSON format)
+	 * @throws IOException IOException of getJSON(lat, lon, lat, lon, preferences)
+	 */
 	public static String getJSON(double fromLat, double fromLon, double toLat,
 			double toLong) throws IOException {
-		// this method gives back a string of the JSON response from TfL for
-		// request for a Journey from and to coordinates
 		return getJSON(fromLat, fromLon, toLat, toLong, "");
 	}
 

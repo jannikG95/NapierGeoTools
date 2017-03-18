@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 
 
+
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.JourneyInformation;
 import edu.napier.geo.publicTransport.ResponseTfL.Leg;
@@ -15,9 +16,8 @@ import edu.napier.geo.publicTransport.ResponseTfL.ResponseTfL;
 import edu.napier.geo.publicTransport.ResponseTfL.StopPoint;
 import edu.napier.geo.publicTransport.ResponseTfL.StopPointInPath;
 import edu.napier.geo.publicTransport.ResponseTfL.TflJourney;
-import edu.napier.geo.publicTransport.fascade.PublicTransport;
-import edu.napier.geo.publicTransport.fascade.RequestAndGetJsonFromServer;
-//test
+import edu.napier.geo.publicTransport.main.PublicTransport;
+import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
 
 public class RunTest {
 	

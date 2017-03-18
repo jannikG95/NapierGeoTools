@@ -1,168 +1,40 @@
-package edu.napier.geo.publicTransport.fascade;
+package edu.napier.geo.publicTransport.fascadeNew;
 
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
+import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-
 import edu.napier.geo.common.Location;
+import edu.napier.geo.publicTransport.*;
 import edu.napier.geo.publicTransport.InformationStorage.InformationStorage;
-import edu.napier.geo.publicTransport.InformationStorage.JourneyInformation;
-import edu.napier.geo.publicTransport.ResponseTfL.*;
+import edu.napier.geo.publicTransport.ResponseTfL.ResponseTfL;
+import edu.napier.geo.publicTransport.ResponseTfL.TflJourney;
+import edu.napier.geo.publicTransport.main.PublicTransport;
+import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
 
-/**
- * 2017/02/27
- * 
- * @author Jan-Niklas Keiner
- * 
- * Licensed under the Creative Commons BY-NC-SA License. 
- * https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode			
- * The edu.napier.geo.publicTransport.ResponseTfl Package Code is based on a JSON to POJO converter 
- * (https://timboudreau.com/blog/json/read) under this license.
- * 
- *         Uses GSON, which is licensed under the Apache 2.0 License:
- *         http://www.apache.org/licenses/LICENSE-2.0
- * 
- * 
- *         Objects of this class can get request TfL API and convert the
- *         response (JSON) to Pojo (plain old java object) and get information
- *         out of it. Furthermore it stores some information of each journey in
- *         the informationStorage object, which is stored locally and persistent
- *         (ObjectFileInput/Output stream) is imported again each time an object
- *         of this class is created (if there is an informationStorage.ser
- *         file). It uses Google GSON for converting JSON to POJO. It provides
- *         methods to get information out of the information storage. It
- *         provides methods to get information out of the last response Object,
- *         which was created by GSON out of a JSON from TfL. 
- *         
- *         
- *         
- *         
- *          
- */
+public class PublicTransportFascade {
 
-/**
- * This API uses only Latitude and Longitude for Locations and no Altitude.
- *
- */
+	public PublicTransport publicTransport;
 
-public class PublicTransport {
-	private InformationStorage informationStorage;
-	String informationStorageFilePath;
-	public static String informationStorageFilePathDefault = "informationStorage.ser";
-	private ResponseTfL responseJavaObject;
-	private Gson gson;
-//	InformationStorage informationStorageObject; // only for test
-	private String source = "PublicTransport";
+	public PublicTransportFascade() {
+	}
 
-	/**
-	 *  * Constructor for an Object of PublicTransport. This object will be
-	 * necessary to use all functions of the PublicTransport API.
-	 * 
-	 * @param resetInformationStorage
-	 *            if true, the persistent stored InformationStorage is not
-	 *            loaded and the new generated object of this class generates a
-	 *            new empty InformationStorage object, which will be written to
-	 *            the file of the old one, when the first responseObject of a
-	 *            response from a public transport provider API is set.
-	 * @param informationStorageFilePath path of the file of the InformationStorage object to import
-	 */
-	public PublicTransport(boolean resetInformationStorage,
+	public void createNewPublicTransport(boolean resetInformationStorage,
 			String informationStorageFilePath) {
-		gson = new Gson();
-		this.informationStorageFilePath = informationStorageFilePath;
-		if (resetInformationStorage = false) {
-			InputStream fis = null;
-			try {
-				fis = new FileInputStream(this.informationStorageFilePath);
-				ObjectInputStream o = new ObjectInputStream(fis);
-				informationStorage = (InformationStorage) o.readObject();
-				System.out.println("informationStorage read in try block:"
-						+ informationStorage + informationStorage.toString());
-			} catch (IOException e) {
-				System.err.println(e);
-			} catch (ClassNotFoundException e) {
-				System.err.println(e);
-			} finally {
-				try {
-					fis.close();
-				} catch (Exception e) {
-				}
-			}
-		} else {
-			resetInformationStorage(); // this method resets the
-			// informationStorage object to a new one.
-		}
-
-		// JUST FOR DEMONSTRATION:
-		printAllJourneyInformation();
-		System.out.println(informationStorage);
-		// JUST FOR DEMONSTRATION
-
+		this.publicTransport = new PublicTransport(resetInformationStorage,
+				informationStorageFilePath);
 	}
 
-	public PublicTransport(boolean resetInformationStorage) {
-		this(resetInformationStorage, informationStorageFilePathDefault);
-
-	}
-
-	/**
-	 * Method for demonstration only This method prints out all Journeys of the
-	 * InformationStorage object.
-	 */
-	public void printAllJourneyInformation() {
-		System.out.println("with information Storage obj. !");
-		for (JourneyInformation journeyInformation : informationStorage
-				.getStoredJourneyInformation()) {
-			System.out
-					.println("for each informationStoage.storedJourneys journeyInformation.print. "
-							+ journeyInformation.toString());
-		}
-	}
-
-	/**
-	 * /**
-	 * 
-	 * @param string
-	 *            of the JSON response from the API of the TfL public Transport
-	 *            API
-	 * @return ResponseTfL object of all information in the JSON
-	 * 
-	 *         creates Response object out of JSON String and gives the new
-	 *         object to the informationStorage to update it.
-	 * @throws Exception
-	 *             IllegalArgumentException, if no Journeys in TflResponseObject
-	 *             or response String is null. Exception, if
-	 *             storeInformationStoragePersistent throws Exception.
-	 */
-	private ResponseTfL getResponseObjectFromJSONString(String string)
-			throws Exception {
-
-		System.out
-				.println("JSONtoJava-getResponseOBjectFromJSONString(string)");
-
-		if (string != null) {
-			System.out.println(string);
-			ResponseTfL obj = gson.fromJson(string, ResponseTfL.class);
-			System.out.println("object=" + obj);
-			if (obj.getTflJourneys() != null) {
-				informationStorage.storeInformation(obj);
-				storeInformationStoragePersistent();
-				return obj;
-			}
-			System.out.println("no Journeys in response Object.");
-			throw new IllegalArgumentException();
-
-		}
-		System.out.println("responseString=null, no JSON code responded!");
-		throw new IllegalArgumentException();
-
+	public void createNewPublicTransport(boolean resetInformationStorage) {
+		this.publicTransport = new PublicTransport(resetInformationStorage);
 	}
 
 	/**
@@ -173,7 +45,9 @@ public class PublicTransport {
 	 *         minutes
 	 */
 	public int getDurationMinutesOfFirstJourney() {
-		return this.getDurationMinutsOfJourney(0);
+		if (this.publicTransport != null)
+			return publicTransport.getDurationMinutsOfJourney(0);
+		return 0;
 	}
 
 	/**
@@ -184,7 +58,9 @@ public class PublicTransport {
 	 * @return Location of Departure of the first Journey
 	 */
 	public Location getDeparturePointOfFirstJourney() {
-		return this.getDeparturePointOfJourney(0);
+		if (this.publicTransport != null)
+			return publicTransport.getDeparturePointOfFirstJourney();
+		return null;
 	}
 
 	/**
@@ -195,10 +71,8 @@ public class PublicTransport {
 	 *         actual ResponseTfL Object
 	 */
 	public Location getArrivalPointOfFirstJourney() {
-		if (this.getResponseJavaObject() != null)
-			return this.getResponseJavaObject().getTflJourneys()[0].getLegs()[this
-					.getResponseJavaObject().getTflJourneys()[0].getLegs().length - 1]
-					.getArrivalPoint();
+		if (this.publicTransport != null)
+			return publicTransport.getArrivalPointOfFirstJourney();
 		return null;
 	}
 
@@ -210,8 +84,8 @@ public class PublicTransport {
 	 *         ResponseTfL Object
 	 */
 	public int getNumberOfLegsOfFirstJourney() {
-		if (this.getResponseJavaObject() != null)
-			return this.getResponseJavaObject().getTflJourneys()[0].getLegs().length;
+		if (this.publicTransport != null)
+			return publicTransport.getNumberOfLegsOfFirstJourney();
 		return -1;
 	}
 
@@ -222,7 +96,9 @@ public class PublicTransport {
 	 *         Object
 	 */
 	public TflJourney getFirstJourney() {
-		return this.getJourney(0);
+		if (this.publicTransport != null)
+			return publicTransport.getFirstJourney();
+		return null;
 	}
 
 	/**
@@ -232,65 +108,74 @@ public class PublicTransport {
 	 *         ResponseTfL Object
 	 */
 	public TflJourney[] getAllJourneys() {
-		if (this.getResponseJavaObject() != null)
-			return this.getResponseJavaObject().getTflJourneys();
+		if (this.publicTransport != null)
+			return publicTransport.getAllJourneys();
 		return null;
 	}
 
 	/**
 	 * Gives back the duration of a TfLJourney
 	 * 
-	 * @param tflJourney TflJourney object
+	 * @param tflJourney
+	 *            TflJourney object
 	 * @return Integer of the duration of the given TfLJourney Object
 	 */
 	public int getDurationOfJourney(TflJourney tflJourney) {
-		return tflJourney.getDurationMinutes();
+		if (this.publicTransport != null)
+			return publicTransport.getDurationOfJourney(tflJourney);
+		return -1;
 	}
 
 	/**
 	 * Gives back the Departure Point of a given TfLJourney Object
 	 * 
-	 * @param tflJourney TflJourney object
+	 * @param tflJourney
+	 *            TflJourney object
 	 * @return Location Object of the Departure Point of a given TfLJourney
 	 *         Object
 	 */
 	public Location getDeparturePointOfJourney(TflJourney tflJourney) {
-		return tflJourney.getLegs()[0].getDeparturePoint();
+		if (this.publicTransport != null)
+			return publicTransport.getDeparturePointOfJourney(tflJourney);
+		return null;
 	}
 
 	/**
 	 * Gives back the Arrival Point of a given TfLJourney Object
 	 * 
-	 * @param tflJourney  TflJourney object
+	 * @param tflJourney
+	 *            TflJourney object
 	 * @return Location Object of the Arrival Point of a given TfLJourney Object
 	 */
 	public Location getArrivalPointOfJourney(TflJourney tflJourney) {
-		return tflJourney.getLegs()[tflJourney.getLegs().length - 1]
-				.getArrivalPoint();
+		if (this.publicTransport != null)
+			return publicTransport.getArrivalPointOfJourney(tflJourney);
+		return null;
 	}
 
 	/**
 	 * Gives back the number of Legs of a given TfLJourney Object
 	 * 
-	 * @param tflJourney TflJourney object
+	 * @param tflJourney
+	 *            TflJourney object
 	 * @return Integer of the number of Legs of a given TfLJourney Object
 	 */
 	public int getNumberOfLegsOfJourney(TflJourney tflJourney) {
-		return tflJourney.getLegs().length;
+		if (this.publicTransport != null)
+			return publicTransport.getNumberOfLegsOfJourney(tflJourney);
+		return -1;
 	}
 
 	/**
 	 * Gives back the duration of a given Journey in minutes
 	 * 
-	 * @param journeyNumber index of the Journey in the Response Object
+	 * @param journeyNumber
+	 *            index of the Journey in the Response Object
 	 * @return Integer of the duration of the given Journey in minutes
 	 */
 	public int getDurationMinutsOfJourney(int journeyNumber) {
-		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber)
-				return this.getResponseJavaObject().getTflJourneys()[journeyNumber]
-						.getDurationMinutes();
-		}
+		if (publicTransport.getResponseJavaObject() != null)
+			return publicTransport.getDurationMinutsOfJourney(journeyNumber);
 		return -1;
 	}
 
@@ -303,11 +188,8 @@ public class PublicTransport {
 	 *         index.
 	 */
 	public Location getDeparturePointOfJourney(int journeyNumber) {
-		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber)
-				return this.getResponseJavaObject().getTflJourneys()[journeyNumber]
-						.getLegs()[0].getDeparturePoint();
-		}
+		if (publicTransport.getResponseJavaObject() != null)
+			return publicTransport.getDeparturePointOfJourney(journeyNumber);
 		return null;
 	}
 
@@ -322,13 +204,8 @@ public class PublicTransport {
 	public Location getArrivalPointOfJourney(int journeyNumber) {
 		// returns the Location of the Arrival Point of the journey (with the
 		// given index) (Data of the Response Object)
-		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber)
-				return this.getResponseJavaObject().getTflJourneys()[journeyNumber]
-						.getLegs()[this.getResponseJavaObject()
-						.getTflJourneys()[journeyNumber].getLegs().length - 1]
-						.getArrivalPoint();
-		}
+		if (publicTransport.getResponseJavaObject() != null)
+			return publicTransport.getArrivalPointOfJourney(journeyNumber);
 		return null;
 	}
 
@@ -340,11 +217,8 @@ public class PublicTransport {
 	 * @return Integer of the number of Legs of a Journey with a given index.
 	 */
 	public int getNumberOfLegsOfJourney(int journeyNumber) {
-		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber)
-				return this.getResponseJavaObject().getTflJourneys()[journeyNumber]
-						.getLegs().length;
-		}
+		if (this.publicTransport != null)
+			return publicTransport.getNumberOfLegsOfJourney(journeyNumber);
 		return -1;
 	}
 
@@ -356,10 +230,8 @@ public class PublicTransport {
 	 * @return a TfLJourney Object of the response object with a given index.
 	 */
 	public TflJourney getJourney(int journeyNumber) {
-		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber)
-				return this.getResponseJavaObject().getTflJourneys()[journeyNumber];
-		}
+		if (this.publicTransport != null)
+			return publicTransport.getJourney(journeyNumber);
 		return null;
 	}
 
@@ -378,8 +250,12 @@ public class PublicTransport {
 	public double getAverageDurationMSForJourney(Location from, Location to) {
 		// returns the average duration for a Journey from and to a given
 		// Location (Data from persistent local InformationStorage)
-		return informationStorage.getAverageTimeMSForJourney(from, to);
+		if (this.publicTransport != null)
+			return publicTransport.getAverageDurationMSForJourney(from, to);
+		return -1;
 	}
+
+	// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Gives back the average number of Legs of all stored Journeys from and to
@@ -395,7 +271,9 @@ public class PublicTransport {
 	public double getAverageNumberOfLegs(Location from, Location to) {
 		// returns the average number of legs for a Journey from and to a given
 		// Location (Data from persistent local InformationStorage)
-		return informationStorage.getAverageNumberOfLegs(from, to);
+		if (this.publicTransport != null)
+			return publicTransport.getAverageNumberOfLegs(from, to);
+		return -1;
 	}
 
 	/**
@@ -403,40 +281,51 @@ public class PublicTransport {
 	 * InformationStorage stored Journeys from and to Locations in KM Uses the
 	 * data of the persistent InformationStorage
 	 * 
-	 * @param from Location object
-	 * @param to Location object
+	 * @param from
+	 *            Location object
+	 * @param to
+	 *            Location object
 	 * @return double of the Average walking distance of all in the persistent
 	 *         InformationStorage stored Journeys from and to Locations in KM
 	 */
 	public double getAverageDistanceWalkingKM(Location from, Location to) {
-		return informationStorage.getAverageWalkingDistanceKMForJourney(from,
-				to);
+		if (this.publicTransport != null)
+			return publicTransport.getAverageDistanceWalkingKM(from, to);
+		return -1;
 	}
 
 	/**
 	 * Gives back an ArrayList of TflJourneys Objects of a Journey from and to a
 	 * Location. Uses the data of the persistent InformationStorage
 	 * 
-	 * @param from Location object
-	 * @param to Location object
+	 * @param from
+	 *            Location object
+	 * @param to
+	 *            Location object
 	 * @return ArrayList of TflJourney Objects of a Journey from and to a
 	 *         Location
 	 */
 	public ArrayList<TflJourney> getTflJourneys(Location from, Location to) {
-		return informationStorage.getTflJourneys(from, to);
+		if (this.publicTransport != null)
+			return publicTransport.getTflJourneys(from, to);
+		return null;
 	}
 
 	/**
 	 * Gives back an ArrayList of all Locations on the way of the Journey Uses
 	 * the data of the persistent InformationStorage
 	 * 
-	 * @param from Location object
-	 * @param to Location object
+	 * @param from
+	 *            Location object
+	 * @param to
+	 *            Location object
 	 * @return ArrayList of all Locations on the way of the Journey
 	 */
 	public ArrayList<Location> getRouteLocationsOfJourney(Location from,
 			Location to) {
-		return informationStorage.getRouteLocationsOfJourney(from, to);
+		if (this.publicTransport != null)
+			return publicTransport.getRouteLocationsOfJourney(from, to);
+		return null;
 	}
 
 	// Creating Response Java Object from request
@@ -448,17 +337,20 @@ public class PublicTransport {
 	 * be used. Then it sets the response object of this object to the new given
 	 * response object from TfL.
 	 * 
-	 * @param from Location object
-	 * @param to Location object
+	 * @param from
+	 *            Location object
+	 * @param to
+	 *            Location object
 	 * @param userPreferences
 	 *            Strings must be in the format that the TfL API requires
 	 *            ("variable=value" for most of the variables).
-	 * @throws Exception Exception of setResponseJavaObject()
+	 * @throws Exception
+	 *             Exception of setResponseJavaObject()
 	 */
 	public void createResponseJavaObject(Location from, Location to,
 			ArrayList<String> userPreferences) throws Exception {
-		this.setResponseJavaObject(getResponseObjectFromJSONString(RequestAndGetJsonFromServer
-				.getJSON(from, to, userPreferences)));
+		if (this.publicTransport != null)
+			publicTransport.createResponseJavaObject(from, to, userPreferences);
 	}
 
 	/**
@@ -466,14 +358,17 @@ public class PublicTransport {
 	 * from and to a given Location. Then it sets the response object of this
 	 * object to the new given response object from TfL.
 	 * 
-	 * @param from Location object
-	 * @param to Location object
-	 * @throws Exception Exception of setResponseJavaOBject()
+	 * @param from
+	 *            Location object
+	 * @param to
+	 *            Location object
+	 * @throws Exception
+	 *             Exception of setResponseJavaOBject()
 	 */
 	public void createResponseJavaObject(Location from, Location to)
 			throws Exception {
-		this.setResponseJavaObject(getResponseObjectFromJSONString(RequestAndGetJsonFromServer
-				.getJSON(from, to)));
+		if (this.publicTransport != null)
+			publicTransport.createResponseJavaObject(from, to);
 	}
 
 	/**
@@ -491,14 +386,18 @@ public class PublicTransport {
 	 *            decimal
 	 * @param toLon
 	 *            decimal
-	 * @param userPreferences ArrayList of Strings in the format that the TfL API requires. One String per parameter
-	 * @throws Exception Exception of setResponseJavaObject()
+	 * @param userPreferences
+	 *            ArrayList of Strings in the format that the TfL API requires.
+	 *            One String per parameter
+	 * @throws Exception
+	 *             Exception of setResponseJavaObject()
 	 */
 	public void createResponseJavaObject(double fromLat, double fromLon,
 			double toLat, double toLon, ArrayList<String> userPreferences)
 			throws Exception {
-		this.setResponseJavaObject(getResponseObjectFromJSONString(RequestAndGetJsonFromServer
-				.getJSON(fromLat, fromLon, toLat, toLon, userPreferences)));
+		if (this.publicTransport != null)
+			publicTransport.createResponseJavaObject(fromLat, fromLon, toLat,
+					toLon, userPreferences);
 	}
 
 	/**
@@ -514,12 +413,14 @@ public class PublicTransport {
 	 *            decimal
 	 * @param toLon
 	 *            decimal
-	 * @throws Exception Exception of setResponseJavaObject()
+	 * @throws Exception
+	 *             Exception of setResponseJavaObject()
 	 */
 	public void createResponseJavaObject(double fromLat, double fromLon,
 			double toLat, double toLon) throws Exception {
-		this.setResponseJavaObject(getResponseObjectFromJSONString(RequestAndGetJsonFromServer
-				.getJSON(fromLat, fromLon, toLat, toLon)));
+		if (this.publicTransport != null)
+			publicTransport.createResponseJavaObject(fromLat, fromLon, toLat,
+					toLon);
 	}
 
 	/**
@@ -529,19 +430,21 @@ public class PublicTransport {
 	 * updating the InformationStorage. Not necessary for normal usage, but
 	 * public provided for possible special use of a User.
 	 * 
-	 * @throws IOException of ObjectOutputStream
-	 * @throws FileNotFoundException of FileOutputStream
+	 * @throws IOException
+	 *             of ObjectOutputStream
+	 * @throws FileNotFoundException
+	 *             of FileOutputStream
 	 */
 	public void storeInformationStoragePersistent() throws IOException,
 			FileNotFoundException {
-		FileOutputStream fos = null;
-		fos = new FileOutputStream("informationStorage.ser");
-		ObjectOutputStream o = new ObjectOutputStream(fos);
-		o.writeObject(informationStorage);
+		if (this.publicTransport != null)
+			publicTransport.storeInformationStoragePersistent();
 	}
 
 	public ResponseTfL getResponseJavaObject() {
-		return responseJavaObject;
+		if (this.publicTransport != null)
+			return publicTransport.getResponseJavaObject();
+		return null;
 	}
 
 	/**
@@ -549,17 +452,21 @@ public class PublicTransport {
 	 * this Object with a new empty InformationStorage Object
 	 */
 	public void resetInformationStorage() {
-		this.informationStorage = new InformationStorage();
+		if (this.publicTransport != null)
+			publicTransport.resetInformationStorage();
 	}
 
 	/**
 	 * sets the ResponseJavaObject of this object to the given ResponseTfl
 	 * Object
 	 * 
-	 * @param responseJavaObject Object of ResponseTfl type (Response from TfL (JSON) converted to POJO object)
+	 * @param responseJavaObject
+	 *            Object of ResponseTfl type (Response from TfL (JSON) converted
+	 *            to POJO object)
 	 */
 	public void setResponseJavaObject(ResponseTfL responseJavaObject) {
-		this.responseJavaObject = responseJavaObject;
+		if (this.publicTransport != null)
+			publicTransport.setResponseJavaObject(responseJavaObject);
 	}
 
 	/**
@@ -568,7 +475,9 @@ public class PublicTransport {
 	 * @return InformationStorage object of this class
 	 */
 	public InformationStorage getInformationStorage() {
-		return informationStorage;
+		if (this.publicTransport != null)
+			return publicTransport.getInformationStorage();
+		return null;
 	}
 
 	/**
@@ -578,7 +487,114 @@ public class PublicTransport {
 	 * @return String with this API name
 	 */
 	public String getSource() {
-		return source;
+		if (this.publicTransport != null)
+			return publicTransport.getSource();
+		return null;
+
+	}
+	
+	/**
+	 * this method gives back a string of the JSON response from TfL for request
+	 * for a Journey from and to a Location
+	 * 
+	 * @param from Location object
+	 * @param to Location object
+	 * @return String of the TfL Response (in JSON format)
+	 * @throws IOException IOException of getJSON(lat, lon, lat, lon, userPreferences)
+	 */
+	public static String getJSON(Location from, Location to) throws IOException {
+		return RequestAndGetJsonFromServer.getJSON(from, to);
 	}
 
+
+	/**
+	 *  this method gives back a string of the JSON response from TfL for request
+	 * for a Journey from and to a Location with user Preferences
+	 * 
+	 * @param from Location object
+	 * @param to Location object
+	 * @param preferences ArrayList of Strings with the user Preferences in the format that the TfL API requires
+	 * @return String of the TfL Response (in JSON format)
+	 * @throws IOException IOException of getJSON(lat, lon, lat, lon, userPreferences)
+	 * 
+	 * 
+	 */
+	public static String getJSON(Location from, Location to,
+			ArrayList<String> preferences) throws IOException {
+		return RequestAndGetJsonFromServer.getJSON(from, to, preferences);
+	}
+
+	/**
+	 * this method gives back a string of the JSON response from TfL for request
+	 * for a Journey from and to coordinates (decimal) without further user Preferences
+	 * 
+	 * @param fromLat
+	 *            decimal
+	 * @param fromLong
+	 *            decimal
+	 * @param toLat
+	 *            decimal
+	 * @param toLong
+	 *            decimal
+	 * @return String of the TfL Response (in JSON format)
+	 * @throws IOException IOException of getJSON(lat, lon, lat, lon, preferences)
+	 */
+	public static String getJSON(double fromLat, double fromLon, double toLat,
+			double toLong) throws IOException {
+		return RequestAndGetJsonFromServer.getJSON(fromLat, fromLon, toLat, toLong);
+	}
+
+	/**
+	 * this method gives back a string of the JSON response from TfL for request
+	 * for a Journey from and to coordinates (decimal) with user Preferences
+	 * 
+	 * 
+	 * @param fromLat
+	 *            decimal
+	 * @param fromLong
+	 *            decimal
+	 * @param toLat
+	 *            decimal
+	 * @param toLong
+	 *            decimal
+	 * @param preferences
+	 *            ArrayList of Strings with the user preferences (must be in the
+	 *            format, that TfL requires: "variable=value". All Variables
+	 *            that TfL provides can be used.
+	 * @return String of the TfL Response (in JSON format)
+	 * @throws IOException IOException of getJSON(lat, lon, lat, lon, preferences)
+	 */
+	public static String getJSON(double fromLat, double fromLong, double toLat,
+			double toLong, ArrayList<String> preferences) throws IOException {
+		return RequestAndGetJsonFromServer.getJSON(fromLat, fromLong, toLat, toLong, preferences);
+	}
+
+	/**
+	 * this method gives back a String of the JSON response from TfL for a
+	 * request for a Journey from and to coordinates and with all preferences in
+	 * one String (separated by the and symbol). 
+	 * 
+	 * @param fromLat
+	 *            decimal
+	 * @param fromLon
+	 *            decimal
+	 * @param toLat
+	 *            decimal
+	 * @param toLong
+	 *            decimal
+	 * @param preferences
+	 *            ArrayList of Strings with the user preferences (must be in the
+	 *            format, that TfL requires: "variable=value". All Variables
+	 *            that TfL provides can be used.
+	 * @return  String of the TfL Response (in JSON format)
+	 * @throws MalformedURLException  MalformedURLException of URL
+	 * @throws ProtocolException ProtocolException of HttpURLConnection connection.setRequestMethod(GET)
+	 * @throws IOException IOException of url.openConnection
+	 */
+	public static String getJSON(double fromLat, double fromLon, double toLat,
+			double toLong, String preferences) throws MalformedURLException, IOException, ProtocolException {
+	return RequestAndGetJsonFromServer.getJSON(fromLat, fromLon, toLat, toLong, preferences);	
+	}
+	
+	
 }
