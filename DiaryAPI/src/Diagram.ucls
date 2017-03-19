@@ -1,116 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="Location" project="DiaryAPI" file="/DiaryAPI/src/Location.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="596" y="991"/>    
+  <class id="1" language="java" name="edu.napier.geo.diary.DiaryFacade" project="DiaryAPI" 
+    file="/DiaryAPI/src/edu/napier/geo/diary/DiaryFacade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="660" width="759" x="-267" y="-124"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="Ressource" project="DiaryAPI" file="/DiaryAPI/src/Ressource.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1765" y="829"/>    
+  <class id="2" language="java" name="edu.napier.geo.diary.CalendarEntry" project="DiaryAPI" 
+    file="/DiaryAPI/src/edu/napier/geo/diary/CalendarEntry.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="408" width="555" x="-70" y="844"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="API_Demo" project="DiaryAPI" file="/DiaryAPI/src/API_Demo.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="622" y="493"/>    
+  <class id="3" language="java" name="edu.napier.geo.diary.ICalendarFileHandler" project="DiaryAPI" 
+    file="/DiaryAPI/src/edu/napier/geo/diary/ICalendarFileHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="156" width="340" x="-647" y="576"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="DiaryFacade" project="DiaryAPI" file="/DiaryAPI/src/DiaryFacade.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="660" width="759" x="873" y="-2"/>    
+  <class id="4" language="java" name="edu.napier.geo.diary.StartEndException" project="DiaryAPI" 
+    file="/DiaryAPI/src/edu/napier/geo/diary/StartEndException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="66" width="157" x="532" y="-124"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="ExportToICAL" project="DiaryAPI" file="/DiaryAPI/src/ExportToICAL.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="156" width="340" x="493" y="698"/>    
+  <class id="5" language="java" name="edu.napier.geo.diary.API_Demo" project="DiaryAPI" 
+    file="/DiaryAPI/src/edu/napier/geo/diary/API_Demo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="84" width="130" x="729" y="-124"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="CalendarEntry" project="DiaryAPI" file="/DiaryAPI/src/CalendarEntry.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1158" y="965"/>    
+  <class id="6" language="java" name="edu.napier.geo.diary.Resource" project="DiaryAPI" 
+    file="/DiaryAPI/src/edu/napier/geo/diary/Resource.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="228" width="373" x="-267" y="576"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="false"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="StartEndException" project="DiaryAPI" file="/DiaryAPI/src/StartEndException.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="611" y="609"/>    
-    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <association id="8">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="9" name="export"/>      
-      <multiplicity id="10" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="11">    
-    <bendpoint x="1458" y="698"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="12" name="allRessources"/>      
-      <multiplicity id="13" minimum="0" maximum="2147483647"/>    
+  <association id="7">    
+    <bendpoint x="136" y="576"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="8" name="allEntries">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="9" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="14">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="15" name="allocatedRessources"/>      
-      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+  <association id="10">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="11" name="export">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="12" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="18" name="allEntries"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
+  <association id="13">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="14" name="allRessources">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="15" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="20">    
+  <association id="16">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="21" name="participating"/>      
-      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
+      <attribute id="17" name="allocatedResources">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="23">    
+  <association id="19">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="24" name="location"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
+      <attribute id="20" name="participating">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 

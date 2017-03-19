@@ -16,7 +16,7 @@ public class CalendarEntry implements Serializable {
 	private String summary = null;
 	private Location location = null;
 	private String uid = null;
-	private ArrayList<Ressource> allocatedRessources = new ArrayList<Ressource>();
+	private ArrayList<Resource> allocatedResources = new ArrayList<Resource>();
 
 	//only required parameters
 	/** Constructor creating a new CalendarEntry with only the required parameters
@@ -62,7 +62,7 @@ public class CalendarEntry implements Serializable {
 	 */
 	public CalendarEntry (int yearStart, int monthStart, int dayStart, int hourStart, int minuteStart,
 			int yearEnd, int monthEnd, int dayEnd, int hourEnd, int minuteEnd,
-			String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+			String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 
 		start = LocalDateTime.of(yearStart, monthStart, dayStart, hourStart, minuteStart);
 		end = LocalDateTime.of(yearEnd, monthEnd, dayEnd, hourEnd, minuteEnd);
@@ -74,7 +74,7 @@ public class CalendarEntry implements Serializable {
 		this.location = location;
 		this.uid = UUID.randomUUID().toString();
 		uid = uid+"napier";
-		allocatedRessources = ressources;
+		allocatedResources = ressources;
 	}
 
 	//Constructor using LocalDateTimes and all parameters
@@ -87,7 +87,7 @@ public class CalendarEntry implements Serializable {
 	 * @param ressources ressources associated with the event of the calendar entry
 	 * @throws StartEndException if the event end is earlier than the event start
 	 */
-	public CalendarEntry (LocalDateTime start, LocalDateTime end, String description, String summary, Location location, ArrayList<Ressource> ressources) throws StartEndException{
+	public CalendarEntry (LocalDateTime start, LocalDateTime end, String description, String summary, Location location, ArrayList<Resource> ressources) throws StartEndException{
 		this(start.getYear(),start.getMonthValue(), start.getDayOfMonth(),start.getHour(), start.getMinute(),
 				end.getYear(),end.getMonthValue(), end.getDayOfMonth(),end.getHour(), end.getMinute(),
 				description, summary, location, ressources);
@@ -126,8 +126,8 @@ public class CalendarEntry implements Serializable {
 			locationstring = location.getDescription();
 		if (locationstring==null)
 			locationstring = "no location set";
-		if (allocatedRessources != null)
-			ressourcestring = allocatedRessources.toString();
+		if (allocatedResources != null)
+			ressourcestring = allocatedResources.toString();
 		if (ressourcestring==null)
 			ressourcestring = "no ressources allocated";
 		if (description==null)
@@ -233,23 +233,23 @@ public class CalendarEntry implements Serializable {
 	/** getter for the allocated Ressources
 	 * @return ArrayList of allocated Ressources
 	 */
-	public ArrayList<Ressource> getAllocatedRessources() {
-		return allocatedRessources;
+	public ArrayList<Resource> getAllocatedRessources() {
+		return allocatedResources;
 	}
 
 	//should only be accessed from the Facade class to ensure correct listing of Events and Ressources!
 	/** adds Ressources to the CalendarEntry
 	 * @param res ArrayList of Ressources to add
 	 */
-	protected void addRessources(ArrayList<Ressource> res){
-		allocatedRessources.addAll(res);
+	protected void addRessources(ArrayList<Resource> res){
+		allocatedResources.addAll(res);
 	}
 	
 	/** removes Ressources from the CalendarEntry
 	 * @param res ArrayList of Ressources to remove
 	 */
-	protected void removeRessources(ArrayList<Ressource> res){
-		allocatedRessources.removeAll(res);
+	protected void removeRessources(ArrayList<Resource> res){
+		allocatedResources.removeAll(res);
 	}
 
 }

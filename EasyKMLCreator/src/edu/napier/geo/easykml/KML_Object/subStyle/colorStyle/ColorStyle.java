@@ -3,7 +3,7 @@ package edu.napier.geo.easykml.KML_Object.subStyle.colorStyle;
 import java.awt.Color;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public abstract class ColorStyle extends KML_object{
@@ -17,7 +17,7 @@ public abstract class ColorStyle extends KML_object{
 	private Color color;
 	private Boolean colorModeActivated; // false = normal true = random
 	private String colorMode;
-	private Integer transparency; // default value 100 percent. The object is
+	private Integer transparency = 100; // default value 100 percent. The object is
 									// completely visible
 	
 	
@@ -84,12 +84,12 @@ public abstract class ColorStyle extends KML_object{
 		return "ffffffff";
 	}
 	
-	public TreeNode<KML_element> getLinkedOutput (){
+	public TreeNode<KMLNotation> getLinkedOutput (){
 		
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 	
-		if(this.getColor() != null)root.addChild(new KML_element("color", colorInHexstring(), false));
-		if(this.getColorMode() != null)root.addChild(new KML_element("colorMode", this.getColorMode(), false));
+		if(this.getColor() != null)root.addChild(new KMLNotation("color", colorInHexstring(), false));
+		if(this.getColorMode() != null)root.addChild(new KMLNotation("colorMode", this.getColorMode(), false));
 
 
 		return root; 

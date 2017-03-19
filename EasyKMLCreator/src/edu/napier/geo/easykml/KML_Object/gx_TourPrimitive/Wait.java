@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.gx_TourPrimitive;
 
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Wait extends TourPrimitive{
@@ -26,13 +26,13 @@ public class Wait extends TourPrimitive{
 		this.duration = duration;
 	}
 	
-	public TreeNode<KML_element> getLinkedOutput (){
+	public TreeNode<KMLNotation> getLinkedOutput (){
 		
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 
 		root.data.setgExtenstion(true);
 	
-		if(this.getDuration() != null)root.addChild(new KML_element("duration", Double.toString(this.getDuration()), true));
+		if(this.getDuration() != null)root.addChild(new KMLNotation("duration", Double.toString(this.getDuration()), true));
 	
 		return root; 
 	}

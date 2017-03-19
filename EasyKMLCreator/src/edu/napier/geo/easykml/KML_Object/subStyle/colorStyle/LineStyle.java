@@ -2,7 +2,7 @@ package edu.napier.geo.easykml.KML_Object.subStyle.colorStyle;
 
 import java.awt.Color;
 
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class LineStyle extends ColorStyle {
@@ -95,21 +95,21 @@ public class LineStyle extends ColorStyle {
 		this.gxLabelVisibility = gxLabelVisibility;
 	}
 
-	public TreeNode<KML_element> getLinkedOutput() {
+	public TreeNode<KMLNotation> getLinkedOutput() {
 
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 
 		if (this.getWidth() != null)
-			root.addChild(new KML_element("width", Float.toString(this.getWidth()), false));
+			root.addChild(new KMLNotation("width", Float.toString(this.getWidth()), false));
 		if (this.getGxOuterColor() != null)
-			root.addChild(new KML_element("outerColor", getGxOuterColor(), true));
+			root.addChild(new KMLNotation("outerColor", getGxOuterColor(), true));
 		if (this.getGxOuterWidth() != null)
-			root.addChild(new KML_element("outerWidth", Float.toString(this.getGxOuterWidth()), true));
+			root.addChild(new KMLNotation("outerWidth", Float.toString(this.getGxOuterWidth()), true));
 		if (this.getGxPhysicalWidth() != null)
-			root.addChild(new KML_element("physicalWidth", Float.toString(this.getGxPhysicalWidth()), true));
+			root.addChild(new KMLNotation("physicalWidth", Float.toString(this.getGxPhysicalWidth()), true));
 
 		if (this.gxLabelVisibility != null)
-			root.addChild(new KML_element("labelVisibility", this.isGxLabelVisibility(), true));
+			root.addChild(new KMLNotation("labelVisibility", this.isGxLabelVisibility(), true));
 
 		return root;
 	}
