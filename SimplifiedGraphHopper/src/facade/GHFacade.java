@@ -21,11 +21,6 @@ import edu.napier.geo.common.Location;
  * @author Jannik Enenkel
  */
 
-/**
- * TO DO: 
- * - cache hoppers -> importOrLoad()
- * - cache journey -> why??
- */
 
 public class GHFacade implements JourneyFactory, GHOptions {
 
@@ -82,8 +77,8 @@ public class GHFacade implements JourneyFactory, GHOptions {
 	 */
 	public GHJourney route(GHJourney j) {
 		GHRouting r = new GHRouting(j);
-		GHJourney journey = r.processJourney();
-		return journey;
+		j = r.processJourney();
+		return j;
 	}
 
 	/**

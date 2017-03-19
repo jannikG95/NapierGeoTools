@@ -21,6 +21,8 @@ public class CustomGraphHopper extends GraphHopperOSM {
 		String weighting = hintsMap.getWeighting().toLowerCase();
 		if (weighting.equals("customWeighting"))
 			return new CustomWeighting(encoder);
+//		if(weighting.equals("mySecondWeighting"))
+//			return new SecondWeighting(encoder);
 		else
 			return super.createWeighting(hintsMap, encoder, graph);
 	}

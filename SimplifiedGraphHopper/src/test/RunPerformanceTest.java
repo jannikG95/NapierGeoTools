@@ -16,6 +16,6 @@ public class RunPerformanceTest {
 		third = test.test3();
 		fourth = test.test4();
 		System.out.println("Loaded takes:");
-		System.out.println(first + "/n" + second + "/n" + third + "/n" + fourth);
+		System.out.println(first + "/n" +  second + "/n" + third + "/n" + fourth);
 	}	
 }

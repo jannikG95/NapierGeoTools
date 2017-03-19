@@ -3,8 +3,9 @@ package test;
 import java.util.HashMap;
 import java.util.List;
 
-import com.graphhopper.routing.util.*;
+import com.graphhopper.routing.util.BikeFlagEncoder;
 import com.graphhopper.routing.util.FlagEncoder;
+import com.graphhopper.routing.util.FootFlagEncoder;
 
 import edu.napier.geo.common.Location;
 import facade.CustomCarFlagEncoder;
@@ -12,48 +13,45 @@ import facade.GHFacade;
 import facade.GHJourney;
 
 public class UsabilityTest {
-	
+
 	public static void main(String[] args) {
-		String osmFile = "C:\\Users\\Jannik\\Documents\\Uni\\6. Sem (Schottland)\\Honours Project\\Tomcat\\map (2).osm";
-		String folderPath = "C:\\Users\\Jannik\\Desktop\\gh";
-		Location a = new Location(55.95095 ,-3.20272,1);
-		Location b = new Location(55.95343, -3.19738,2);
+		String osmFile = "C:\\Users\\Jannik\\Desktop\\map.osm";
+		String folderPath = "C:\\Users\\Jannik\\Desktop\\myFolder";
+		Location a = new Location(55.95095 ,-3.20272,0);
+		Location b = new Location(55.95343, -3.19738,0);
 		
 		GHFacade facade = new GHFacade();
 		
-		CustomCarFlagEncoder myCar = (CustomCarFlagEncoder) facade.getEncoder(GHFacade.CUSTOMCAR);
-		myCar.setName("bus");
+		CustomCarFlagEncoder bus = (CustomCarFlagEncoder) facade.getEncoder(GHFacade.CUSTOMCAR);
+		bus.setName("bus");
 		// myCar.getAbsoluteBarriers().add("anything");
 		
 		FlagEncoder bike = (BikeFlagEncoder) facade.getEncoder(GHFacade.BIKE);
-		FlagEncoder foot = (FootFlagEncoder) facade.getEncoder(GHFacade.FOOT);
 				
-		FlagEncoder[] encoders = {myCar, bike, foot};
+		FlagEncoder[] encoders = {bus, bike};
 		
 		HashMap<String, Object> options = facade.getOptionsMap();
-		options.put("pathToOSM", osmFile); // String
-		options.put("pathToFolder", folderPath); // String
-		options.put("profilesForGraph", encoders); // FlagEncoder[] from getEncoder()
-		options.put("enableCH", false); // boolean
-		options.put("maxVisitedNodes", 500); // int
-		options.put("includeElevation", true); // boolean
-		options.put("algorithm", GHFacade.DIJKSTRABI); // String
-		options.put("profileForRequest", GHFacade.FOOT); // String equal to FlagEncoder.toString()
-		options.put("weighting", GHFacade.FASTEST); // String
+		options.put("pathToOSM", osmFile);
+		options.put("pathToFolder", folderPath);
+		options.put("profilesForGraph", encoders);
+		options.put("enableCH", false);
+		options.put("maxVisitedNodes", 500);
+		options.put("includeElevation", false);
+		options.put("algorithm", GHFacade.DIJKSTRA);
+		options.put("profileForRequest", "bus");
+		options.put("weighting", GHFacade.FASTEST);
 		
 		GHJourney journey = (GHJourney) facade.getJourney(a, b, options);
-		System.out.println(System.currentTimeMillis());
-		GHJourney journey2 = facade.route(journey);
-		System.out.println(System.currentTimeMillis());
-		System.out.println(journey2.getOrigin());
-		System.out.println(journey2.getDistanceKM());
-		System.out.println(journey2.getTravelTimeMS());
 		
-		List<Location> l = journey2.getWaypoints();
+		journey = facade.route(journey);
+		
+		System.out.println("Journey Origin: " + journey.getOrigin());
+		System.out.println("Distance in KM: " + journey.getDistanceKM());
+		System.out.println("Time in MS: " + journey.getTravelTimeMS());
+		System.out.println("Waypoints:");
+		List<Location> l = journey.getWaypoints();
 		for(Location loc : l){
-			System.out.println(loc.getLat()+" "+ loc.getLon() +" "+ loc.getAlt());
+			System.out.println(loc.getLat()+" "+ loc.getLon());
 		}
-		
 	}
-	
 }
