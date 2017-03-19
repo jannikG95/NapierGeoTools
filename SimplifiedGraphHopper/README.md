@@ -2,6 +2,6 @@
 
 ## Get Started
 
-To get started read through our documentation ([0.8](https://github.com/graphhopper/graphhopper/blob/0.8/docs/index.md), [unstable](https://github.com/graphhopper/graphhopper/blob/master/docs/index.md)). 
+To get started using Eclipse you need to install Git (e.g. EGit http://www.eclipse.org/egit/) and Maven (e.g. Maven2Eclipse http://www.eclipse.org/m2e/). 
 
-
+After that... 
