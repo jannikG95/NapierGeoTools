@@ -16,7 +16,7 @@ public class CalendarEntry implements Serializable {
 	private String summary = null;
 	private Location location = null;
 	private String uid = null;
-	private ArrayList<Resource> allocatedRessources = new ArrayList<Resource>();
+	private ArrayList<Resource> allocatedResources = new ArrayList<Resource>();
 
 	//only required parameters
 	/** Constructor creating a new CalendarEntry with only the required parameters
@@ -74,7 +74,7 @@ public class CalendarEntry implements Serializable {
 		this.location = location;
 		this.uid = UUID.randomUUID().toString();
 		uid = uid+"napier";
-		allocatedRessources = ressources;
+		allocatedResources = ressources;
 	}
 
 	//Constructor using LocalDateTimes and all parameters
@@ -126,8 +126,8 @@ public class CalendarEntry implements Serializable {
 			locationstring = location.getDescription();
 		if (locationstring==null)
 			locationstring = "no location set";
-		if (allocatedRessources != null)
-			ressourcestring = allocatedRessources.toString();
+		if (allocatedResources != null)
+			ressourcestring = allocatedResources.toString();
 		if (ressourcestring==null)
 			ressourcestring = "no ressources allocated";
 		if (description==null)
@@ -234,7 +234,7 @@ public class CalendarEntry implements Serializable {
 	 * @return ArrayList of allocated Ressources
 	 */
 	public ArrayList<Resource> getAllocatedRessources() {
-		return allocatedRessources;
+		return allocatedResources;
 	}
 
 	//should only be accessed from the Facade class to ensure correct listing of Events and Ressources!
@@ -242,14 +242,14 @@ public class CalendarEntry implements Serializable {
 	 * @param res ArrayList of Ressources to add
 	 */
 	protected void addRessources(ArrayList<Resource> res){
-		allocatedRessources.addAll(res);
+		allocatedResources.addAll(res);
 	}
 	
 	/** removes Ressources from the CalendarEntry
 	 * @param res ArrayList of Ressources to remove
 	 */
 	protected void removeRessources(ArrayList<Resource> res){
-		allocatedRessources.removeAll(res);
+		allocatedResources.removeAll(res);
 	}
 
 }
