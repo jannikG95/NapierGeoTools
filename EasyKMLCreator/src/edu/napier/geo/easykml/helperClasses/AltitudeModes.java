@@ -56,11 +56,11 @@ public class AltitudeModes {
 	public final static String RELATIVE_TO_SEA_FLOOR = "relativeToSeaFloor";
 	
 	
-	public final static KML_element getAltElement(String mode){
+	public final static KMLNotation getAltElement(String mode){
 		if(mode == RELATIVE_TO_SEA_FLOOR || mode == CLAMP_TO_SEA_FLOOR)
-			return new KML_element("altitudeMode", mode, true);
+			return new KMLNotation("altitudeMode", mode, true);
 		
-		return new KML_element("altitudeMode", mode, false);
+		return new KMLNotation("altitudeMode", mode, false);
 	}
 	
 	public final static boolean belongsToExtension(String mode){

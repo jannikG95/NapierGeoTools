@@ -48,7 +48,7 @@
     project="NapierGeoTools.EasyKMLCreator" 
     file="/NapierGeoTools.EasyKMLCreator/src/edu/napier/geo/easykml/facade/EasyKMLCreator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="141" y="314"/>    
+    <position height="-1" width="-1" x="140" y="286"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -56,8 +56,8 @@
     </display>  
   </class>  
   <dependency id="6">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
   </dependency>  
   <dependency id="7">    
     <end type="SOURCE" refId="5"/>    
@@ -76,8 +76,8 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <dependency id="11">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

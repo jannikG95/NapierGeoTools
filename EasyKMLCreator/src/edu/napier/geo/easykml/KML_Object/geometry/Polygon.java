@@ -3,7 +3,7 @@ package edu.napier.geo.easykml.KML_Object.geometry;
 import java.util.ArrayList;
 
 import edu.napier.geo.easykml.helperClasses.AltitudeModes;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Polygon extends KML_Geometry {
@@ -95,20 +95,20 @@ public class Polygon extends KML_Geometry {
 		this.innerBoundryList = innerBoundryList;
 	}
 
-	public TreeNode<KML_element> getLinkedOutput() {
+	public TreeNode<KMLNotation> getLinkedOutput() {
 
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 
 		if (this.extruded != null)
-			root.addChild(new KML_element("extrude", this.isExtruded(), false));
+			root.addChild(new KMLNotation("extrude", this.isExtruded(), false));
 		if (this.tessellated != null)
-			root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+			root.addChild(new KMLNotation("tessellate", this.isTessellated(), false));
 		if (this.getAltitudeMode() != null)
-			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), AltitudeModes.belongsToExtension(this.getAltitudeMode())));
+			root.addChild(new KMLNotation("altitudeMode", this.getAltitudeMode(), AltitudeModes.belongsToExtension(this.getAltitudeMode())));
 		if (this.getOuterBoundry() != null)
-			root.addChild(new KML_element("outerBoundaryIs", null, false)).addTreeNode(outerBoundry.getLinkedOutput());
+			root.addChild(new KMLNotation("outerBoundaryIs", null, false)).addTreeNode(outerBoundry.getLinkedOutput());
 		for (LinearRing linearRing : innerBoundryList) {
-			TreeNode<KML_element> rootInner = root.addChild(new KML_element("innerBoundaryIs", null, false));
+			TreeNode<KMLNotation> rootInner = root.addChild(new KMLNotation("innerBoundaryIs", null, false));
 			rootInner.addTreeNode(linearRing.getLinkedOutput());
 		}
 

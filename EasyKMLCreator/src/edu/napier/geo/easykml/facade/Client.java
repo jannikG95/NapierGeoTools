@@ -116,7 +116,7 @@ public class Client {
 
 		simpleKML.createPlacemark(polygonPM);
 
-		// create Tour
+		// create Tour 
 
 		Placemark placemark2 = new Placemark("New Placemark", "blabla",
 				new Point(new Location(-43.61725568991338, 170.1426332867125, 0.0)));

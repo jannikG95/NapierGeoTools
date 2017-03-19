@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.subStyle.colorStyle;
 
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class IconStyle extends ColorStyle {
@@ -58,13 +58,13 @@ public class IconStyle extends ColorStyle {
 		this.iconHttpAddress = iconHttpAddress;
 	}
 
-	public TreeNode<KML_element> getLinkedOutput (){
+	public TreeNode<KMLNotation> getLinkedOutput (){
 		
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 	
-		if(this.getScale() != null)root.addChild(new KML_element("scale", Float.toString(this.getScale()), false));
-		if(this.getHeading() != null)root.addChild(new KML_element("heading", Float.toString(this.getHeading()), false));
-		if(this.getIconHttpAddress() != null)root.addChild(new KML_element("Icon", null, false)).addChild(new KML_element("href", this.getIconHttpAddress(), false));
+		if(this.getScale() != null)root.addChild(new KMLNotation("scale", Float.toString(this.getScale()), false));
+		if(this.getHeading() != null)root.addChild(new KMLNotation("heading", Float.toString(this.getHeading()), false));
+		if(this.getIconHttpAddress() != null)root.addChild(new KMLNotation("Icon", null, false)).addChild(new KMLNotation("href", this.getIconHttpAddress(), false));
 
 		return root; 
 	}

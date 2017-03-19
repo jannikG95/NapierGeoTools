@@ -2,6 +2,7 @@ package edu.napier.geo.easykml.xmlunittest;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import org.apache.commons.io.FileUtils;
 import org.custommonkey.xmlunit.Diff;
@@ -41,18 +42,22 @@ public class XMLTestCases extends XMLTestCase {
 	}
 
 	public boolean compareXMLFiles(String testFile, String generatedFile){
+		// define things that can be ignored 
 		XMLUnit.setIgnoreAttributeOrder(true);
 		XMLUnit.setIgnoreComments(true);
 		XMLUnit.setIgnoreDiffBetweenTextAndCDATA(true);
 		XMLUnit.setIgnoreWhitespace(true);
 		XMLUnit.setNormalizeWhitespace(true);
-		
+		//DifferenceListener myDifferenceListener = new IgnoreTextAndAttributeValuesDifferenceListener(); 
+
 	
-		String strGoldVersion = "";
-		String strTestVersion = "";
+		// read the files into strings
+		String strTestFile = "";
+		String strGeneratedFile = "";
+		Charset charset = null;
 		try {
-			strGoldVersion= FileUtils.readFileToString(new File(".\\generatedFiles\\"+generatedFile));
-			strTestVersion = FileUtils.readFileToString(new File(".\\testDocuments\\" + testFile));
+			strGeneratedFile= FileUtils.readFileToString(new File(".\\generatedFiles\\"+generatedFile), charset);
+			strTestFile = FileUtils.readFileToString(new File(".\\testDocuments\\" + testFile), charset);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -60,11 +65,10 @@ public class XMLTestCases extends XMLTestCase {
 		 
 		Diff myDiff=null;
 		 
-		DifferenceListener myDifferenceListener = new IgnoreTextAndAttributeValuesDifferenceListener(); 
-		 
+		// compare the strings
 		try {
-			myDiff = new Diff(strGoldVersion,strTestVersion);
-			myDiff.overrideDifferenceListener(myDifferenceListener);
+			myDiff = new Diff(strTestFile,strGeneratedFile);
+		//	myDiff.overrideDifferenceListener(myDifferenceListener);
 		} catch (SAXException | IOException e) {
 			e.printStackTrace();
 		}

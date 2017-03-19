@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object.subStyle.colorStyle;
 
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class PolyStyle extends ColorStyle {
@@ -41,12 +41,12 @@ public class PolyStyle extends ColorStyle {
 	} 
 	
 	
-	public TreeNode<KML_element> getLinkedOutput (){
+	public TreeNode<KMLNotation> getLinkedOutput (){
 		
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 	
-		if(this.fillPolygon != null)root.addChild(new KML_element("fill", this.isFillPolygon(), false));
-		if(this.outLine != null)root.addChild(new KML_element("outline", this.isOutLine(), false));
+		if(this.fillPolygon != null)root.addChild(new KMLNotation("fill", this.isFillPolygon(), false));
+		if(this.outLine != null)root.addChild(new KMLNotation("outline", this.isOutLine(), false));
 
 		
 		return root; 
