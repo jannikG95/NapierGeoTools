@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.graphhopper.routing.util.BikeFlagEncoder;
 import com.graphhopper.routing.util.FlagEncoder;
-import com.graphhopper.routing.util.FootFlagEncoder;
-
 import edu.napier.geo.common.Location;
 import facade.CustomCarFlagEncoder;
 import facade.GHFacade;
