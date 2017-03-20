@@ -2,7 +2,7 @@ package edu.napier.geo.easykml.KML_Object.abstractView;
 
 import edu.napier.geo.easykml.KML_Object.KML_object;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.TimePrimitive;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public abstract class AbstractView extends KML_object{
@@ -13,7 +13,7 @@ public abstract class AbstractView extends KML_object{
 	public static final String VOPTION_GROUNDNAVIGATION = "groundnavigation";
 
 
-	private TimePrimitive timePrimitive = null; // Timespan or Timestamp
+	private TimePrimitive timePrimitive = null; // gx:Timespan or gx:Timestamp
 	private String viewerOption;
 	
 	public TimePrimitive getTimePrimitive() {
@@ -29,12 +29,16 @@ public abstract class AbstractView extends KML_object{
 		this.viewerOption = viewerOption;
 	}
 	
-	public TreeNode<KML_element> getLinkedOutput (){
+	public TreeNode<KMLNotation> getLinkedOutput (){
 		
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 
-		if(getTimePrimitive() != null)root.addTreeNode(getTimePrimitive().getLinkedOutput());
-		if(this.getViewerOption() != null)root.addChild(new KML_element("gx:ViewerOptions", this.getViewerOption(), true));
+		if(getTimePrimitive() != null){
+			TreeNode<KMLNotation> timePrim = getTimePrimitive().getLinkedOutput();
+			timePrim.data.setgExtenstion(true);
+			root.addTreeNode(timePrim);
+		}
+		if(this.getViewerOption() != null)root.addChild(new KMLNotation("gx:ViewerOptions", this.getViewerOption(), true));
 
 		return root; 
 	}

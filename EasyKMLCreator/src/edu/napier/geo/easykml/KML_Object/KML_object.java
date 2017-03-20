@@ -1,6 +1,6 @@
 package edu.napier.geo.easykml.KML_Object;
 
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public abstract class KML_object {
@@ -23,12 +23,12 @@ public abstract class KML_object {
 		this.id = id;
 	}
 
-	public TreeNode<KML_element> getLinkedOutput() {
+	public TreeNode<KMLNotation> getLinkedOutput() {
 
-		TreeNode<KML_element> root = new TreeNode<KML_element>(
-				new KML_element(this.getClass().getSimpleName(), "", false));
+		TreeNode<KMLNotation> root = new TreeNode<KMLNotation>(
+				new KMLNotation(this.getClass().getSimpleName(), "", false));
 		if (this.getId() != null)
-			root.addChild(new KML_element("id", this.getId(), false));
+			root.addChild(new KMLNotation("id", this.getId(), false));
 
 		return root;
 	}

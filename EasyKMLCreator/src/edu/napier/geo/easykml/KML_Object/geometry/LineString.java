@@ -3,7 +3,8 @@ package edu.napier.geo.easykml.KML_Object.geometry;
 import java.util.ArrayList;
 
 import edu.napier.geo.common.Location;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.AltitudeModes;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.StringBuilder;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
@@ -95,22 +96,22 @@ public class LineString extends KML_Geometry {
 		this.locations = locations;
 	}
 
-	public TreeNode<KML_element> getLinkedOutput() {
+	public TreeNode<KMLNotation> getLinkedOutput() {
 
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 
 		if (gxAltitudeOffset != null)
-			root.addChild(new KML_element("gx:altitudeOffse", Double.toString(this.getGxAltitudeOffset()), true));
+			root.addChild(new KMLNotation("altitudeOffset", Double.toString(this.getGxAltitudeOffset()), true));
 		if (this.extruded != null)
-			root.addChild(new KML_element("extrude", this.isExtruded(), false));
+			root.addChild(new KMLNotation("extrude", this.isExtruded(), false));
 		if (this.tessellated != null)
-			root.addChild(new KML_element("tessellate", this.isTessellated(), false));
+			root.addChild(new KMLNotation("tessellate", this.isTessellated(), false));
 		if (this.getAltitudeMode() != null)
-			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+			root.addChild(new KMLNotation("altitudeMode", this.getAltitudeMode(), AltitudeModes.belongsToExtension(this.getAltitudeMode())));
 		if (this.getGxDrawOrder() != null)
-			root.addChild(new KML_element("gx:drawOrder", Integer.toString(this.getGxDrawOrder()), true));
+			root.addChild(new KMLNotation("drawOrder", Integer.toString(this.getGxDrawOrder()), true));
 		if (this.getCoordinates() != null)
-			root.addChild(new KML_element("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
+			root.addChild(new KMLNotation("coordinates", StringBuilder.buildCoordinateString(this.locations), false));
 
 		return root;
 	}

@@ -1,7 +1,8 @@
 package edu.napier.geo.easykml.KML_Object.abstractView;
 
 import edu.napier.geo.common.Location;
-import edu.napier.geo.easykml.helperClasses.KML_element;
+import edu.napier.geo.easykml.helperClasses.AltitudeModes;
+import edu.napier.geo.easykml.helperClasses.KMLNotation;
 import edu.napier.geo.easykml.helperClasses.TreeNode;
 
 public class Camera extends AbstractView {
@@ -102,25 +103,25 @@ public class Camera extends AbstractView {
 		this.altitudeMode = altitudeMode;
 	}
 
-	public TreeNode<KML_element> getLinkedOutput() {
+	public TreeNode<KMLNotation> getLinkedOutput() {
 
-		TreeNode<KML_element> root = super.getLinkedOutput();
+		TreeNode<KMLNotation> root = super.getLinkedOutput();
 		// root.addChild(new KML_element("id", this.getId(), false));
 
 		if (this.getCoordinates() != null)
-			root.addChild(new KML_element("longitude", Double.toString(this.getCoordinates().getLon()), false));
+			root.addChild(new KMLNotation("longitude", Double.toString(this.getCoordinates().getLon()), false));
 		if (this.getCoordinates() != null)
-			root.addChild(new KML_element("latitude", Double.toString(this.getCoordinates().getLat()), false));
+			root.addChild(new KMLNotation("latitude", Double.toString(this.getCoordinates().getLat()), false));
 		if (this.getCoordinates() != null)
-			root.addChild(new KML_element("altitude", Double.toString(this.getCoordinates().getAlt()), false));
+			root.addChild(new KMLNotation("altitude", Double.toString(this.getCoordinates().getAlt()), false));
 		if (this.getHeading() != null)
-			root.addChild(new KML_element("heading", Double.toString(this.getHeading()), false));
+			root.addChild(new KMLNotation("heading", Double.toString(this.getHeading()), false));
 		if (this.getTilt() != null)
-			root.addChild(new KML_element("tilt", Double.toString(this.getTilt()), false));
+			root.addChild(new KMLNotation("tilt", Double.toString(this.getTilt()), false));
 		if (this.getRoll() != null)
-			root.addChild(new KML_element("roll", Double.toString(this.getRoll()), false));
+			root.addChild(new KMLNotation("roll", Double.toString(this.getRoll()), false));
 		if (this.getAltitudeMode() != null)
-			root.addChild(new KML_element("altitudeMode", this.getAltitudeMode(), false));
+			root.addChild(new KMLNotation("altitudeMode", this.getAltitudeMode(), AltitudeModes.belongsToExtension(this.getAltitudeMode())));
 
 		return root;
 	}
