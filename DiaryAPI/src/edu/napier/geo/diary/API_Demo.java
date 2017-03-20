@@ -12,7 +12,7 @@ public class API_Demo {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		DiaryFacade df = new DiaryFacade();
+		DiaryFacade df = new DiaryFacade("Demo");
 		df.deleteAllEvents();
 		scanner.nextLine();
 		CalendarEntry ce = null;
@@ -26,10 +26,10 @@ public class API_Demo {
 		Location location1 = df.createTextOnlyLocation("Location 1");
 		Location location2 = df.createTextOnlyLocation("Location 2");
 		Location location3 = df.createTextOnlyLocation("Location 3");
-		Resource ressource1 = df.createOrAccessRessource("Ressource 1");
-		Resource ressource2 = df.createOrAccessRessource("Ressource 2");
-		Resource ressource3 = df.createOrAccessRessource("Ressource 3");
-		Resource ressource4 = df.createOrAccessRessource("Ressource 4");
+		Resource ressource1 = df.createOrAccessResource("Ressource 1");
+		Resource ressource2 = df.createOrAccessResource("Ressource 2");
+		Resource ressource3 = df.createOrAccessResource("Ressource 3");
+		Resource ressource4 = df.createOrAccessResource("Ressource 4");
 		
 		ArrayList<Resource> ressource_1 = new ArrayList<Resource>();
 		ressource_1.add(ressource1);
@@ -46,7 +46,7 @@ public class API_Demo {
 		scanner.nextLine();
 		System.out.println("Test to check that no different Ressources with the same name are possible");
 		scanner.nextLine();
-		Resource ressource5 = df.createOrAccessRessource("Ressource 1");
+		Resource ressource5 = df.createOrAccessResource("Ressource 1");
 		System.out.println(ressource1==ressource5);
 		scanner.nextLine();
 		System.out.println("Create a single event");
@@ -79,14 +79,14 @@ public class API_Demo {
 		scanner.nextLine();
 		System.out.println("Get all events where Ressource 1 is involved");
 		scanner.nextLine();
-		list = df.getEventsAllocatedToRessource(ressource1);
+		list = df.getEventsAllocatedToResource(ressource1);
 		for (CalendarEntry c : list) {
 			System.out.println(c);
 		}
 		scanner.nextLine();
 		System.out.println("Add Ressources 3 and 4 to the whole day event ");
 		scanner.nextLine();
-		df.addRessourcesToEvent(ce, ressources3and4);
+		df.addResourcesToEvent(ce, ressources3and4);
 		System.out.println(ce);
 		scanner.nextLine();
 		System.out.println("Remove Ressource 1 from the event");
@@ -94,12 +94,12 @@ public class API_Demo {
 		toRemove.add(ressource1);
 		scanner.nextLine();
 		System.out.println(ressource_1);
-		df.removeRessourcesFromEvent(ce, toRemove);
+		df.removeResourcesFromEvent(ce, toRemove);
 		System.out.println(ce);
 		scanner.nextLine();
 		System.out.println("Get all events where Ressource 1 is involved");
 		scanner.nextLine();
-		list = df.getEventsAllocatedToRessource(ressource1);
+		list = df.getEventsAllocatedToResource(ressource1);
 		for (CalendarEntry c : list) {
 			ce=c; 	//only to reference the last event found, for demonstration purposes
 			System.out.println(c);
@@ -108,7 +108,7 @@ public class API_Demo {
 		System.out.println("Deleting the event, then getting all events where Ressource 1 is involved. (Should be none, in this case)");
 		scanner.nextLine();
 		df.deleteEvent(ce);
-		list = df.getEventsAllocatedToRessource(ressource1);
+		list = df.getEventsAllocatedToResource(ressource1);
 		for (CalendarEntry c : list) {
 			System.out.println(c);
 		}
@@ -144,25 +144,25 @@ public class API_Demo {
 		scanner.nextLine();
 		System.out.println("printing all events from res 2");
 		scanner.nextLine();
-		list = df.getEventsAllocatedToRessource(ressource2);
+		list = df.getEventsAllocatedToResource(ressource2);
 		for (CalendarEntry c : list) {
 			System.out.println(c);
 		}
 		scanner.nextLine();
 		System.out.println("Checking for conflicting events for Ressource 2");
 		scanner.nextLine();
-		list = df.checkRessourceForConflictingEvents(ressource2);
+		list = df.checkResourceForConflictingEvents(ressource2);
 		for (CalendarEntry entry : list) {
 			System.out.println(entry.toString());
 		}
 		scanner.nextLine();
 		System.out.println("Checking if Ressource 2 is availiable between 20.April 2017 19:00 and 21:00");
 		scanner.nextLine();
-		System.out.println(df.ressourceIsAvailiableBetween(ressource2, LocalDateTime.of(2017,4,20,19,00), LocalDateTime.of(2017,4,20,21,00)));
+		System.out.println(df.resourceIsAvailiableBetween(ressource2, LocalDateTime.of(2017,4,20,19,00), LocalDateTime.of(2017,4,20,21,00)));
 		scanner.nextLine();
 		System.out.println("Checking if Ressource 2 is availiable between 20.April 2017 20:00 and 21:00");
 		scanner.nextLine();
-		System.out.println(df.ressourceIsAvailiableBetween(ressource2, LocalDateTime.of(2017,4,20,20,00), LocalDateTime.of(2017,4,20,21,00)));
+		System.out.println(df.resourceIsAvailiableBetween(ressource2, LocalDateTime.of(2017,4,20,20,00), LocalDateTime.of(2017,4,20,21,00)));
 		scanner.nextLine();
 		System.out.println("Printing all events, then writing them to an iCal file");
 		scanner.nextLine();
