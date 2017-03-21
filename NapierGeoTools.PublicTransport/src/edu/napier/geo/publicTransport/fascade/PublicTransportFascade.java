@@ -1,4 +1,4 @@
-package edu.napier.geo.publicTransport.fascadeNew;
+package edu.napier.geo.publicTransport.fascade;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -15,24 +15,44 @@ import java.util.ArrayList;
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.*;
 import edu.napier.geo.publicTransport.InformationStorage.InformationStorage;
-import edu.napier.geo.publicTransport.ResponseTfL.ResponseTfL;
-import edu.napier.geo.publicTransport.ResponseTfL.TflJourney;
+import edu.napier.geo.publicTransport.Response.ResponseTfL;
+import edu.napier.geo.publicTransport.Response.TflJourney;
 import edu.napier.geo.publicTransport.main.PublicTransport;
 import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
 
+/**
+ * 
+ * @author Jan-Niklas Keiner
+ * 2017/03/10
+ *
+ *Fascade Class for the Public Transport API
+ */
+
 public class PublicTransportFascade {
 
-	public PublicTransport publicTransport;
+	private PublicTransport publicTransport;
 
+	/**
+	 * Constructor to create an object of this class
+	 */
 	public PublicTransportFascade() {
 	}
 
+	/**
+	 * Method to create a new Object of PublicTransport, which is set as publicTransport object in this class
+	 * @param resetInformationStorage boolean, if old the InformationStorage should be loaded or a new empty one should be created. true=reset and create new one
+	 * @param informationStorageFilePath Filepath of the InformtionStorage object, which should be loaded  and where the new one should be stored.
+	 */
 	public void createNewPublicTransport(boolean resetInformationStorage,
 			String informationStorageFilePath) {
 		this.publicTransport = new PublicTransport(resetInformationStorage,
 				informationStorageFilePath);
 	}
 
+	/**
+	 ** Method to create a new Object of PublicTransport, which is set as publicTransport object in this class. Uses the default InformationStorage Filepath of the PublicTransport class.
+	 * @param resetInformationStorage boolean, if old the InformationStorage should be loaded or a new empty one should be created. true=reset and create new one
+	 */
 	public void createNewPublicTransport(boolean resetInformationStorage) {
 		this.publicTransport = new PublicTransport(resetInformationStorage);
 	}
@@ -120,9 +140,9 @@ public class PublicTransportFascade {
 	 *            TflJourney object
 	 * @return Integer of the duration of the given TfLJourney Object
 	 */
-	public int getDurationOfJourney(TflJourney tflJourney) {
+	public int getDurationMinutesOfJourney(TflJourney tflJourney) {
 		if (this.publicTransport != null)
-			return publicTransport.getDurationOfJourney(tflJourney);
+			return publicTransport.getDurationMinutesOfJourney(tflJourney);
 		return -1;
 	}
 
@@ -595,6 +615,23 @@ public class PublicTransportFascade {
 			double toLong, String preferences) throws MalformedURLException, IOException, ProtocolException {
 	return RequestAndGetJsonFromServer.getJSON(fromLat, fromLon, toLat, toLong, preferences);	
 	}
+
+	/**
+	 * Method to get back the PublicTransport Object
+	 * @return PublicTansport Object
+	 */
+	public PublicTransport getPublicTransport() {
+		return publicTransport;
+	}
+
+	/**
+	 * Method to set the PublicTransport Object
+	 * @param publicTransport Object of PublicTransport
+	 */
+	public void setPublicTransport(PublicTransport publicTransport) {
+		this.publicTransport = publicTransport;
+	}
+	
 	
 	
 }

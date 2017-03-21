@@ -1,4 +1,4 @@
-package edu.napier.geo.publicTransport.ResponseTfL;
+package edu.napier.geo.publicTransport.Response;
 
 import java.io.Serializable;
 import edu.napier.geo.common.Location;

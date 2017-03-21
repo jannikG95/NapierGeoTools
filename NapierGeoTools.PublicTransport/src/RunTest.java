@@ -11,25 +11,30 @@ import java.util.ArrayList;
 
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.JourneyInformation;
-import edu.napier.geo.publicTransport.ResponseTfL.Leg;
-import edu.napier.geo.publicTransport.ResponseTfL.ResponseTfL;
-import edu.napier.geo.publicTransport.ResponseTfL.StopPoint;
-import edu.napier.geo.publicTransport.ResponseTfL.StopPointInPath;
-import edu.napier.geo.publicTransport.ResponseTfL.TflJourney;
+import edu.napier.geo.publicTransport.Response.Leg;
+import edu.napier.geo.publicTransport.Response.ResponseTfL;
+import edu.napier.geo.publicTransport.Response.StopPoint;
+import edu.napier.geo.publicTransport.Response.StopPointInPath;
+import edu.napier.geo.publicTransport.Response.TflJourney;
+import edu.napier.geo.publicTransport.fascade.PublicTransportFascade;
 import edu.napier.geo.publicTransport.main.PublicTransport;
 import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
 
 public class RunTest {
 	
-	private static PublicTransport publicTransport;
+//	private static PublicTransport publicTransport;
+	private static PublicTransportFascade fascade;
 
 	
 	public static void main(String args[]) throws Exception{
 		RunTest test = new RunTest();
-		publicTransport= new PublicTransport(true);
+		fascade=new PublicTransportFascade();
+		
+		fascade.createNewPublicTransport(false);
 		test.test();
 		test.testGetMethods();
 		test.testSteps();
+		test.testGetFromActualResponseWithFascade();
 		
 	}
 	
@@ -39,12 +44,12 @@ public class RunTest {
 
 		// try {
 		
-		Location locationWithoutFailure1 = new Location(51.51100069912, -0.12300137615, publicTransport.getSource());
-		Location locationWithoutFailure2 = new Location(51.49839044663, -0.1301682292, publicTransport.getSource());
-		Location locationWithoutFailure3 = new Location(51.599577, -0.059587, publicTransport.getSource());
+		Location locationWithoutFailure1 = new Location(51.51100069912, -0.12300137615, fascade.getSource());
+		Location locationWithoutFailure2 = new Location(51.49839044663, -0.1301682292, fascade.getSource());
+		Location locationWithoutFailure3 = new Location(51.599577, -0.059587, fascade.getSource());
 //		Location locationWithFailure = new Location();
 
-		publicTransport.createResponseJavaObject(locationWithoutFailure1, locationWithoutFailure2, preferencesTestList);
+		fascade.createResponseJavaObject(locationWithoutFailure1, locationWithoutFailure2, preferencesTestList);
 		
 		
 //		String responseString;
@@ -60,7 +65,7 @@ public class RunTest {
 		
 //		responseJavaObject = getResponseObjectFromJSONString(responseString);
 
-		ResponseTfL responseJavaObject= publicTransport.getResponseJavaObject();
+		ResponseTfL responseJavaObject= fascade.getResponseJavaObject();
 		System.out.println("object x=:" + responseJavaObject.x());
 		System.out.println("number of journeys=" + responseJavaObject.getTflJourneys().length);
 		
@@ -68,7 +73,7 @@ public class RunTest {
 		System.out.println(
 				"with obj. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		System.out.println("averageTime="
-				+ publicTransport.getInformationStorage().getAverageTimeMSForJourney(locationWithoutFailure1, locationWithoutFailure2));
+				+ fascade.getInformationStorage().getAverageTimeMSForJourney(locationWithoutFailure1, locationWithoutFailure2));
 		System.out.println(
 				"obj.dep point lat=" + responseJavaObject.getTflJourneys()[0].getLegs()[0].getDeparturePoint().getLat());
 		System.out.println(
@@ -96,14 +101,14 @@ public class RunTest {
 			}
 		}
 
-		publicTransport.printAllJourneyInformation();
+		fascade.getPublicTransport().printAllJourneyInformation();
 
 		System.out
-				.println("informationStorage.getStoredJourneys.size=" + publicTransport.getInformationStorage().getStoredJourneyInformation().size());
+				.println("informationStorage.getStoredJourneys.size=" + fascade.getInformationStorage().getStoredJourneyInformation().size());
 
-		System.out.println("avg time from old location:"+publicTransport.getInformationStorage().getAverageTimeMSForJourney(locationWithoutFailure3, locationWithoutFailure2));
+		System.out.println("avg time from old location:"+fascade.getInformationStorage().getAverageTimeMSForJourney(locationWithoutFailure3, locationWithoutFailure2));
 
-		publicTransport.printAllJourneyInformation();
+		fascade.getPublicTransport().printAllJourneyInformation();
 
 
 		// // Test: 2 Locations
@@ -141,53 +146,76 @@ public class RunTest {
 	}
 	
 	public void testGetMethods(){
-		System.out.println("duration first journey:"+publicTransport.getDurationMinutesOfFirstJourney());
-		System.out.println("dep point first journey:"+publicTransport.getDeparturePointOfFirstJourney().toString());
-		System.out.println("arr point first journey:"+publicTransport.getArrivalPointOfFirstJourney().toString());
-		System.out.println("number legs first journey:"+publicTransport.getNumberOfLegsOfFirstJourney());
-		System.out.println("first journey"+publicTransport.getFirstJourney().toString());
+		System.out.println("duration first journey:"+fascade.getDurationMinutesOfFirstJourney());
+		System.out.println("dep point first journey:"+fascade.getDeparturePointOfFirstJourney().toString());
+		System.out.println("arr point first journey:"+fascade.getArrivalPointOfFirstJourney().toString());
+		System.out.println("number legs first journey:"+fascade.getNumberOfLegsOfFirstJourney());
+		System.out.println("first journey"+fascade.getFirstJourney().toString());
 		System.out.println("get all journeys:");
-		for(TflJourney journey: publicTransport.getAllJourneys()){
+		for(TflJourney journey: fascade.getAllJourneys()){
 			System.out.println("get all journeys function. journey:"+journey+" = "+journey.toString());
 		}
-		System.out.println("methods for each journey. number of journeys="+publicTransport.getResponseJavaObject().getTflJourneys().length);
-		for(int x=0; x<publicTransport.getResponseJavaObject().getTflJourneys().length;x++ ){
+		System.out.println("methods for each journey. number of journeys="+fascade.getResponseJavaObject().getTflJourneys().length);
+		for(int x=0; x<fascade.getResponseJavaObject().getTflJourneys().length;x++ ){
 			System.out.println("journey number x="+x);			
-			System.out.println("duration:"+publicTransport.getDurationMinutsOfJourney(x));
-			System.out.println("dep point"+publicTransport.getDeparturePointOfJourney(x));
-			System.out.println("arr point"+publicTransport.getArrivalPointOfJourney(x));
-			System.out.println("number legs:"+publicTransport.getNumberOfLegsOfJourney(x));
-			System.out.println("journey:"+publicTransport.getJourney(x));
+			System.out.println("duration:"+fascade.getDurationMinutsOfJourney(x));
+			System.out.println("dep point"+fascade.getDeparturePointOfJourney(x));
+			System.out.println("arr point"+fascade.getArrivalPointOfJourney(x));
+			System.out.println("number legs:"+fascade.getNumberOfLegsOfJourney(x));
+			System.out.println("journey:"+fascade.getJourney(x));
 		}
-		for(TflJourney journey : publicTransport.getResponseJavaObject().getTflJourneys()){
+		for(TflJourney journey : fascade.getResponseJavaObject().getTflJourneys()){
 			System.out.println("Start with journey "+journey);
-			System.out.println("duration:"+publicTransport.getDurationOfJourney(journey));
-			System.out.println("dep point"+publicTransport.getDeparturePointOfJourney(journey));
-			System.out.println("arr point"+publicTransport.getArrivalPointOfJourney(journey));
-			System.out.println("number legs:"+publicTransport.getNumberOfLegsOfJourney(journey));
+			System.out.println("duration:"+fascade.getDurationMinutesOfJourney(journey));
+			System.out.println("dep point"+fascade.getDeparturePointOfJourney(journey));
+			System.out.println("arr point"+fascade.getArrivalPointOfJourney(journey));
+			System.out.println("number legs:"+fascade.getNumberOfLegsOfJourney(journey));
 		}
 		
 		
 		
 	}
 	public void testSteps(){
-		System.out.println("test"+publicTransport.getResponseJavaObject().getTflJourneys()[0].getLegs()[0].getPath().getLineString());
-		String string= publicTransport.getResponseJavaObject().getTflJourneys()[0].getLegs()[0].getPath().getLineString();
+		System.out.println("test"+fascade.getResponseJavaObject().getTflJourneys()[0].getLegs()[0].getPath().getLineString());
+		String string= fascade.getResponseJavaObject().getTflJourneys()[0].getLegs()[0].getPath().getLineString();
 		string=string.replace("[", "");
 		string=string.replace("]", "");
 		string=string.replace(" ", "");
 		System.out.println(string);
-//		for(StopPointInPath loc : publicTransport.getResponseJavaObject().getTflJourneys()[0].getLegs()[0].getPath().getStopPoints()){
+//		for(StopPointInPath loc : fascade.getResponseJavaObject().getTflJourneys()[0].getLegs()[0].getPath().getStopPoints()){
 //			System.out.println(loc.toString());
 //		}
 		int x=0;
-		for (JourneyInformation journeyInformation : publicTransport.getInformationStorage().getStoredJourneyInformation()){
+		for (JourneyInformation journeyInformation : fascade.getInformationStorage().getStoredJourneyInformation()){
 			System.out.println("new journeyInfo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			for (Location loc : journeyInformation.getRouteLocations()){
 				System.out.println(x+"  "+loc.toString());
 				x++;
 			}
 		}
+	}
+	public void testGetFromActualResponseWithFascade(){
+		System.out.println("testGetFromActualResponseWithFascade");
+		System.out.println("DurationMinutesOfFirstJourney:"+fascade.getDurationMinutesOfFirstJourney());
+		System.out.println("getDeparturePointOfFirstJourney:"+fascade.getDeparturePointOfFirstJourney());
+		System.out.println("getArrivalPointOfFirstJourney:"+fascade.getArrivalPointOfFirstJourney());
+		System.out.println("getNumberOfLegsOfFirstJourney"+fascade.getNumberOfLegsOfFirstJourney());
+		System.out.println("getFirstJourney"+fascade.getFirstJourney());
+		System.out.println("getAllJourneys:"+fascade.getAllJourneys());
+		System.out.println("the following methods of getxxx(TfLJourney tflJourney are done with the first journey from above.");
+		TflJourney tflJourney= fascade.getFirstJourney();
+		System.out.println("getDurationMinutesOfJourney:"+fascade.getDurationMinutesOfJourney(tflJourney));
+		System.out.println("getDeparturePointOfJourney"+fascade.getDeparturePointOfJourney(tflJourney));
+		System.out.println("getArrivalPointOfJourney"+fascade.getArrivalPointOfJourney(tflJourney));
+		System.out.println("getNumberOfLegsOfJourney:"+fascade.getNumberOfLegsOfJourney(tflJourney));
+		System.out.println("getNumberOfLegsOfJourney called with parameter null:"+fascade.getNumberOfLegsOfJourney(null));
+		System.out.println("The following methods of getxx(int journeyNumber are done with the journey number 1");
+		System.out.println("getDeparturePointOfJourney:"+fascade.getDeparturePointOfJourney(1));
+		System.out.println("getArrivalPointOfJourney:"+fascade.getArrivalPointOfJourney(1));
+		System.out.println("getNumberOfLegsOfJourney:"+fascade.getNumberOfLegsOfJourney(1));
+		System.out.println("getJourney:"+fascade.getJourney(1));
+		System.out.println("getJourney with negative number (-5):"+fascade.getJourney(-5));
+		System.out.println("getJourney with high number (1000):"+fascade.getJourney(1000));
 	}
 
 }

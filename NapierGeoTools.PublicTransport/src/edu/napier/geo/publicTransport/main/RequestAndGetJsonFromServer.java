@@ -185,7 +185,8 @@ public class RequestAndGetJsonFromServer {
 	 * @throws IOException IOException of url.openConnection
 	 */
 	public static String getJSON(double fromLat, double fromLon, double toLat,
-			double toLong, String preferences) throws MalformedURLException, IOException, ProtocolException {
+			double toLong, String preferences) throws MalformedURLException, 
+			IOException, ProtocolException {
 		String from = fromLat + "," + fromLon;
 		String to = toLat + "," + toLong;
 		from = from.replace(" ", "%20");

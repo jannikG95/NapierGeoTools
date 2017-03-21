@@ -1,4 +1,4 @@
-package edu.napier.geo.publicTransport.ResponseTfL;
+package edu.napier.geo.publicTransport.Response;
 
 import java.io.Serializable;
 import edu.napier.geo.common.Location;
@@ -52,7 +52,7 @@ public class AffectedStop extends Location implements Serializable {
 			String naptanMode, boolean status, String id, String url, String commonName, long distance,
 			String placeType, AdditionalProperty[] additionalProperties, Children[] children, String[] childrenUrls,
 			double lat, double lon) {
-		super(lat, lon, "PublicTransport");
+		super(lat, lon, "PublicTransport-Affected Stop");
 		this.naptanId = naptanId;
 		this.platformName = platformName;
 		this.indicator = indicator;

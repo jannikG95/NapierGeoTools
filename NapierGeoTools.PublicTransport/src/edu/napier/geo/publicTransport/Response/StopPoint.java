@@ -1,4 +1,4 @@
-package edu.napier.geo.publicTransport.ResponseTfL;
+package edu.napier.geo.publicTransport.Response;
 
 import java.io.Serializable;
 import edu.napier.geo.common.Location;
@@ -55,7 +55,7 @@ public class StopPoint extends Location implements Serializable {
 			long distance, String placeType,
 			AdditionalProperty[] additionalProperties, Children[] children,
 			String[] childrenUrls, double lat, double lon) {
-		super(lat, lon, "PublicTransport");
+		super(lat, lon, "PublicTransport-Stop Point");
 		this.naptanId = naptanId;
 		this.platformName = platformName;
 		this.indicator = indicator;

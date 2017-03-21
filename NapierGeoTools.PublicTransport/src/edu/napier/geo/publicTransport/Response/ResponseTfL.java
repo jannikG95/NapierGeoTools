@@ -1,4 +1,4 @@
-package edu.napier.geo.publicTransport.ResponseTfL;
+package edu.napier.geo.publicTransport.Response;
 
 import java.io.Serializable;
 
@@ -27,7 +27,7 @@ public class ResponseTfL implements Serializable {
 	private long recommendedMaxAgeMinutes;
 	private SearchCriteria searchCriteria;
 	private TflJourneyVector tflJourneyVector;
-
+	
 	public ResponseTfL(TflJourney[] journeys, Line[] lines, CycleHireDockingStationData cycleHireDockingStationData,
 			String[] stopMessages, long recommendedMaxAgeMinutes, SearchCriteria searchCriteria,
 			TflJourneyVector tflJourneyVector) {
