@@ -44,7 +44,6 @@ public class StopPoint extends Location implements Serializable {
 	private AdditionalProperty additionalProperties[];
 	private Children children[];
 	private String[] childrenUrls;
-	private Location location;
 
 	public StopPoint(String naptanId, String platformName, String indicator,
 			String stopLetter, String[] modes, String icsCode, String smsCode,
@@ -82,19 +81,6 @@ public class StopPoint extends Location implements Serializable {
 		this.children = children;
 		this.childrenUrls = childrenUrls;
 		this.setSource("Public Transport - Stop Point");
-		this.setDescription(commonName); // common
-											// name,
-											// because
-											// user-set
-											// name
-											// in
-											// request
-											// is
-											// set
-											// as
-											// commonName
-											// in
-											// response
 	}
 
 	public String getNaptanId() {
@@ -197,8 +183,5 @@ public class StopPoint extends Location implements Serializable {
 		return childrenUrls;
 	}
 
-	public Location getLocation() {
-		return location;
-	}
 
 }

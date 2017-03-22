@@ -1,19 +1,12 @@
 package edu.napier.geo.publicTransport.fascade;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import edu.napier.geo.common.Location;
-import edu.napier.geo.publicTransport.*;
 import edu.napier.geo.publicTransport.InformationStorage.InformationStorage;
 import edu.napier.geo.publicTransport.Response.ResponseTfL;
 import edu.napier.geo.publicTransport.Response.TflJourney;
@@ -32,12 +25,14 @@ public class PublicTransportFascade {
 
 	private PublicTransport publicTransport;
 
+	//Constructor
 	/**
 	 * Constructor to create an object of this class
 	 */
 	public PublicTransportFascade() {
 	}
 
+	//Create new PublicTransport instance
 	/**
 	 * Method to create a new Object of PublicTransport, which is set as publicTransport object in this class
 	 * @param resetInformationStorage boolean, if old the InformationStorage should be loaded or a new empty one should be created. true=reset and create new one
@@ -57,6 +52,7 @@ public class PublicTransportFascade {
 		this.publicTransport = new PublicTransport(resetInformationStorage);
 	}
 
+	//Get information from actual response object of PublicTransport
 	/**
 	 * This method gives back the duration of the first Journey of the actual
 	 * ResponseTfl Object in minutes. returns -1, if Response Object is null.
@@ -69,6 +65,83 @@ public class PublicTransportFascade {
 			return publicTransport.getDurationMinutsOfJourney(0);
 		return 0;
 	}
+
+	/**
+	 * Gives back the Departure Time of a Journey with a given index.
+	 * 
+	 * @param journeyNumber
+	 *            index of the Journey in the Response Object
+	 * @return String of Departure Time
+	 */
+	public String getDepartureTimeOfJourney(int journeyNumber) {
+		if(this.publicTransport!=null)
+			return publicTransport.getDepartureTimeOfJourney(journeyNumber);
+		return null;
+	}
+	
+	/**
+	 * Gives back the Departure Time of a given TflJourney object
+	 * 
+	 * @param tflJourney
+	 *            TflJourney object
+	 * @return String of Departure Time
+	 */
+	public String getDepartureTimeOfJourney(TflJourney tflJourney) {
+		if(this.publicTransport!=null)
+			return publicTransport.getDepartureTimeOfJourney(tflJourney);
+		return null;
+	}
+
+	/**
+	 * Gives back the Arrival Time of a given TflJourney object
+	 * 
+	 * @param tflJourney
+	 *            TflJourney object
+	 * @return String of Arrival Time
+	 */
+	public String getArrivalTimeOfJourney(TflJourney tflJourney) {
+		if(this.publicTransport!=null)
+			return publicTransport.getArrivalTimeOfJourney(tflJourney);
+		return null;
+	}
+
+	/**
+	 * Gives back the Arrival Time of a Journey with a given index.
+	 * 
+	 * @param journeyNumber
+	 *            index of the Journey in the Response Object
+	 * @return String of Arrival Time
+	 */
+	public String getArrivalTimeOfJourney(int journeyNumber) {
+		if(this.publicTransport!=null)
+			return publicTransport.getArrivalTimeOfJourney(journeyNumber);
+		return null;
+	}
+	
+	/**
+	 * Method to get the Departure Time of the First Journey of the actual
+	 * response object
+	 * 
+	 * @return String DepartureTime
+	 */
+	public String getDepartureTimeOfFirstJourney() {
+		if(this.publicTransport!=null)
+			return publicTransport.getDepartureTimeOfFirstJourney();
+		return null;
+	}
+
+	/**
+	 * Method to get the Arrival Time of the First Journey of the actual
+	 * response object
+	 * 
+	 * @return String ArrivalTime
+	 */
+	public String getArrivalTimeOfFirstJourney() {
+		if(this.publicTransport!=null)
+			return publicTransport.getArrivalTimeOfFirstJourney();
+		return null;
+	}
+
 
 	/**
 	 * gives back a publicTransport-Location of the departure Point of the first
@@ -133,6 +206,7 @@ public class PublicTransportFascade {
 		return null;
 	}
 
+	//get information from Journeys
 	/**
 	 * Gives back the duration of a TfLJourney
 	 * 
@@ -550,18 +624,18 @@ public class PublicTransportFascade {
 	 * 
 	 * @param fromLat
 	 *            decimal
-	 * @param fromLong
+	 * @param fromLon
 	 *            decimal
 	 * @param toLat
 	 *            decimal
-	 * @param toLong
+	 * @param toLon
 	 *            decimal
 	 * @return String of the TfL Response (in JSON format)
 	 * @throws IOException IOException of getJSON(lat, lon, lat, lon, preferences)
 	 */
 	public static String getJSON(double fromLat, double fromLon, double toLat,
-			double toLong) throws IOException {
-		return RequestAndGetJsonFromServer.getJSON(fromLat, fromLon, toLat, toLong);
+			double toLon) throws IOException {
+		return RequestAndGetJsonFromServer.getJSON(fromLat, fromLon, toLat, toLon);
 	}
 
 	/**

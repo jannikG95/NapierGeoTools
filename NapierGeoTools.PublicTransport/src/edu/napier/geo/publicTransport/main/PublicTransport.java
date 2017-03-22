@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.InformationStorage;
@@ -79,11 +80,12 @@ public class PublicTransport {
 		if (informationStorageFilePath != null && informationStorageFilePath.endsWith(".ser"))
 			this.informationStorageFilePath = informationStorageFilePath;
 		else
-			this.informationStorageFilePath=informationStorageFilePathDefault;	
+			this.informationStorageFilePath = informationStorageFilePathDefault;
 		if (resetInformationStorage = false) {
 			InputStream fis = null;
 			try {
 				fis = new FileInputStream(this.informationStorageFilePath);
+				@SuppressWarnings("resource")
 				ObjectInputStream o = new ObjectInputStream(fis);
 				informationStorage = (InformationStorage) o.readObject();
 				System.out.println(
@@ -139,12 +141,12 @@ public class PublicTransport {
 	 * 
 	 *         creates Response object out of JSON String and gives the new
 	 *         object to the informationStorage to update it.
-	 * @throws Exception
-	 *             IllegalArgumentException, if no Journeys in TflResponseObject
-	 *             or response String is null. Exception, if
-	 *             storeInformationStoragePersistent throws Exception.
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 * @throws JsonSyntaxException
 	 */
-	private ResponseTfL getResponseObjectFromJSONString(String string) throws Exception {
+	private ResponseTfL getResponseObjectFromJSONString(String string)
+			throws JsonSyntaxException, FileNotFoundException, IOException {
 
 		System.out.println("JSONtoJava-getResponseOBjectFromJSONString(string)");
 
@@ -176,6 +178,26 @@ public class PublicTransport {
 	 */
 	public int getDurationMinutesOfFirstJourney() {
 		return this.getDurationMinutsOfJourney(0);
+	}
+
+	/**
+	 * Method to get the Departure Time of the First Journey of the actual
+	 * response object
+	 * 
+	 * @return String DepartureTime
+	 */
+	public String getDepartureTimeOfFirstJourney() {
+		return this.getDepartureTimeOfJourney(0);
+	}
+
+	/**
+	 * Method to get the Arrival Time of the First Journey of the actual
+	 * response object
+	 * 
+	 * @return String ArrivalTime
+	 */
+	public String getArrivalTimeOfFirstJourney() {
+		return this.getArrivalTimeOfJourney(0);
 	}
 
 	/**
@@ -252,6 +274,32 @@ public class PublicTransport {
 	}
 
 	/**
+	 * Gives back the Departure Time of a given TflJourney object
+	 * 
+	 * @param tflJourney
+	 *            TflJourney object
+	 * @return String of Departure Time
+	 */
+	public String getDepartureTimeOfJourney(TflJourney tflJourney) {
+		if (tflJourney != null)
+			return tflJourney.getStartDateTime();
+		return null;
+	}
+
+	/**
+	 * Gives back the Arrival Time of a given TflJourney object
+	 * 
+	 * @param tflJourney
+	 *            TflJourney object
+	 * @return String of Arrival Time
+	 */
+	public String getArrivalTimeOfJourney(TflJourney tflJourney) {
+		if (tflJourney != null)
+			return tflJourney.getArrivalDateTime();
+		return null;
+	}
+
+	/**
 	 * Gives back the Departure Point of a given TfLJourney Object
 	 * 
 	 * @param tflJourney
@@ -300,10 +348,40 @@ public class PublicTransport {
 	 */
 	public int getDurationMinutsOfJourney(int journeyNumber) {
 		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber>=0)
+			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber >= 0)
 				return this.getResponseJavaObject().getTflJourneys()[journeyNumber].getDurationMinutes();
 		}
 		return -1;
+	}
+
+	/**
+	 * Gives back the Departure Time of a Journey with a given index.
+	 * 
+	 * @param journeyNumber
+	 *            index of the Journey in the Response Object
+	 * @return String of Departure Time
+	 */
+	public String getDepartureTimeOfJourney(int journeyNumber) {
+		if (this.getResponseJavaObject() != null) {
+			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber >= 0)
+				return this.getResponseJavaObject().getTflJourneys()[journeyNumber].getStartDateTime();
+		}
+		return null;
+	}
+
+	/**
+	 * Gives back the Arrival Time of a Journey with a given index.
+	 * 
+	 * @param journeyNumber
+	 *            index of the Journey in the Response Object
+	 * @return String of Arrival Time
+	 */
+	public String getArrivalTimeOfJourney(int journeyNumber) {
+		if (this.getResponseJavaObject() != null) {
+			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber >= 0)
+				return this.getResponseJavaObject().getTflJourneys()[journeyNumber].getArrivalDateTime();
+		}
+		return null;
 	}
 
 	/**
@@ -316,7 +394,7 @@ public class PublicTransport {
 	 */
 	public Location getDeparturePointOfJourney(int journeyNumber) {
 		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber>=0)
+			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber >= 0)
 				return this.getResponseJavaObject().getTflJourneys()[journeyNumber].getLegs()[0].getDeparturePoint();
 		}
 		return null;
@@ -334,7 +412,7 @@ public class PublicTransport {
 		// returns the Location of the Arrival Point of the journey (with the
 		// given index) (Data of the Response Object)
 		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber>=0)
+			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber >= 0)
 				return this.getResponseJavaObject().getTflJourneys()[journeyNumber]
 						.getLegs()[this.getResponseJavaObject().getTflJourneys()[journeyNumber].getLegs().length - 1]
 								.getArrivalPoint();
@@ -351,7 +429,7 @@ public class PublicTransport {
 	 */
 	public int getNumberOfLegsOfJourney(int journeyNumber) {
 		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber>=0)
+			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber >= 0)
 				return this.getResponseJavaObject().getTflJourneys()[journeyNumber].getLegs().length;
 		}
 		return -1;
@@ -366,7 +444,7 @@ public class PublicTransport {
 	 */
 	public TflJourney getJourney(int journeyNumber) {
 		if (this.getResponseJavaObject() != null) {
-			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber>=0)
+			if (this.getResponseJavaObject().getTflJourneys().length >= journeyNumber && journeyNumber >= 0)
 				return this.getResponseJavaObject().getTflJourneys()[journeyNumber];
 		}
 		return null;
@@ -570,6 +648,7 @@ public class PublicTransport {
 				&& informationStorageFilePath.endsWith("ser")) {
 			FileOutputStream fos = null;
 			fos = new FileOutputStream(informationStorageFilePath);
+			@SuppressWarnings("resource")
 			ObjectOutputStream o = new ObjectOutputStream(fos);
 			o.writeObject(informationStorage);
 		}

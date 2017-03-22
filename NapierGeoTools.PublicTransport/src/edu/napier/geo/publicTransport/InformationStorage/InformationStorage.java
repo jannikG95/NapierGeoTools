@@ -69,8 +69,9 @@ public class InformationStorage implements Serializable {
 	private void storeJourney(TflJourney tflJourney) {
 		// checking, if there is an already existing object from and to the
 		// location
-		JourneyInformation j = getJourney(tflJourney.getLegs()[0].getDeparturePoint(),
+		JourneyInformation j = getJourneyInformation(tflJourney.getLegs()[0].getDeparturePoint(),
 				tflJourney.getLegs()[tflJourney.getLegs().length - 1].getArrivalPoint());
+		System.out.println("InformationStorage.storeJourneyInformation with from:"+tflJourney.getLegs()[0].getDeparturePoint()+" and to:"+tflJourney.getLegs()[tflJourney.getLegs().length - 1].getArrivalPoint());
 		if (j != null) {
 			System.out.println("Information Storage-storeJourney. match. add to route");
 			j.addTime(tflJourney.getDurationMinutes());
@@ -169,7 +170,7 @@ public class InformationStorage implements Serializable {
 	 *         the InformationStorage.
 	 */
 	public ArrayList<TflJourney> getTflJourneys(Location from, Location to) {
-		JourneyInformation j = getJourney(from, to);
+		JourneyInformation j = getJourneyInformation(from, to);
 		if (j != null)
 			return j.getTflJourneys();
 		return null;
@@ -208,7 +209,7 @@ public class InformationStorage implements Serializable {
 	 *         Location. Returns null, if there is no Journey from and to the
 	 *         given Locations in the InformationStorage.
 	 */
-	private JourneyInformation getJourney(Location from, Location to) {
+	public JourneyInformation getJourneyInformation(Location from, Location to) {
 		if(from!=null && to!=null){
 		for (JourneyInformation journeyInformation : storedJourneysInformation) {
 			if (from.hasSameLocationAs(journeyInformation.getFrom())
@@ -232,7 +233,7 @@ public class InformationStorage implements Serializable {
 	 *         InformationStorage.
 	 */
 	public double getAverageWalkingDistanceKMForJourney(Location from, Location to) {
-		JourneyInformation j = getJourney(from, to);
+		JourneyInformation j = getJourneyInformation(from, to);
 		if (j != null)
 			return j.getDistanceKM();
 		return -1;
@@ -250,7 +251,7 @@ public class InformationStorage implements Serializable {
 	 *         the InformationStorage.
 	 */
 	public double getAverageTimeMSForJourney(Location from, Location to) {
-		JourneyInformation j = getJourney(from, to);
+		JourneyInformation j = getJourneyInformation(from, to);
 		if (j != null)
 			return j.getAverageTimeMS();
 		return -1;
@@ -269,7 +270,7 @@ public class InformationStorage implements Serializable {
 	 *         InformationStorage.
 	 */
 	public double getAverageNumberOfLegs(Location from, Location to) {
-		JourneyInformation j = getJourney(from, to);
+		JourneyInformation j = getJourneyInformation(from, to);
 		if (j != null)
 			return j.getAverageNumberOfLegs();
 		return -1;
@@ -288,7 +289,7 @@ public class InformationStorage implements Serializable {
 	 *         given Locations in the InformationStorage.
 	 */
 	public ArrayList<Location> getRouteLocationsOfJourney(Location from, Location to) {
-		JourneyInformation j = getJourney(from, to);
+		JourneyInformation j = getJourneyInformation(from, to);
 		if (j != null)
 			return j.getRouteLocations();
 		return null;

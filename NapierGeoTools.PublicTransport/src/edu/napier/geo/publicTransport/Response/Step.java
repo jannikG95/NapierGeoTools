@@ -3,7 +3,7 @@ package edu.napier.geo.publicTransport.Response;
 import java.io.Serializable;
 import edu.napier.geo.common.Location;
 
-public class Step implements Serializable {
+public class Step extends Location implements Serializable {
 	/**
 	 * Created with https://timboudreau.com/blog/json/read under Creative
 	 * Commons CC BY-NC-SA 3.0 license. Author of the used software: Tim Boudreau.  
@@ -19,7 +19,7 @@ public class Step implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = -5809255402033736238L;
-	private String description;
+//	private String description;
 	private String turnDirection;
 	private String streetName;
 	private long distance;
@@ -28,13 +28,18 @@ public class Step implements Serializable {
 	private String skyDirectionDescription;
 	private long cumulativeTravelTime;
 	private Location location;
+//	private double latitude;
+//	private double longitude;
 	private PathAttribute pathAttribute;
 	private String descriptionHeading;
 	private String trackType;
 
-	public Step(String description, String turnDirection, String streetName, long distance, long cumulativeDistance,
-			long skyDirection, String skyDirectionDescription, long cumulativeTravelTime, double latitude,
-			double longitude, PathAttribute pathAttribute, String descriptionHeading, String trackType) {
+//	public Step(String description, String turnDirection, String streetName, long distance, long cumulativeDistance,
+//			long skyDirection, String skyDirectionDescription, long cumulativeTravelTime, double latitude,
+//			double longitude, PathAttribute pathAttribute, String descriptionHeading, String trackType) {
+		public Step(String description, String turnDirection, String streetName, long distance, long cumulativeDistance,
+				long skyDirection, String skyDirectionDescription, long cumulativeTravelTime, double lat,
+				double lon, PathAttribute pathAttribute, String descriptionHeading, String trackType) {
 		this.description = description;
 		this.turnDirection = turnDirection;
 		this.streetName = streetName;
@@ -43,7 +48,6 @@ public class Step implements Serializable {
 		this.skyDirection = skyDirection;
 		this.skyDirectionDescription = skyDirectionDescription;
 		this.cumulativeTravelTime = cumulativeTravelTime;
-		this.location = new Location(latitude, longitude, "PublicTransport - Step");
 		this.pathAttribute = pathAttribute;
 		this.descriptionHeading = descriptionHeading;
 		this.trackType = trackType;

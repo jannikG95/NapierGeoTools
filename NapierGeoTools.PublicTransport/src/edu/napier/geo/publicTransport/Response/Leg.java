@@ -48,7 +48,9 @@ public class Leg implements Serializable {
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
 		this.departurePoint = departurePoint;
+		this.departurePoint.setSource("PublicTransport InformationStorage");
 		this.arrivalPoint = arrivalPoint;
+		this.arrivalPoint.setSource("PublicTransport InformationStorage");
 		this.path = path;
 		this.routeOptions = routeOptions;
 		this.mode = mode;

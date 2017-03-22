@@ -171,7 +171,7 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 		return timesMS;
 	}
 
-	public ArrayList<Integer> getLegs() {
+	public ArrayList<Integer> getAllNumbersOfLegs() {
 		return legs;
 	}
 

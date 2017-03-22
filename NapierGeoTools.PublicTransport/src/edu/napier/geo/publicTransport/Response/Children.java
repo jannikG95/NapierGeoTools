@@ -3,7 +3,7 @@ package edu.napier.geo.publicTransport.Response;
 import java.io.Serializable;
 import edu.napier.geo.common.Location;
 
-public class Children implements Serializable {
+public class Children extends Location implements Serializable {
 	/**
 	 *Created with https://timboudreau.com/blog/json/read under Creative
 	 * Commons CC BY-NC-SA 3.0 license. Author of the used software: Tim Boudreau.  
@@ -28,7 +28,6 @@ public class Children implements Serializable {
 	private AdditionalProperty additionalProperties[];
 	private Children children[];
 	private String[] childrenUrls;
-	private Location location;
 
 	public Children(String id, String url, String commonName, long distance, String placeType,
 			AdditionalProperty[] additionalProperties, Children[] children, String[] childrenUrls, double lat,
@@ -41,11 +40,6 @@ public class Children implements Serializable {
 		this.additionalProperties = additionalProperties;
 		this.children = children;
 		this.childrenUrls = childrenUrls;
-		this.location = new Location(lat, lon, "PublicTransport - Children");
-		this.location.setDescription(commonName); // common name, because
-													// user-set name in request
-													// is set as commonName in
-													// response
 	}
 
 	public String getId() {
@@ -80,9 +74,6 @@ public class Children implements Serializable {
 		return childrenUrls;
 	}
 
-	public Location getLocation() {
-		return location;
-	}
 
 	
 }

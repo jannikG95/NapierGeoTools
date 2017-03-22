@@ -19,13 +19,13 @@ public class TflJourney implements Serializable{
 	 */
 	private static final long serialVersionUID = -3904682688521542643L;
 	private String startDateTime;
-	private int durationMinutes;
+	private int duration;
 	private String arrivalDateTime;
 	private Leg legs[];
 
 	public TflJourney(String startDateTime, int duration, String arrivalDateTime, Leg[] legs) {
 		this.startDateTime = startDateTime;
-		this.durationMinutes = duration;
+		this.duration = duration;
 		this.arrivalDateTime = arrivalDateTime;
 		this.legs = legs;
 	}
@@ -35,7 +35,7 @@ public class TflJourney implements Serializable{
 	}
 
 	public int getDurationMinutes() {
-		return durationMinutes;
+		return duration;
 	}
 
 	public String getArrivalDateTime() {
