@@ -1,4 +1,4 @@
-package edu.napier.geo.publicTransport.fascade;
+package edu.napier.geo.publicTransport.facade;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
  *Fascade Class for the Public Transport API
  */
 
-public class PublicTransportFascade {
+public class PublicTransportFacade {
 
 	private PublicTransport publicTransport;
 
@@ -29,7 +29,7 @@ public class PublicTransportFascade {
 	/**
 	 * Constructor to create an object of this class
 	 */
-	public PublicTransportFascade() {
+	public PublicTransportFacade() {
 	}
 
 	//Create new PublicTransport instance
