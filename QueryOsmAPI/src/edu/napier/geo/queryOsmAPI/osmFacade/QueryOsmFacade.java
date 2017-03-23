@@ -19,10 +19,12 @@ import edu.napier.geo.queryOsmAPI.model.Query;
 public class QueryOsmFacade {
 	OSMParser parser = new OSMParser();
 
-
-	//Method that takes an OSM file and creates all the nodes and tags as Java Objects
-//The parser object then contains a map with all the nodes and a treemap with all the tags
-//The treemap is sorted after tags and references the corresponding node objects
+// The TreeMap is sorted after tags and references the corresponding node objects
+	/**
+	 * Method that takes an OSM file and creates all the nodes and tags as Java Objects
+	 * The parser object then contains a map with all the nodes and a treemap with all the tags
+	 * @param filePath Filepath of the OSM file that is to be parsed
+	 */
 	public void parseOSMFile (String filePath){
 		
 		File osmFile = new File(filePath);
@@ -40,8 +42,15 @@ public class QueryOsmFacade {
 		
 	}
 	
-// Method that returns a list of locations within the default range of 5km
-// Before using this method it is necessary to have created a "parser" object and parse the OSM file
+ 
+	/**
+	 * Method that returns a list of locations within the default radius of 5km 
+	 * Before using this method it is necessary to have created a "parser" object and parse the OSM file
+	 * @param tagForSearch A keyword (or tag) for the search
+	 * @param currentLocation Starting Location as the center of the search radius
+	 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+	 * @return ArrayList containing found locations
+	 */
 	public ArrayList <Location> findLocations( String tagForSearch, Location currentLocation, OSMParser parser){
 		Query q = new Query (tagForSearch, currentLocation, parser);
 		ArrayList <Location> locationList = q.conductQuery();
@@ -49,7 +58,14 @@ public class QueryOsmFacade {
 		return locationList;
 	}
 	
-//Finding locations defining own search radius in km 
+	/**
+	 * Method that finds locations using a self defined search radius in kilometres 
+	 * @param radius Search radius in kilometres 
+	 * @param tagForSearch A keyword (or tag) for the search
+	 * @param currentLocation Starting Location as the center of the search radius
+	 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+	 * @return ArrayList containing found locations
+	 */
 	public ArrayList <Location> findLocationsWithRadius(Double radius, String tagForSearch, Location currentLocation, OSMParser parser){
 		Query q = new Query (radius, tagForSearch, currentLocation, parser);
 		ArrayList <Location> locationList = q.conductQuery();
@@ -57,8 +73,15 @@ public class QueryOsmFacade {
 		return locationList;
 	}
 
-//Finding locations within BoundingBox
-	//Finding locations defining own search radius in km 
+//
+	
+	/**
+	 * Method that finds locations within a BoundingBox
+	 * @param box A BoundingBox Object that defines the corners of a rectangle-shaped area 
+	 * @param tagForSearch A keyword (or tag) for the search
+	 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+	 * @return ArrayList containing found locations
+	 */
 		public ArrayList <Location> findLocationsWithinBoundingBox (BoundingBox box, String tagForSearch, OSMParser parser){
 			Query q = new Query (box, tagForSearch, parser);
 			ArrayList <Location> locationList = q.conductQueryWithBoundingBox(box);
@@ -67,6 +90,13 @@ public class QueryOsmFacade {
 		}
 	
 //Finding locations using RegEx with default radius
+	/**
+	 * Method that finds locations using regular expressions with the default radius of 5km
+	 * @param regex Regular Expression to search for tags
+	 * @param currentLocation Starting Location as the center of the search radius
+	 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+	 * @return ArrayList containing found locations
+	 */
 	public ArrayList <Location> findLocationsWithRegEx( String regex, Location currentLocation, OSMParser parser ){
 		
 		//Collecting all matching tags in ArrayList
@@ -89,7 +119,15 @@ public class QueryOsmFacade {
 		return locationList;
 	}
 	
-//Finding locations using RegEx with own search radius
+//
+	/**
+	 * Method that finds locations using Regular Expressions with a self defined search radius
+	 * @param radius Search radius in kilometres
+	 * @param regex Regular Expression to search for tags
+	 * @param currentLocation Starting Location as the center of the search radius
+	 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+	 * @return ArrayList containing found locations
+	 */
 		public ArrayList <Location> findLocationsWithRegEx(Double radius, String regex, Location currentLocation, OSMParser parser ){
 			
 			//Collecting all matching tags in ArrayList
@@ -114,6 +152,13 @@ public class QueryOsmFacade {
 	
 		
 		//Finding locations using RegEx within BoundingBox
+		/**
+		 * Method that finds locations using Regular Expressions within a rectangle-shaped area
+		 * @param regex Regular Expression to search for tags
+		 * @param box A BoundingBox Object that defines the corners of a rectangle-shaped area 
+		 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+		 * @return ArrayList containing found locations
+		 */
 		public ArrayList <Location> findLocationsWithRegEx( String regex, BoundingBox box, OSMParser parser ){
 			
 			//Collecting all matching tags in ArrayList
@@ -136,10 +181,19 @@ public class QueryOsmFacade {
 			return locationList;
 		}	
 		
+		/**
+		 * Method that outputs a list of existing tags to the console
+		 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+		 */
 		public void printTagsInConsole(OSMParser parser){
 			parser.getTagList().printTagList();
 		}
 		
+		/**
+		 * Method that outputs a list of existing tags to a txt file
+		 * @param parser Parser object that contains the created Java objects after parsing an OSM file
+		 * @param newFilePath Filepath with new filename to output and create the new txt file
+		 */
 		public void printTagsToTxtFile (OSMParser parser, String newFilePath){
 			try {
 				parser.getTagList().printTagsToTxt(newFilePath);
@@ -150,7 +204,10 @@ public class QueryOsmFacade {
 			
 		
 		}
-		
+		/**
+		 * Method that returns a parser object containing the created Java objects after parsing an OSM file
+		 * @return Parser object that contains the created Java objects after parsing an OSM file
+		 */
 		public OSMParser getParser() {
 			return parser;
 		}
