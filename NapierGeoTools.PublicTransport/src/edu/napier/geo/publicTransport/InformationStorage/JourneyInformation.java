@@ -5,14 +5,13 @@ import java.util.ArrayList;
 
 //import edu.napier.geo.publicTransport.General.Location;
 import edu.napier.geo.common.Location;
-import edu.napier.geo.publicTransport.ResponseTfL.TflJourney;
+import edu.napier.geo.publicTransport.Response.TflJourney;
 
-public class JourneyInformation extends edu.napier.geo.common.Journey implements
-		Serializable {
+public class JourneyInformation extends edu.napier.geo.common.Journey implements Serializable {
 	/**
-	 * @author Jan-Niklas Keiner 
+	 * @author Jan-Niklas Keiner
 	 * 
-	 * 2017/03/01
+	 *         2017/03/01
 	 * 
 	 *         This is a class to store information about Journeys from and to a
 	 *         Location. Objects of this class contain the information. It
@@ -31,6 +30,7 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	private ArrayList<TflJourney> tflJourneys;
 	private ArrayList<Location> routeLocations; // only set from constructor, so
 												// not updated and only one path
+												// of the first Journey
 												// is stored.
 
 	/**
@@ -40,8 +40,10 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	 * JourneyInformation should only be created, if there is no Journey from
 	 * and to the same Location.
 	 * 
-	 * @param from Location object
-	 * @param to Location object
+	 * @param from
+	 *            Location object
+	 * @param to
+	 *            Location object
 	 * @param timeMinutes
 	 *            Integer of the duration in Minutes.
 	 * @param numberOfLegs
@@ -54,11 +56,11 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	 *            ArrayList of Locations between the Departure and Arrival
 	 *            Location
 	 */
-	public JourneyInformation(Location from, Location to, int timeMinutes,
-			int numberOfLegs, int distanceMeter, TflJourney tflJourney,
-			ArrayList<Location> routeLocations) {
+	public JourneyInformation(Location from, Location to, int timeMinutes, int numberOfLegs, int distanceMeter,
+			TflJourney tflJourney, ArrayList<Location> routeLocations) {
 		super(from, to);
-		this.setSource("PublicTransport InformationStorage. distance is walkingDistance!");
+		this.setSource(
+				"PublicTransport InformationStorage. Distance is walkingDistance, distance and time are average values.");
 		this.locationB = to;
 		this.timesMS = new ArrayList<Integer>();
 		this.addTime(timeMinutes);
@@ -70,62 +72,6 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 		this.tflJourneys = new ArrayList<TflJourney>();
 		this.tflJourneys.add(tflJourney);
 		this.routeLocations = routeLocations;
-	}
-
-	public Location getFrom() {
-		return super.locationA;
-	}
-
-	public void setFrom(Location from) {
-		this.locationA = from;
-	}
-
-	public Location getTo() {
-		return super.locationB;
-	}
-
-	public void setTo(Location to) {
-		this.locationB = to;
-	}
-
-	public ArrayList<Integer> getTime() {
-		return timesMS;
-	}
-
-	public void setTime(ArrayList<Integer> time) {
-		this.timesMS = time;
-	}
-
-	public ArrayList<Integer> getTimesMS() {
-		return timesMS;
-	}
-
-	public ArrayList<Integer> getLegs() {
-		return legs;
-	}
-
-	public ArrayList<Integer> getDistancesMeter() {
-		return distancesMeter;
-	}
-
-	public ArrayList<TflJourney> getTflJourneys() {
-		return tflJourneys;
-	}
-
-	public double getAverageTimeMS() {
-		return travelTimeMS;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public ArrayList<Location> getRouteLocations() {
-		return routeLocations;
-	}
-
-	private void setAverageTimeMS(double averageTime) {
-		this.travelTimeMS = averageTime;
 	}
 
 	/**
@@ -166,13 +112,13 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	 * Method to add a number of legs to the list of number of legs. Average
 	 * number of legs is calculated and updated automatically.
 	 * 
-	 * @param numberOfLegs int of number of Legs that should be added to the list of all number of legs to create the average
+	 * @param numberOfLegs
+	 *            int of number of Legs that should be added to the list of all
+	 *            number of legs to create the average
 	 */
 	public void addLeg(int numberOfLegs) {
 		this.legs.add(numberOfLegs);
-		System.out
-				.println("averageNumberOfLegsForRoute-addNumberOfLegs. NumberOfLegs="
-						+ numberOfLegs);
+		System.out.println("averageNumberOfLegsForRoute-addNumberOfLegs. NumberOfLegs=" + numberOfLegs);
 		setAverageNumberOfLegs(calcAverage(legs));
 	}
 
@@ -185,13 +131,72 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	 *         ArrayList.
 	 */
 	private double calcAverage(ArrayList<Integer> list) {
-		double avg = 0;
-		int count = 0;
-		for (Integer x : list) {
-			avg = avg + x;
-			count++;
-		}
+		if (list != null) {
+			double avg = 0;
+			int count = 0;
+			for (Integer x : list) {
+				avg = avg + x;
+				count++;
+			}
 		return (avg / count);
+		}
+		return -1;
+	}
+
+	public Location getFrom() {
+		return super.locationA;
+	}
+
+	public void setFrom(Location from) {
+		this.locationA = from;
+	}
+
+	public Location getTo() {
+		return super.locationB;
+	}
+
+	public void setTo(Location to) {
+		this.locationB = to;
+	}
+
+	public ArrayList<Integer> getTime() {
+		return timesMS;
+	}
+
+	public void setTime(ArrayList<Integer> time) {
+		this.timesMS = time;
+	}
+
+	public ArrayList<Integer> getTimesMS() {
+		return timesMS;
+	}
+
+	public ArrayList<Integer> getAllNumbersOfLegs() {
+		return legs;
+	}
+
+	public ArrayList<Integer> getDistancesMeter() {
+		return distancesMeter;
+	}
+
+	public ArrayList<TflJourney> getTflJourneys() {
+		return tflJourneys;
+	}
+
+	public double getAverageTimeMS() {
+		return travelTimeMS;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public ArrayList<Location> getRouteLocations() {
+		return routeLocations;
+	}
+
+	private void setAverageTimeMS(double averageTime) {
+		this.travelTimeMS = averageTime;
 	}
 
 	/**
@@ -200,12 +205,9 @@ public class JourneyInformation extends edu.napier.geo.common.Journey implements
 	 * average distance, all distances, number of TflJourney Objects
 	 */
 	public String toString() {
-		String string = "from:" + this.getFrom().toString() + " to:"
-				+ this.getTo().toString() + " averageTime:"
-				+ this.getAverageTimeMS() + " all times:" + timesMS
-				+ " averageNumberOfLegs=" + averageNumberOfLegs
-				+ " all numbersOfLegs=" + legs + "distanceKMAvg=" + distanceKM
-				+ " distances=" + distancesMeter
+		String string = "from:" + this.getFrom().toString() + " to:" + this.getTo().toString() + " averageTime:"
+				+ this.getAverageTimeMS() + " all times:" + timesMS + " averageNumberOfLegs=" + averageNumberOfLegs
+				+ " all numbersOfLegs=" + legs + "distanceKMAvg=" + distanceKM + " distances=" + distancesMeter
 				+ "numberOfTflJourney Objects:";
 		return string;
 	}

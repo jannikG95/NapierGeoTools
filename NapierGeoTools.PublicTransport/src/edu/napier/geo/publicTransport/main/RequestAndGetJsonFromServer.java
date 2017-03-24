@@ -119,18 +119,18 @@ public class RequestAndGetJsonFromServer {
 	 * 
 	 * @param fromLat
 	 *            decimal
-	 * @param fromLong
+	 * @param fromLon
 	 *            decimal
 	 * @param toLat
 	 *            decimal
-	 * @param toLong
+	 * @param toLon
 	 *            decimal
 	 * @return String of the TfL Response (in JSON format)
 	 * @throws IOException IOException of getJSON(lat, lon, lat, lon, preferences)
 	 */
 	public static String getJSON(double fromLat, double fromLon, double toLat,
-			double toLong) throws IOException {
-		return getJSON(fromLat, fromLon, toLat, toLong, "");
+			double toLon) throws IOException {
+		return getJSON(fromLat, fromLon, toLat, toLon, "");
 	}
 
 	/**
@@ -185,7 +185,8 @@ public class RequestAndGetJsonFromServer {
 	 * @throws IOException IOException of url.openConnection
 	 */
 	public static String getJSON(double fromLat, double fromLon, double toLat,
-			double toLong, String preferences) throws MalformedURLException, IOException, ProtocolException {
+			double toLong, String preferences) throws MalformedURLException, 
+			IOException, ProtocolException {
 		String from = fromLat + "," + fromLon;
 		String to = toLat + "," + toLong;
 		from = from.replace(" ", "%20");
@@ -210,6 +211,9 @@ public class RequestAndGetJsonFromServer {
 		for (String line; (line = reader.readLine()) != null;) {
 			response = response + line + "\n";
 		}
+		response.replace("latitude", "lat");
+		response.replace("longitude", "lon");
+		System.out.println(response);
 		return response;
 	}
 

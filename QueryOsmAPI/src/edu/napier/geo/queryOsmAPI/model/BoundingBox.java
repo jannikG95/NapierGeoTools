@@ -9,7 +9,13 @@ public class BoundingBox {
 	double maxlon;
 	double minlat;
 	double maxlat;
-	
+	/**
+	 * Constructor 
+	 * @param minlat minimum latitude value
+	 * @param minlon minimum longitude value
+	 * @param maxlat maximum latitude value
+	 * @param maxlon maximum longitude value
+	 */
 	public BoundingBox (double minlat, double minlon, double maxlat, double maxlon){
 		this.minlon = minlon;
 		this.maxlon = maxlon;
