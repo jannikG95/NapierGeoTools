@@ -517,6 +517,7 @@ public class PublicTransportFacade {
 					toLon);
 	}
 
+	//other methods
 	/**
 	 * updates the local persistent file of the stored Information
 	 * (InformationStorage). Is automatically called, when a new Response object
