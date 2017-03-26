@@ -16,7 +16,7 @@ import edu.napier.geo.common.Location;
  * - create a Journey that GH can handle (call getOptionsMap() first)
  * - process the Journey object
  * - create your own routing profile (e.g. bus)
- * - create your own weighting for routing (e.g. eco efficient) -> edit CustomWeighting
+ * - create your own weighting for routing (e.g. eco efficient) - edit CustomWeighting
  *  
  * @author Jannik Enenkel
  */
