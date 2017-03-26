@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/NapierGeoTools.common"/>
-	<classpathentry kind="lib" path="C:/Users/Admin/git/NapierGeoToolsTry3/NapierGeoTools/NapierGeoTools.PublicTransport/bin/gson-2.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/git/NapierGeoToolsTry3/NapierGeoTools/NapierGeoTools.PublicTransport/gson-2.2.3.jar" sourcepath="C:/Users/Admin/git/NapierGeoToolsTry3/NapierGeoTools/NapierGeoTools.PublicTransport/gson-2.2.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

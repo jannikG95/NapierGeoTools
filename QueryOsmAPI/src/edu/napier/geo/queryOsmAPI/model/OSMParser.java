@@ -37,6 +37,7 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+
 /**
  * OSMParser parses XML file (OSM database extracts) and creates corresponding Java objects.
  * @author Adrien PAVIE
@@ -89,6 +90,7 @@ public class OSMParser extends DefaultHandler {
 	 * @throws IOException If an error occurs during file reading
 	 * @throws SAXException If an error occurs during parsing
 	 */
+
 	public Map<String,Element> parse(String s) throws SAXException, IOException {
 		return parse(new InputSource(new ByteArrayInputStream(s.getBytes("UTF-8"))));
 	}

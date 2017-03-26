@@ -13,6 +13,11 @@ import java.util.TreeMap;
 public class TagList {
 	TreeMap <String, ArrayList<String>> listOfTags = new TreeMap <String, ArrayList<String>>();
 	
+	/**
+	 * Method that adds Elements to the listOfTags
+	 * @param tagToAdd Tag String to add as a key
+	 * @param node Node ID for reference to add add as a value
+	 */
 	public void addTag(String tagToAdd, String node){
 		if (listOfTags.containsKey(tagToAdd)&& listOfTags.get(tagToAdd).contains(node)== false){
 			
@@ -25,11 +30,13 @@ public class TagList {
 		}
 	}
 
-	
 	public TreeMap<String, ArrayList<String>> getListOfTags() {
 		return listOfTags;
 	}
 	
+	/**
+	 * Method that outputs a list of existing tags to the console
+	 */
 	public void printTagList(){
 		for(Map.Entry<String,ArrayList<String>> entry : listOfTags.entrySet()) {
 			  String key = entry.getKey();
@@ -39,6 +46,11 @@ public class TagList {
 			}
 	}
 	
+	/**
+	 * Method that outputs a list of existing tags to a txt file
+	 * @param outFilePath Filepath with new filename to output and create the new txt file
+	 * @throws IOException
+	 */
 	public void printTagsToTxt (String outFilePath) throws IOException{
 		//Example of outFilePath: "C:/Users/username/Desktop/tagsOut.txt"
 		//A "tagsOut.txt" file is being created containing all tags
