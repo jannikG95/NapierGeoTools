@@ -17,7 +17,7 @@ import edu.napier.geo.common.Location;
  * - process the Journey object
  * - create your own routing profile (e.g. bus)
  * - create your own weighting for routing (e.g. eco efficient) -> edit CustomWeighting
- * 
+ *  
  * @author Jannik Enenkel
  */
 
