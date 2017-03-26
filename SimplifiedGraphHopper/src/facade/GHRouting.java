@@ -39,7 +39,7 @@ public class GHRouting {
 	/**
 	 * the steps to calculate a route
 	 * 
-	 * @return
+	 * @return GHJourney with routing information
 	 */
 	public GHJourney processJourney(){
 		selectOSMFile();
