@@ -67,28 +67,28 @@ public class Resource implements Serializable {
 	/** setter for the Ressource name
 	 * @param name Ressource name
 	 */
-	public void setName(String name) {
+	protected void setName(String name) {
 		this.name = name;
 	}	
 
 	/** associates a CalendarEntry to this Ressource
 	 * @param ce CalendarEntry to associate
 	 */
-	public void addParticipation(CalendarEntry ce){
+	protected void addParticipation(CalendarEntry ce){
 		participating.add(ce);
 	}
 
 	/** removes the association of a CalendarEntry for this Ressource
 	 * @param ce CalendarEntry to remove the association with
 	 */
-	public void removeParticipation (CalendarEntry ce){
+	protected void removeParticipation (CalendarEntry ce){
 		participating.remove(ce);
 	}
 
 	/** removes all associated CalendarEntries for this Ressource
 	 * 
 	 */
-	public void removeAllParticipations (){
+	protected void removeAllParticipations (){
 		participating.clear();
 	}
 

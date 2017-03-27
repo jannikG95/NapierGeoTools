@@ -134,14 +134,14 @@ public class CalendarEntry implements Serializable {
 			description = "no description";
 		if (summary==null)
 			summary = "no summary";
-		
+
 		return "Event start:        "+start.getDayOfMonth()+"."+start.getMonth()+" "+start.getYear()+" "+startHourString+":"+startMinuteString+"\n"
 		+"Event end:          "+end.getDayOfMonth()+"."+end.getMonth()+" "+end.getYear()+" "+endHourString+":"+endMinuteString+"\n"
 		+"Event description:  "+description+"\n"
 		+"Event summary:      "+summary+"\n"
 		+"UniqueID:           "+uid+"\n"
 		+"Location:           "+locationstring+"\n"
-		+"Ressources:         "+ressourcestring+"\n"
+		+"Resources:         "+ressourcestring+"\n"
 		;
 
 	}
@@ -155,9 +155,12 @@ public class CalendarEntry implements Serializable {
 
 	/** setter for the scheduled start instant of time
 	 * @param start scheduled start instant of time
+	 * @throws StartEndException if the event end is earlier than the event start
 	 */
-	public void setStart(LocalDateTime start) {
-		this.start = start;
+	public void setStart(LocalDateTime start) throws StartEndException {
+		if (start.isAfter(end))
+			throw new StartEndException();
+		else this.start = start;
 	}
 
 	/** getter for the scheduled end instant of time
@@ -169,9 +172,12 @@ public class CalendarEntry implements Serializable {
 
 	/** setter for the scheduled end instant of time
 	 * @param end scheduled end instant of time
+	 * @throws StartEndException if the event end is earlier than the event start
 	 */
-	public void setEnd(LocalDateTime end) {
-		this.end = end;
+	public void setEnd(LocalDateTime end) throws StartEndException {
+		if (start.isAfter(end))
+			throw new StartEndException();
+		else this.end = end;
 	}
 
 	/** getter for the event description
@@ -252,11 +258,28 @@ public class CalendarEntry implements Serializable {
 		allocatedResources.addAll(res);
 	}
 	
+	//should only be accessed from the Facade class to ensure correct listing of Events and Ressources!
+	/** adds a Resource to the CalendarEntry
+	 * @param res Resource to add
+	 */
+	protected void addResource(Resource res){
+		allocatedResources.add(res);
+	}
+
+	//should only be accessed from the Facade class to ensure correct listing of Events and Ressources!
 	/** removes Resources from the CalendarEntry
 	 * @param res ArrayList of Resources to remove
 	 */
 	protected void removeResources(ArrayList<Resource> res){
 		allocatedResources.removeAll(res);
+	}
+	
+	//should only be accessed from the Facade class to ensure correct listing of Events and Ressources!
+	/** remove a Resource from the CalendarEntry
+	 * @param res Resource to remove
+	 */
+	protected void removeResource(Resource res){
+		allocatedResources.remove(res);
 	}
 
 }
