@@ -15,7 +15,8 @@ import com.google.gson.JsonSyntaxException;
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.InformationStorage;
 import edu.napier.geo.publicTransport.InformationStorage.JourneyInformation;
-import edu.napier.geo.publicTransport.Response.*;
+import edu.napier.geo.publicTransport.Response.ResponseTfl;
+import edu.napier.geo.publicTransport.Response.TflJourney;
 
 /**
  * 2017/02/27
@@ -57,7 +58,7 @@ public class PublicTransport {
 	private InformationStorage informationStorage;
 	String informationStorageFilePath;
 	public static String informationStorageFilePathDefault = "informationStorage.ser";
-	private ResponseTfL responseJavaObject;
+	private ResponseTfl responseJavaObject;
 	private Gson gson;
 	// InformationStorage informationStorageObject; // only for test
 	private String source = "PublicTransport";
@@ -145,14 +146,14 @@ public class PublicTransport {
 	 * @throws FileNotFoundException
 	 * @throws JsonSyntaxException
 	 */
-	private ResponseTfL getResponseObjectFromJSONString(String string)
+	private ResponseTfl getResponseObjectFromJSONString(String string)
 			throws JsonSyntaxException, FileNotFoundException, IOException {
 
 		System.out.println("JSONtoJava-getResponseOBjectFromJSONString(string)");
 
 		if (string != null) {
 			System.out.println(string);
-			ResponseTfL obj = gson.fromJson(string, ResponseTfL.class);
+			ResponseTfl obj = gson.fromJson(string, ResponseTfl.class);
 			System.out.println("object=" + obj);
 			if (obj.getTflJourneys() != null) {
 				informationStorage.storeInformation(obj);
@@ -654,7 +655,7 @@ public class PublicTransport {
 		}
 	}
 
-	public ResponseTfL getResponseJavaObject() {
+	public ResponseTfl getResponseJavaObject() {
 		return responseJavaObject;
 	}
 
@@ -674,7 +675,7 @@ public class PublicTransport {
 	 *            Object of ResponseTfl type (Response from TfL (JSON) converted
 	 *            to POJO object)
 	 */
-	public void setResponseJavaObject(ResponseTfL responseJavaObject) {
+	public void setResponseJavaObject(ResponseTfl responseJavaObject) {
 		this.responseJavaObject = responseJavaObject;
 	}
 

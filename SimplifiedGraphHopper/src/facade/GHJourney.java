@@ -31,18 +31,34 @@ public class GHJourney extends Journey {
 		return origin;
 	}
 	
+	/**
+	 * 
+	 * @param options the options map
+	 */
 	public void setOptions(HashMap<String, Object> options){
 		this.options = options;
 	}
 	
+	/**
+	 * 
+	 * @return the options map
+	 */
 	public HashMap<String, Object> getOptions(){
 		return options;
 	}		
 	
+	/**
+	 * 
+	 * @return a list of locations that specify the nodes between start and finish
+	 */
 	public List<Location> getWaypoints() {
 		return waypoints;
 	}
 
+	/**
+	 * 
+	 * @param waypoints set the waypoints list
+	 */
 	public void setWaypoints(List<Location> waypoints) {
 		this.waypoints = waypoints;
 	}

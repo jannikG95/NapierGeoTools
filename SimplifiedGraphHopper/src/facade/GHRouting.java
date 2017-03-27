@@ -36,6 +36,11 @@ public class GHRouting {
 		this.journey = journey;
 	}
 	
+	/**
+	 * the steps to calculate a route
+	 * 
+	 * @return GHJourney with routing information
+	 */
 	public GHJourney processJourney(){
 		selectOSMFile();
 		setGHOptions();
@@ -63,10 +68,6 @@ public class GHRouting {
 	 * Most important graphhopper options. Must be defined before generating the graph. 
 	 */
 	private void setGHOptions() {
-//		String[] profiles = (String[]) journey.getOptions().get("profilesForGraph");
-//		String em = "";
-//		for (int i = 0; i < profiles.length; i++)
-//			em += profiles[i] + ",";
 		FlagEncoder[] fe = (FlagEncoder[]) journey.getOptions().get("profilesForGraph");
 		hopper.setEncodingManager(new EncodingManager(fe));
 		

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 //import edu.napier.geo.publicTransport.General.Location;
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.Response.Leg;
-import edu.napier.geo.publicTransport.Response.ResponseTfL;
+import edu.napier.geo.publicTransport.Response.ResponseTfl;
 import edu.napier.geo.publicTransport.Response.TflJourney;
 
 public class InformationStorage implements Serializable {
@@ -29,14 +29,14 @@ public class InformationStorage implements Serializable {
 	 * Gets all information of a JourneyInformation out of this object for each
 	 * journey of the given responseTfl object
 	 * 
-	 * @param responseTfL
+	 * @param responseTfl
 	 *            a responseTfl Object that should be stored in the
 	 *            informationStorage
 	 */
-	public void storeInformation(ResponseTfL responseTfL) {
+	public void storeInformation(ResponseTfl responseTfl) {
 		System.out.println("InformationStorage-calcAndStoreInformation(response)");
-		if (responseTfL != null)
-			storeJourneys(responseTfL.getTflJourneys());
+		if (responseTfl != null)
+			storeJourneys(responseTfl.getTflJourneys());
 	}
 
 	/**

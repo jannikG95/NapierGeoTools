@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.JourneyInformation;
 import edu.napier.geo.publicTransport.Response.Leg;
-import edu.napier.geo.publicTransport.Response.ResponseTfL;
+import edu.napier.geo.publicTransport.Response.ResponseTfl;
 import edu.napier.geo.publicTransport.Response.StopPoint;
 import edu.napier.geo.publicTransport.Response.StopPointInPath;
 import edu.napier.geo.publicTransport.Response.TflJourney;
@@ -68,7 +68,7 @@ public class RunTest {
 
 		// responseJavaObject = getResponseObjectFromJSONString(responseString);
 
-		ResponseTfL responseJavaObject = facade.getResponseJavaObject();
+		ResponseTfl responseJavaObject = facade.getResponseJavaObject();
 		System.out.println("object x=:" + responseJavaObject.x());
 		System.out.println("number of journeys=" + responseJavaObject.getTflJourneys().length);
 
