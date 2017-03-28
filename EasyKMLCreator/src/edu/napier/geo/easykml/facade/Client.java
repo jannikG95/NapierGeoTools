@@ -158,7 +158,7 @@ public class Client {
 		lookAt1.setTilt(68.065);
 		lookAt1.setRange(6811.884);
 		lookAt1.setAltitudeMode(AltitudeModes.RELATIVE_TO_GROUND);
-		FlyTo flyTo3 = new FlyTo(3.0, lookAt1);
+		FlyTo flyTo3 = new FlyTo(3.0, lookAt1); 
 		flyTo3.setFlyToMode(FlyTo.FLYTOMODE_SMOOTH);
 
 
