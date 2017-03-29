@@ -33,7 +33,7 @@ public class Polygon extends KML_Geometry {
 	private Boolean tessellated;
 	private String altitudeMode;
 	private LinearRing outerBoundry;
-	private ArrayList<LinearRing> innerBoundryList;
+	private ArrayList<LinearRing> innerBoundryList = new ArrayList<>();
 
 	/**
 	 * A polygon is a figure that is bounded by a finite chain of straight lines
