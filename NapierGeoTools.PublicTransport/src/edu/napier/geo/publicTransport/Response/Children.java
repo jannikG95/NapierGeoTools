@@ -1,6 +1,7 @@
 package edu.napier.geo.publicTransport.Response;
 
 import java.io.Serializable;
+
 import edu.napier.geo.common.Location;
 
 public class Children extends Location implements Serializable {

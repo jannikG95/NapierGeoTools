@@ -1,18 +1,11 @@
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.JourneyInformation;
 import edu.napier.geo.publicTransport.Response.Leg;
 import edu.napier.geo.publicTransport.Response.ResponseTfl;
-import edu.napier.geo.publicTransport.Response.StopPoint;
-import edu.napier.geo.publicTransport.Response.StopPointInPath;
 import edu.napier.geo.publicTransport.Response.TflJourney;
 import edu.napier.geo.publicTransport.facade.PublicTransportFacade;
-import edu.napier.geo.publicTransport.main.PublicTransport;
-import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
 
 public class RunTest {
 
