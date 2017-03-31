@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="F:/HonoursProject/jar downloads/json-22.jar"/>
 	<classpathentry kind="lib" path="F:/HonoursProject/jar downloads/json-jackson-2.0-m08-sources.jar"/>
 	<classpathentry kind="lib" path="F:/HonoursProject/jar downloads/json-java.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/git/NapierGeoToolsTry3/NapierGeoTools/NapierGeoTools.PublicTransport/bin/gson-2.2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
