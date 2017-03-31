@@ -60,6 +60,7 @@ public class UsabilityTest {
 		System.out.println("Distance in KM: " + journey.getDistanceKM());
 		System.out.println("Time in MS: " + journey.getTravelTimeMS());
 		System.out.println("Waypoints:");
+		
 		List<Location> l = journey.getWaypoints();
 		for(Location loc : l){
 			System.out.println(loc.getLat()+" "+ loc.getLon());
