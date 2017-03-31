@@ -2,32 +2,33 @@ package edu.napier.geo.diary;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Calendar.Builder;
-
 import edu.napier.geo.common.Location;
 
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class ICalendarFileHandler {
 
 	private String icsString="";
-
+	private DiaryFacade df;
 	private static final int ICS = 0;
-//	private static final int IFB = 1;
+	//	private static final int IFB = 1;
 
-	private String calBegin =   "BEGIN:VCALENDAR\r\n";
-	private String version =    "VERSION:2.0\r\n";
-	private String prodid =     "PRODID:NapierGeoTools_DiaryAPI\r\n";
-	private String eventBegin = "BEGIN:VEVENT\r\n";
-	private String eventEnd =   "END:VEVENT\r\n";
-	private String calEnd =     "END:VCALENDAR\r\n";
+	private static final String NL = "\r\n";
+	private final String calBegin =   "BEGIN:VCALENDAR\r\n";
+	private final String version =    "VERSION:2.0\r\n";
+	private final String prodid =     "PRODID:NapierGeoTools_DiaryAPI\r\n";
+	private final String eventBegin = "BEGIN:VEVENT\r\n";
+	private final String eventEnd =   "END:VEVENT\r\n";
+	private final String calEnd =     "END:VCALENDAR\r\n";
+
+	public ICalendarFileHandler(DiaryFacade diaryFacade) {
+		df=diaryFacade;
+	}
 
 	/** Creates an .ics File containing the specified events following the iCalendar specification
 	 * @param events ArrayList of CalendarEntries to export
@@ -40,24 +41,34 @@ public class ICalendarFileHandler {
 		icsString += prodid;
 		for (CalendarEntry calendarEntry : events) {
 			icsString += eventBegin;
-			icsString += "UID:"+calendarEntry.getUid()+"\r\n";
+			icsString += "UID:"+calendarEntry.getUid()+NL;
 			if (calendarEntry.getLocation()!= null){
 				String locationDescription = calendarEntry.getLocation().getDescription();
 				if (locationDescription != null && locationDescription!="")
-					icsString += "LOCATION:"+ locationDescription+"\r\n";
+					icsString += "LOCATION:"+ locationDescription+NL;
 			}
 			String summary = calendarEntry.getSummary();
 			if (summary != null && summary!="")
-				icsString += "SUMMARY:"+summary+"\r\n";
+				icsString += "SUMMARY:"+summary+NL;
 			String description = calendarEntry.getDescription();
 			if (description != null && description!="")
-				icsString += "DESCRIPTION:"+description+"\r\n";
+				icsString += "DESCRIPTION:"+description+NL;
 			icsString += "DTSTART:";
-			icsString += this.convertDateTimeToIcalString(calendarEntry.getStart())+"\r\n";
+			icsString += this.convertDateTimeToIcalString(calendarEntry.getStart())+NL;
 			icsString += "DTEND:";
-			icsString += this.convertDateTimeToIcalString(calendarEntry.getEnd())+"\r\n";
+			icsString += this.convertDateTimeToIcalString(calendarEntry.getEnd())+NL;
 			icsString += "DTSTAMP:";
-			icsString += this.convertDateTimeToIcalString(LocalDateTime.now())+"\r\n";
+			icsString += this.convertDateTimeToIcalString(LocalDateTime.now())+NL;
+			int numberOfResources = calendarEntry.getAllocatedResources().size();
+			if (numberOfResources>0){
+				icsString += "RESOURCES:";
+				for (int i = 0; i<numberOfResources; i++) {
+					icsString += calendarEntry.getAllocatedResources().get(i).getName();
+					if (i!=numberOfResources-1)
+						icsString +=",";
+				}
+				icsString += NL;
+			}
 			icsString += eventEnd;
 		}
 		icsString += calEnd;
@@ -70,7 +81,7 @@ public class ICalendarFileHandler {
 	 * @param filename user-defined filename
 	 */
 	private void writeToFile(String content, String filename) {
-		
+
 		filename+=".ics";
 		File file = new File(filename);
 		try {
@@ -134,73 +145,70 @@ public class ICalendarFileHandler {
 	 */
 	public ArrayList<CalendarEntry> readIcalFile(String filename) throws FileNotFoundException{
 		File file = new File(filename);
-		Scanner input = new Scanner(file);
+		Scanner scanner = new Scanner(file);
 		ArrayList<String> scannedLines = new ArrayList<String>();
 		ArrayList<CalendarEntry> readEvents = new ArrayList<CalendarEntry>();
 		String uid= null, description= null, summary= null;
 		Location location = null;
+		ArrayList<Resource> resources = new ArrayList<Resource>();
 		LocalDateTime start = null, end = null;
 
-		while(input.hasNext()) {
-			scannedLines.add(input.nextLine());
+		while(scanner.hasNext()) {
+			scannedLines.add(scanner.nextLine());
 		}
-		input.close();
+		scanner.close();
 
 		int i=0;
 		boolean eventparsing = false;
 		while (i<scannedLines.size()){
-			if (!scannedLines.get(i).startsWith("BEGIN:VEVENT")){
-			}
-			else{ 							//= BEGIN:VEVENT found
+			if (scannedLines.get(i).startsWith("BEGIN:VEVENT")){
 				eventparsing = true;
 				i++;
 			}
-			while (eventparsing = true){
+			while (eventparsing == true){
 				if (scannedLines.get(i).startsWith("UID:")){
 					uid = scannedLines.get(i).substring(4);
-					i++;
 				}
-				if (scannedLines.get(i).startsWith("DESCRIPTION:")){
+				else if (scannedLines.get(i).startsWith("DESCRIPTION:")){
 					description =scannedLines.get(i).substring(12);
-					i++;
 				}
-				if (scannedLines.get(i).startsWith("SUMMARY:")){
+				else if (scannedLines.get(i).startsWith("SUMMARY:")){
 					summary =scannedLines.get(i).substring(8);
-					i++;
 				}
-				if (scannedLines.get(i).startsWith("LOCATION:")){
-					String locationstring = scannedLines.get(i).substring(9);
+				else if (scannedLines.get(i).startsWith("LOCATION:")){
+					String locationString = scannedLines.get(i).substring(9);
 					location = new Location();
-					location.setDescription(locationstring);
-					i++;
+					location.setDescription(locationString);
 				}
-				if (scannedLines.get(i).startsWith("DTSTART:")){
+				else if (scannedLines.get(i).startsWith("RESOURCES:")){
+					String resourceString = scannedLines.get(i).substring(10);
+					String[] resourceStringArray = resourceString.split("\\s*,\\s*"); //also removing whitespace characters
+					for (String string : resourceStringArray) {
+						resources.add(df.createOrAccessResource(string));
+					}
+				}				
+				else if (scannedLines.get(i).startsWith("DTSTART:")){
 					start = convertIcalTime2LocalDateTime(scannedLines.get(i).substring(8));
-					i++;
 				}
-				if (scannedLines.get(i).startsWith("DTEND:")){
+				else if (scannedLines.get(i).startsWith("DTEND:")){
 					end = convertIcalTime2LocalDateTime(scannedLines.get(i).substring(6));
-					i++;
 				}	
-				if (scannedLines.get(i).startsWith("END:VEVENT")){
+				else if (scannedLines.get(i).startsWith("END:VEVENT")){
 					eventparsing = false;
-					i++; 
 					try {
-						CalendarEntry ce = new CalendarEntry(start, end, description, summary, location, null);
+						CalendarEntry ce = new CalendarEntry(start, end, description, summary, location, resources);
 						start=null; end=null; description=null; summary=null;location=null;
+						resources=new ArrayList<Resource>();
 						ce.setUid(uid);
 						readEvents.add(ce);
 					} catch (StartEndException e) {
 						e.printStackTrace();
 					}
-
 					break;
-
 				}
-				else {
-					i++; break;
-				}
+				i++;
 			}
+			i++;
 		}
 		return readEvents;
 

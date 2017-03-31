@@ -17,13 +17,6 @@ public class Resource implements Serializable {
 		this.name = name;
 	}
 
-	/** getter for the name of the ressource
-	 * @return name of the ressource
-	 */
-	public String getName(){
-		return name;
-	}
-
 	/** Returns a boolean indicating whether the Ressource is not yet used between 
 	 * a specified timespan, defined by "start" and "end".
 	 * @param start start instant of timespan to test
@@ -56,31 +49,46 @@ public class Resource implements Serializable {
 				if (((toTest.getEnd().isAfter(helper.get(j).getStart())) && (toTest.getEnd().isBefore(helper.get(j).getEnd()))) || ((toTest.getStart().isBefore(helper.get(j).getEnd())) && toTest.getStart().isAfter(helper.get(j).getStart()))){
 					if (!conflicting.contains(toTest))
 						conflicting.add(toTest);
-					conflicting.add(helper.get(j));
+					if (!conflicting.contains(helper.get(j)))
+						conflicting.add(helper.get(j));
 				}
 			}
 		}
 		return conflicting;
 	}
 
+	/** getter for the name of the ressource
+	 * @return name of the ressource
+	 */
+	public String getName(){
+		return name;
+	}
+
+	/** setter for the Ressource name
+	 * @param name Ressource name
+	 */
+	protected void setName(String name) {
+		this.name = name;
+	}	
+
 	/** associates a CalendarEntry to this Ressource
 	 * @param ce CalendarEntry to associate
 	 */
-	public void addParticipation(CalendarEntry ce){
+	protected void addParticipation(CalendarEntry ce){
 		participating.add(ce);
 	}
 
 	/** removes the association of a CalendarEntry for this Ressource
 	 * @param ce CalendarEntry to remove the association with
 	 */
-	public void removeParticipation (CalendarEntry ce){
+	protected void removeParticipation (CalendarEntry ce){
 		participating.remove(ce);
 	}
 
 	/** removes all associated CalendarEntries for this Ressource
 	 * 
 	 */
-	public void removeAllParticipations (){
+	protected void removeAllParticipations (){
 		participating.clear();
 	}
 
@@ -95,11 +103,6 @@ public class Resource implements Serializable {
 		return participating;
 	}
 
-	/** setter for the Ressource name
-	 * @param name Ressource name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+
 
 }

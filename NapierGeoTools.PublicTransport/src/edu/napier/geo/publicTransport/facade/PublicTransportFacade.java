@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.InformationStorage;
-import edu.napier.geo.publicTransport.Response.ResponseTfL;
+import edu.napier.geo.publicTransport.Response.ResponseTfl;
 import edu.napier.geo.publicTransport.Response.TflJourney;
 import edu.napier.geo.publicTransport.main.PublicTransport;
 import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
@@ -536,7 +536,7 @@ public class PublicTransportFacade {
 			publicTransport.storeInformationStoragePersistent();
 	}
 
-	public ResponseTfL getResponseJavaObject() {
+	public ResponseTfl getResponseJavaObject() {
 		if (this.publicTransport != null)
 			return publicTransport.getResponseJavaObject();
 		return null;
@@ -559,7 +559,7 @@ public class PublicTransportFacade {
 	 *            Object of ResponseTfl type (Response from TfL (JSON) converted
 	 *            to POJO object)
 	 */
-	public void setResponseJavaObject(ResponseTfL responseJavaObject) {
+	public void setResponseJavaObject(ResponseTfl responseJavaObject) {
 		if (this.publicTransport != null)
 			publicTransport.setResponseJavaObject(responseJavaObject);
 	}
