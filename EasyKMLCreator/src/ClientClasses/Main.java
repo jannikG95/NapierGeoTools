@@ -1,4 +1,4 @@
-package Presentation;
+package ClientClasses;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class Main {
 
 		kmlCreator.createSimplePoint(point);
 
-		// Point placemark - local and global style.
+		// Point placemark - local style.
 
 		Style pointStyle = new Style();
 
@@ -80,8 +80,8 @@ public class Main {
 		Style globalStyle = new Style();
 
 		LineStyle lineStyle = new LineStyle();
-		labelStyle.setColor(Color.RED);
-		labelStyle.setScale(3.0f);
+		lineStyle.setColor(Color.RED);
+		lineStyle.setWidth(3.0f);
 
 		globalStyle.setLineStyle(lineStyle);
 		globalStyle.setId("Global Style");
@@ -91,6 +91,7 @@ public class Main {
 		Placemark advancedPath = new Placemark("Advanced Path", "path using a global style", lineString);
 		advancedPath.setStyleURL("Global Style");
 
+		kmlCreator.createStyle(globalStyle);
 		kmlCreator.createPlacemark(advancedPath);
 
 		try {
@@ -166,6 +167,8 @@ public class Main {
 		playlist.addPrimitiveAction(flyTo1);
 		playlist.addPrimitiveAction(wait1);
 		playlist.addPrimitiveAction(flyTo2);
+		playlist.addPrimitiveAction(wait2);
+
 
 		
 		Tour tour  = new Tour(playlist);

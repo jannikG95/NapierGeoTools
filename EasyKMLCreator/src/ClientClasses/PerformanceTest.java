@@ -1,4 +1,4 @@
-package edu.napier.geo.easykml.xmlunittest;
+package ClientClasses;
 
 import java.awt.Color;
 

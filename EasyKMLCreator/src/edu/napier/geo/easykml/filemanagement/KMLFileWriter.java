@@ -50,11 +50,11 @@ public class KMLFileWriter {
 	private void processLinkedOutputTree(KML_object kml_object) {
 		TreeNode<KMLNotation> treeRoot = kml_object.getLinkedOutput();
 
-		//System.out.println(treeRoot.data.getName());
 
 		ArrayList<Element> ParentElementofLevel = new ArrayList<>();
 
 		for (TreeNode<KMLNotation> node : treeRoot) {
+
 			if (node.isRoot()) {
 				ParentElementofLevel.add(node.getLevel(), createJDOMElement(node, rootElement));
 			} else {
@@ -92,5 +92,6 @@ public class KMLFileWriter {
 			element.setAttribute(attr_Name, attr_Text);
 		}
 	}
+
 
 }

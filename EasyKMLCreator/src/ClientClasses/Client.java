@@ -1,4 +1,4 @@
-package edu.napier.geo.easykml.facade;
+package ClientClasses;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -24,6 +24,7 @@ import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.LineStyle;
 import edu.napier.geo.easykml.KML_Object.subStyle.colorStyle.PolyStyle;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.Time;
 import edu.napier.geo.easykml.KML_Object.timePrimitive.TimeStamp;
+import edu.napier.geo.easykml.facade.EasyKMLCreator;
 import edu.napier.geo.easykml.helperClasses.AltitudeModes;
 
 
