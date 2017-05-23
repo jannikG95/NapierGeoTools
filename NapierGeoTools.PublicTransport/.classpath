@@ -5,5 +5,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/NapierGeoTools.common"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="gson-2.3.jar"/>
+	<classpathentry kind="lib" path="json-20170516.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

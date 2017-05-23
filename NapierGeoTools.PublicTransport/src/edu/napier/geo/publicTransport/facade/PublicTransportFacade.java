@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.util.ArrayList;
 
+import edu.napier.geo.common.Journey;
 import edu.napier.geo.common.Location;
 import edu.napier.geo.publicTransport.InformationStorage.InformationStorage;
 import edu.napier.geo.publicTransport.Response.ResponseTfl;
@@ -15,7 +16,7 @@ import edu.napier.geo.publicTransport.main.RequestAndGetJsonFromServer;
 
 /**
  * 
- * @author Jan-Niklas Keiner
+ * @author Jan-Niklas Keiner - Modified by Neil Urquhart
  * 2017/03/10
  *
  *Fascade Class for the Public Transport API
@@ -60,6 +61,7 @@ public class PublicTransportFacade {
 	 * @return Duration of the first Journey of the actual ResponseTfL Object in
 	 *         minutes
 	 */
+	/*
 	public int getDurationMinutesOfFirstJourney() {
 		if (this.publicTransport != null)
 			return publicTransport.getDurationMinutsOfJourney(0);
@@ -73,6 +75,7 @@ public class PublicTransportFacade {
 	 *            index of the Journey in the Response Object
 	 * @return String of Departure Time
 	 */
+	/*
 	public String getDepartureTimeOfJourney(int journeyNumber) {
 		if(this.publicTransport!=null)
 			return publicTransport.getDepartureTimeOfJourney(journeyNumber);
@@ -86,6 +89,7 @@ public class PublicTransportFacade {
 	 *            TflJourney object
 	 * @return String of Departure Time
 	 */
+	/*
 	public String getDepartureTimeOfJourney(TflJourney tflJourney) {
 		if(this.publicTransport!=null)
 			return publicTransport.getDepartureTimeOfJourney(tflJourney);
@@ -99,6 +103,7 @@ public class PublicTransportFacade {
 	 *            TflJourney object
 	 * @return String of Arrival Time
 	 */
+	/*
 	public String getArrivalTimeOfJourney(TflJourney tflJourney) {
 		if(this.publicTransport!=null)
 			return publicTransport.getArrivalTimeOfJourney(tflJourney);
@@ -112,6 +117,7 @@ public class PublicTransportFacade {
 	 *            index of the Journey in the Response Object
 	 * @return String of Arrival Time
 	 */
+	/*
 	public String getArrivalTimeOfJourney(int journeyNumber) {
 		if(this.publicTransport!=null)
 			return publicTransport.getArrivalTimeOfJourney(journeyNumber);
@@ -124,6 +130,7 @@ public class PublicTransportFacade {
 	 * 
 	 * @return String DepartureTime
 	 */
+	/*
 	public String getDepartureTimeOfFirstJourney() {
 		if(this.publicTransport!=null)
 			return publicTransport.getDepartureTimeOfFirstJourney();
@@ -136,6 +143,7 @@ public class PublicTransportFacade {
 	 * 
 	 * @return String ArrivalTime
 	 */
+	/*
 	public String getArrivalTimeOfFirstJourney() {
 		if(this.publicTransport!=null)
 			return publicTransport.getArrivalTimeOfFirstJourney();
@@ -150,6 +158,7 @@ public class PublicTransportFacade {
 	 * 
 	 * @return Location of Departure of the first Journey
 	 */
+	/*
 	public Location getDeparturePointOfFirstJourney() {
 		if (this.publicTransport != null)
 			return publicTransport.getDeparturePointOfFirstJourney();
@@ -163,6 +172,7 @@ public class PublicTransportFacade {
 	 * @return Location Object of the Arrival Point of the first Journey of the
 	 *         actual ResponseTfL Object
 	 */
+	/*
 	public Location getArrivalPointOfFirstJourney() {
 		if (this.publicTransport != null)
 			return publicTransport.getArrivalPointOfFirstJourney();
@@ -176,6 +186,7 @@ public class PublicTransportFacade {
 	 * @return Integer of the number of Legs of the first Journey of the actual
 	 *         ResponseTfL Object
 	 */
+	/*
 	public int getNumberOfLegsOfFirstJourney() {
 		if (this.publicTransport != null)
 			return publicTransport.getNumberOfLegsOfFirstJourney();
@@ -188,6 +199,7 @@ public class PublicTransportFacade {
 	 * @return TfLJourney Object of the first Journey of the actual Response
 	 *         Object
 	 */
+	/*
 	public TflJourney getFirstJourney() {
 		if (this.publicTransport != null)
 			return publicTransport.getFirstJourney();
@@ -200,7 +212,8 @@ public class PublicTransportFacade {
 	 * @return an Array of TfLJourney Objects of all TfLJourneys of the actual
 	 *         ResponseTfL Object
 	 */
-	public TflJourney[] getAllJourneys() {
+	
+	public ArrayList<Journey> getAllJourneys() {
 		if (this.publicTransport != null)
 			return publicTransport.getAllJourneys();
 		return null;
@@ -214,6 +227,7 @@ public class PublicTransportFacade {
 	 *            TflJourney object
 	 * @return Integer of the duration of the given TfLJourney Object
 	 */
+	/*
 	public int getDurationMinutesOfJourney(TflJourney tflJourney) {
 		if (this.publicTransport != null)
 			return publicTransport.getDurationMinutesOfJourney(tflJourney);
@@ -228,6 +242,7 @@ public class PublicTransportFacade {
 	 * @return Location Object of the Departure Point of a given TfLJourney
 	 *         Object
 	 */
+	/*
 	public Location getDeparturePointOfJourney(TflJourney tflJourney) {
 		if (this.publicTransport != null)
 			return publicTransport.getDeparturePointOfJourney(tflJourney);
@@ -254,6 +269,7 @@ public class PublicTransportFacade {
 	 *            TflJourney object
 	 * @return Integer of the number of Legs of a given TfLJourney Object
 	 */
+	/*
 	public int getNumberOfLegsOfJourney(TflJourney tflJourney) {
 		if (this.publicTransport != null)
 			return publicTransport.getNumberOfLegsOfJourney(tflJourney);
@@ -267,6 +283,7 @@ public class PublicTransportFacade {
 	 *            index of the Journey in the Response Object
 	 * @return Integer of the duration of the given Journey in minutes
 	 */
+	/*
 	public int getDurationMinutsOfJourney(int journeyNumber) {
 		if (publicTransport.getResponseJavaObject() != null)
 			return publicTransport.getDurationMinutsOfJourney(journeyNumber);
@@ -281,6 +298,7 @@ public class PublicTransportFacade {
 	 * @return Location Object of the Departure Point of a Journey with a given
 	 *         index.
 	 */
+	/*
 	public Location getDeparturePointOfJourney(int journeyNumber) {
 		if (publicTransport.getResponseJavaObject() != null)
 			return publicTransport.getDeparturePointOfJourney(journeyNumber);
@@ -295,6 +313,7 @@ public class PublicTransportFacade {
 	 * @return Location Object of the Arrival Point of the Journey with the
 	 *         given index.
 	 */
+	/*
 	public Location getArrivalPointOfJourney(int journeyNumber) {
 		// returns the Location of the Arrival Point of the journey (with the
 		// given index) (Data of the Response Object)
@@ -310,6 +329,7 @@ public class PublicTransportFacade {
 	 *            index of the Journey in the response Object
 	 * @return Integer of the number of Legs of a Journey with a given index.
 	 */
+	/*
 	public int getNumberOfLegsOfJourney(int journeyNumber) {
 		if (this.publicTransport != null)
 			return publicTransport.getNumberOfLegsOfJourney(journeyNumber);
@@ -323,6 +343,7 @@ public class PublicTransportFacade {
 	 *            index of the Journey in the response Object
 	 * @return a TfLJourney Object of the response object with a given index.
 	 */
+	/*
 	public TflJourney getJourney(int journeyNumber) {
 		if (this.publicTransport != null)
 			return publicTransport.getJourney(journeyNumber);
@@ -486,13 +507,13 @@ public class PublicTransportFacade {
 	 * @throws Exception
 	 *             Exception of setResponseJavaObject()
 	 */
-	public void createResponseJavaObject(double fromLat, double fromLon,
+	/*public void createResponseJavaObject(double fromLat, double fromLon,
 			double toLat, double toLon, ArrayList<String> userPreferences)
 			throws Exception {
 		if (this.publicTransport != null)
 			publicTransport.createResponseJavaObject(fromLat, fromLon, toLat,
 					toLon, userPreferences);
-	}
+	}*/
 
 	/**
 	 * creates the POJO response Object for a Journey from and to the given
@@ -510,12 +531,13 @@ public class PublicTransportFacade {
 	 * @throws Exception
 	 *             Exception of setResponseJavaObject()
 	 */
+	/*
 	public void createResponseJavaObject(double fromLat, double fromLon,
 			double toLat, double toLon) throws Exception {
 		if (this.publicTransport != null)
 			publicTransport.createResponseJavaObject(fromLat, fromLon, toLat,
 					toLon);
-	}
+	}*/
 
 	//other methods
 	/**
@@ -536,7 +558,7 @@ public class PublicTransportFacade {
 			publicTransport.storeInformationStoragePersistent();
 	}
 
-	public ResponseTfl getResponseJavaObject() {
+	public ArrayList<Journey> getResponseJavaObject() {
 		if (this.publicTransport != null)
 			return publicTransport.getResponseJavaObject();
 		return null;
@@ -559,7 +581,7 @@ public class PublicTransportFacade {
 	 *            Object of ResponseTfl type (Response from TfL (JSON) converted
 	 *            to POJO object)
 	 */
-	public void setResponseJavaObject(ResponseTfl responseJavaObject) {
+	public void setResponseJavaObject(ArrayList<Journey> responseJavaObject) {
 		if (this.publicTransport != null)
 			publicTransport.setResponseJavaObject(responseJavaObject);
 	}
